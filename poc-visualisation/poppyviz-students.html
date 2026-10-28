@@ -1,0 +1,922 @@
+<title>PoppyViz Students</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : une table lumineuse (le graphe) à gauche, un panneau d'instruments à droite ; empilés sur téléphone. */
+:root {
+  --bg: #f3f5f8;
+  --panel: #ffffff;
+  --ink: #18212f;
+  --muted: #5d6878;
+  --line: #d9dfe7;
+  --stage: #fbfcfd;
+  --accent: #2f5fd0;
+  --dc1: #2f6fd6;
+  --dc2: #1f9a6b;
+  --dc3: #c98a12;
+  --inter: #d1435b;
+  --edge: #c3cbd6;
+  --dim: #e3e7ed;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141c; --panel: #171e29; --ink: #e6ebf2; --muted: #95a1b2; --line: #2a3442;
+    --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a;
+    --inter: #f06b80; --edge: #3a4555; --dim: #222b37; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f141c; --panel: #171e29; --ink: #e6ebf2; --muted: #95a1b2; --line: #2a3442;
+  --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a;
+  --inter: #f06b80; --edge: #3a4555; --dim: #222b37; color-scheme: dark;
+}
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 14px; line-height: 1.45; }
+.app {
+  min-height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 340px; grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px; padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  box-sizing: border-box; height: 100%;
+}
+header { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+h1 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+.sub { color: var(--muted); font-size: 13px; }
+.badge { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--inter); border: 1px solid var(--inter); border-radius: 3px; padding: 1px 6px; }
+.stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 6px; min-height: 420px; overflow: hidden; }
+#sigma { position: absolute; inset: 0; }
+.legend { position: absolute; left: 10px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 88%, transparent); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--line); max-width: calc(100% - 40px); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.bar { width: 16px; height: 3px; display: inline-block; border-radius: 2px; }
+.hint { position: absolute; right: 10px; top: 10px; font-size: 12px; color: var(--muted); }
+aside { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; min-height: 0; }
+section.box { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.stat b { display: block; font-family: var(--font-data); font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stat small { color: var(--muted); font-size: 11.5px; }
+label { font-size: 13px; }
+select, button, input[type=file] { font: inherit; font-size: 13px; color: var(--ink); }
+select, button { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 5px 8px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.mono { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+th { text-align: left; color: var(--muted); font-weight: 500; font-size: 11.5px; border-bottom: 1px solid var(--line); padding: 3px 4px; }
+td { padding: 3px 4px; border-bottom: 1px solid var(--line); }
+td.num, th.num { text-align: right; font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--bg); }
+.chip { font-size: 11px; padding: 0 6px; border-radius: 9px; color: #fff; font-weight: 500; }
+.info { font-size: 13px; color: var(--muted); }
+.info strong { color: var(--ink); }
+.err { color: var(--inter); font-size: 12.5px; }
+.note { font-size: 12px; color: var(--muted); margin: 0; }
+@media (max-width: 760px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 60vh auto; height: auto; }
+  aside { overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<div class="app">
+  <header>
+    <h1>PoppyViz · graphe Students</h1>
+    <span class="sub" id="source-label">Graphe d'exemple synthétique (185 nœuds, 311 arêtes)</span>
+    <span class="badge" id="source-badge">données d'exemple</span>
+  </header>
+
+  <div class="stage">
+    <div id="sigma"></div>
+    <div class="hint">Molette : zoom · glisser : déplacer · survol : voisins</div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <aside>
+    <section class="box">
+      <h2>Le graphe</h2>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="box">
+      <h2>PageRank, itération par itération</h2>
+      <div class="row">
+        <button id="play" type="button">Lecture</button>
+        <span class="mono" id="iter-label">itération 0</span>
+      </div>
+      <input type="range" id="iter" min="0" max="1" value="0" aria-label="Itération du PageRank">
+      <p class="note" id="conv"></p>
+    </section>
+
+    <section class="box">
+      <h2>Point de vue</h2>
+      <select id="view" aria-label="Point de vue">
+        <option value="all">Vue globale (tout le graphe)</option>
+      </select>
+      <p class="note" id="view-note">Dans Poppy, aucun data center ne voit le graphe entier. Choisissez un data center pour voir seulement ses nœuds et les nœuds distants auxquels il est relié.</p>
+      <h2>Mettre en évidence</h2>
+      <div class="seg" id="focus">
+        <button type="button" data-f="none" aria-pressed="true">Rien</button>
+        <button type="button" data-f="inter" aria-pressed="false">Arêtes inter-DC</button>
+        <button type="button" data-f="dang" aria-pressed="false">Pendants</button>
+        <button type="button" data-f="const" aria-pressed="false">Constants</button>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Nœud sélectionné</h2>
+      <div class="info" id="node-info">Survolez ou cliquez un nœud.</div>
+    </section>
+
+    <section class="box">
+      <h2>Top 10 PageRank</h2>
+      <table>
+        <thead><tr><th>#</th><th>Nœud</th><th>DC</th><th class="num">Score</th></tr></thead>
+        <tbody id="top"></tbody>
+      </table>
+    </section>
+
+    <section class="box">
+      <h2>Charger un autre graphe</h2>
+      <input type="file" id="file" accept=".txt,.csv,.tsv,.edges" aria-label="Fichier de graphe">
+      <p class="note">Format : une section <span class="mono">[noeuds]</span> avec « id data_center » par ligne, puis <span class="mono">[aretes]</span> avec « source cible ». Une simple liste d'arêtes marche aussi (les data centers sont alors attribués au hasard).</p>
+      <div class="row"><button id="relayout" type="button">Recalculer la disposition</button></div>
+      <div class="err" id="err" hidden></div>
+    </section>
+  </aside>
+</div>
+
+<script type="text/plain" id="sample"># Graphe d'exemple « type Students » (synthétique, PAS les vraies données)
+# 185 nœuds, 311 arêtes orientées, 22 pendants, 17 constants, degré entrant max 6
+# Section [noeuds] : id data_center ; section [aretes] : source cible
+[noeuds]
+e1 DC1
+e2 DC1
+e3 DC1
+e4 DC1
+e5 DC1
+e6 DC1
+e7 DC1
+e8 DC1
+e9 DC1
+e10 DC1
+e11 DC1
+e12 DC1
+e13 DC1
+e14 DC1
+e15 DC1
+e16 DC1
+e17 DC1
+e18 DC1
+e19 DC1
+e20 DC1
+e21 DC1
+e22 DC1
+e23 DC1
+e24 DC1
+e25 DC1
+e26 DC1
+e27 DC1
+e28 DC1
+e29 DC1
+e30 DC1
+e31 DC1
+e32 DC1
+e33 DC1
+e34 DC1
+e35 DC1
+e36 DC1
+e37 DC1
+e38 DC1
+e39 DC1
+e40 DC1
+e41 DC1
+e42 DC1
+e43 DC1
+e44 DC1
+e45 DC1
+e46 DC1
+e47 DC1
+e48 DC1
+e49 DC1
+e50 DC1
+e51 DC1
+e52 DC1
+e53 DC1
+e54 DC1
+e55 DC1
+e56 DC1
+e57 DC1
+e58 DC1
+e59 DC1
+e60 DC1
+e61 DC1
+e62 DC1
+e63 DC2
+e64 DC2
+e65 DC2
+e66 DC2
+e67 DC2
+e68 DC2
+e69 DC2
+e70 DC2
+e71 DC2
+e72 DC2
+e73 DC2
+e74 DC2
+e75 DC2
+e76 DC2
+e77 DC2
+e78 DC2
+e79 DC2
+e80 DC2
+e81 DC2
+e82 DC2
+e83 DC2
+e84 DC2
+e85 DC2
+e86 DC2
+e87 DC2
+e88 DC2
+e89 DC2
+e90 DC2
+e91 DC2
+e92 DC2
+e93 DC2
+e94 DC2
+e95 DC2
+e96 DC2
+e97 DC2
+e98 DC2
+e99 DC2
+e100 DC2
+e101 DC2
+e102 DC2
+e103 DC2
+e104 DC2
+e105 DC2
+e106 DC2
+e107 DC2
+e108 DC2
+e109 DC2
+e110 DC2
+e111 DC2
+e112 DC2
+e113 DC2
+e114 DC2
+e115 DC2
+e116 DC2
+e117 DC2
+e118 DC2
+e119 DC2
+e120 DC2
+e121 DC2
+e122 DC2
+e123 DC2
+e124 DC2
+e125 DC3
+e126 DC3
+e127 DC3
+e128 DC3
+e129 DC3
+e130 DC3
+e131 DC3
+e132 DC3
+e133 DC3
+e134 DC3
+e135 DC3
+e136 DC3
+e137 DC3
+e138 DC3
+e139 DC3
+e140 DC3
+e141 DC3
+e142 DC3
+e143 DC3
+e144 DC3
+e145 DC3
+e146 DC3
+e147 DC3
+e148 DC3
+e149 DC3
+e150 DC3
+e151 DC3
+e152 DC3
+e153 DC3
+e154 DC3
+e155 DC3
+e156 DC3
+e157 DC3
+e158 DC3
+e159 DC3
+e160 DC3
+e161 DC3
+e162 DC3
+e163 DC3
+e164 DC3
+e165 DC3
+e166 DC3
+e167 DC3
+e168 DC3
+e169 DC3
+e170 DC3
+e171 DC3
+e172 DC3
+e173 DC3
+e174 DC3
+e175 DC3
+e176 DC3
+e177 DC3
+e178 DC3
+e179 DC3
+e180 DC3
+e181 DC3
+e182 DC3
+e183 DC3
+e184 DC3
+e185 DC3
+[aretes]
+e1 e3
+e1 e7
+e1 e45
+e3 e57
+e3 e113
+e5 e12
+e6 e9
+e6 e39
+e8 e111
+e9 e7
+e9 e30
+e9 e50
+e10 e17
+e10 e61
+e11 e18
+e11 e37
+e12 e2
+e12 e46
+e13 e22
+e13 e29
+e14 e31
+e15 e60
+e16 e43
+e16 e47
+e16 e77
+e17 e21
+e17 e56
+e17 e136
+e18 e40
+e19 e40
+e19 e53
+e20 e58
+e22 e13
+e22 e40
+e23 e26
+e23 e30
+e23 e59
+e23 e60
+e23 e136
+e24 e16
+e24 e48
+e25 e51
+e26 e62
+e27 e77
+e28 e18
+e28 e26
+e28 e40
+e29 e52
+e31 e25
+e32 e34
+e33 e58
+e35 e43
+e36 e20
+e37 e4
+e37 e46
+e37 e54
+e39 e10
+e39 e24
+e39 e49
+e39 e58
+e40 e39
+e40 e43
+e41 e28
+e41 e60
+e43 e35
+e44 e7
+e44 e38
+e45 e62
+e46 e42
+e47 e20
+e47 e44
+e49 e43
+e50 e60
+e51 e41
+e53 e7
+e53 e8
+e53 e15
+e54 e11
+e54 e15
+e54 e23
+e55 e19
+e55 e32
+e56 e7
+e56 e27
+e57 e39
+e58 e43
+e59 e56
+e60 e18
+e60 e36
+e60 e49
+e61 e59
+e61 e102
+e62 e66
+e63 e153
+e64 e72
+e65 e97
+e65 e115
+e66 e90
+e67 e25
+e67 e64
+e67 e82
+e67 e84
+e68 e87
+e68 e102
+e71 e66
+e72 e96
+e72 e109
+e73 e100
+e73 e111
+e74 e8
+e74 e88
+e75 e66
+e75 e78
+e75 e82
+e77 e44
+e77 e86
+e77 e90
+e78 e116
+e79 e76
+e79 e82
+e79 e83
+e80 e78
+e80 e90
+e80 e119
+e81 e79
+e82 e94
+e82 e112
+e83 e74
+e83 e77
+e83 e107
+e85 e55
+e85 e115
+e86 e34
+e87 e89
+e88 e82
+e88 e120
+e89 e81
+e90 e98
+e90 e99
+e90 e111
+e90 e117
+e91 e75
+e91 e97
+e92 e79
+e93 e77
+e93 e90
+e94 e29
+e94 e163
+e95 e73
+e95 e77
+e95 e124
+e96 e63
+e96 e124
+e97 e89
+e98 e68
+e98 e123
+e99 e70
+e99 e82
+e99 e106
+e100 e90
+e100 e93
+e101 e121
+e102 e79
+e102 e118
+e103 e115
+e104 e86
+e104 e131
+e105 e60
+e105 e101
+e107 e90
+e108 e77
+e108 e82
+e108 e105
+e109 e112
+e110 e116
+e111 e65
+e111 e86
+e112 e79
+e112 e183
+e113 e78
+e113 e110
+e113 e115
+e114 e71
+e115 e92
+e115 e124
+e116 e107
+e116 e118
+e117 e66
+e118 e88
+e118 e120
+e119 e43
+e120 e69
+e120 e79
+e120 e103
+e121 e111
+e121 e184
+e122 e13
+e122 e65
+e122 e66
+e123 e78
+e123 e124
+e124 e44
+e124 e78
+e124 e108
+e125 e139
+e125 e150
+e125 e161
+e125 e163
+e125 e177
+e127 e130
+e127 e169
+e127 e179
+e128 e52
+e128 e130
+e129 e136
+e130 e125
+e130 e179
+e131 e134
+e132 e6
+e132 e160
+e135 e158
+e135 e172
+e135 e179
+e137 e129
+e137 e146
+e137 e174
+e138 e145
+e138 e152
+e139 e133
+e139 e184
+e140 e168
+e141 e89
+e141 e136
+e141 e174
+e142 e125
+e143 e56
+e143 e150
+e144 e179
+e145 e135
+e145 e185
+e146 e129
+e147 e165
+e147 e183
+e148 e175
+e149 e157
+e149 e166
+e149 e178
+e150 e160
+e150 e163
+e150 e169
+e150 e174
+e151 e138
+e151 e155
+e152 e129
+e155 e147
+e155 e156
+e156 e126
+e156 e127
+e156 e146
+e156 e171
+e156 e179
+e157 e99
+e157 e154
+e157 e181
+e158 e122
+e159 e137
+e159 e143
+e160 e122
+e161 e147
+e162 e126
+e162 e140
+e162 e153
+e162 e155
+e163 e129
+e163 e171
+e164 e178
+e165 e168
+e166 e124
+e167 e114
+e167 e125
+e168 e128
+e169 e184
+e170 e150
+e171 e125
+e172 e136
+e172 e181
+e173 e149
+e175 e142
+e175 e150
+e175 e182
+e176 e22
+e176 e160
+e177 e173
+e177 e176
+e178 e45
+e178 e148
+e179 e44
+e179 e137
+e179 e181
+e180 e119
+e180 e150
+e180 e167
+e181 e18
+e182 e55
+e183 e163
+e184 e158
+e184 e165
+e184 e179
+e185 e159
+e185 e163
+e185 e170
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/graphology@0.26.0/dist/graphology.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/graphology-library@0.8.0/dist/graphology-library.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sigma@3.0.2/dist/sigma.min.js"></script>
+<script>
+// ---------- 1. Lire le fichier texte et construire le graphe (graphology) ----------
+function parseGraph(text) {
+  const graph = new graphology.DirectedGraph();
+  let section = "aretes";
+  const dcOf = {};
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#") || line.startsWith("%")) continue;
+    if (/^\[noeuds\]$/i.test(line)) { section = "noeuds"; continue; }
+    if (/^\[aretes\]$/i.test(line)) { section = "aretes"; continue; }
+    const parts = line.split(/[\s,;]+/);
+    if (section === "noeuds") {
+      dcOf[parts[0]] = parts[1] || "DC1";
+      if (!graph.hasNode(parts[0])) graph.addNode(parts[0]);
+    } else {
+      const [s, t] = parts;
+      if (!s || !t || s === t) continue;
+      if (!graph.hasNode(s)) graph.addNode(s);
+      if (!graph.hasNode(t)) graph.addNode(t);
+      if (!graph.hasEdge(s, t)) graph.addEdge(s, t);
+    }
+  }
+  if (graph.order === 0) throw new Error("Aucun nœud trouvé dans ce fichier.");
+  // Sans section [noeuds] : on répartit les nœuds au hasard entre 3 data centers.
+  graph.forEachNode((n) => graph.setNodeAttribute(n, "dc", dcOf[n] || "DC" + (1 + Math.floor(Math.random() * 3))));
+  return graph;
+}
+
+// ---------- 2. PageRank « en clair », en gardant chaque itération ----------
+// Même formule que Poppy en clair : PR(v) = (1-d)/N + d * Σ PR(u)/sortant(u),
+// la masse des nœuds pendants étant redistribuée à tous.
+function pagerankHistory(graph, d = 0.85, maxIter = 100, tol = 1e-8) {
+  const nodes = graph.nodes(), N = nodes.length, idx = new Map(nodes.map((n, i) => [n, i]));
+  const out = nodes.map((n) => graph.outDegree(n));
+  const inn = nodes.map((n) => graph.inNeighbors(n).map((m) => idx.get(m)));
+  let pr = new Float64Array(N).fill(1 / N);
+  const history = [pr], deltas = [];
+  for (let t = 0; t < maxIter; t++) {
+    let dang = 0;
+    for (let i = 0; i < N; i++) if (out[i] === 0) dang += pr[i];
+    const next = new Float64Array(N);
+    for (let v = 0; v < N; v++) {
+      let s = 0;
+      for (const u of inn[v]) s += pr[u] / out[u];
+      next[v] = (1 - d) / N + d * (s + dang / N);
+    }
+    let delta = 0;
+    for (let i = 0; i < N; i++) delta += Math.abs(next[i] - pr[i]);
+    history.push(next); deltas.push(delta); pr = next;
+    if (delta < tol) break;
+  }
+  return { nodes, history, deltas, converged: deltas.at(-1) < tol };
+}
+
+// ---------- 3. Couleurs prises dans le thème (clair / sombre) ----------
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+let C = {};
+function readColors() {
+  C = { dc: [css("--dc1"), css("--dc2"), css("--dc3")], inter: css("--inter"), edge: css("--edge"),
+        dim: css("--dim"), ink: css("--ink"), muted: css("--muted") };
+}
+const dcList = () => [...new Set(state.graph.mapNodes((n, a) => a.dc))].sort();
+const dcColor = (dc) => C.dc[dcList().indexOf(dc) % C.dc.length] || C.muted;
+
+// ---------- 4. État de l'application ----------
+const state = { graph: null, pr: null, iter: 0, view: "all", focus: "none", hovered: null, selected: null, renderer: null, timer: null };
+const $ = (id) => document.getElementById(id);
+const fmt = (x) => x.toFixed(4);
+
+function load(text, label, isSample) {
+  const graph = parseGraph(text);
+  graph.forEachEdge((e, a, s, t) => graph.setEdgeAttribute(e, "inter", graph.getNodeAttribute(s, "dc") !== graph.getNodeAttribute(t, "dc")));
+  state.graph = graph;
+  state.pr = pagerankHistory(graph);
+  state.idx = new Map(state.pr.nodes.map((n, i) => [n, i]));
+  state.maxPR = Math.max(...state.pr.history.at(-1));
+  state.iter = state.pr.history.length - 1;
+  state.view = "all"; state.selected = null; state.hovered = null;
+  layout();
+  $("source-label").textContent = label;
+  $("source-badge").hidden = !isSample;
+  buildControls(); readColors(); render(); refreshPanels();
+}
+
+function layout() {
+  const g = state.graph;
+  // Point de départ : chaque data center sur son propre secteur de cercle, puis ForceAtlas2.
+  const dcs = dcList();
+  g.forEachNode((n, a) => {
+    const k = dcs.indexOf(a.dc), ang = (2 * Math.PI * k) / dcs.length + Math.random() * 1.2;
+    const r = 30 + Math.random() * 40;
+    g.mergeNodeAttributes(n, { x: Math.cos(ang) * r, y: Math.sin(ang) * r });
+  });
+  const FA2 = graphologyLibrary.layoutForceAtlas2;
+  FA2.assign(g, { iterations: 400, settings: { ...FA2.inferSettings(g), gravity: 1.5, scalingRatio: 6, barnesHutOptimize: g.order > 2000 } });
+}
+
+// ---------- 5. Dessin avec sigma.js (les « reducers » décident de l'apparence) ----------
+function visibleInView(node) {
+  if (state.view === "all") return "own";
+  const g = state.graph;
+  if (g.getNodeAttribute(node, "dc") === state.view) return "own";
+  // nœud distant : relié par une arête à un nœud du data center choisi
+  const linked = g.neighbors(node).some((m) => g.getNodeAttribute(m, "dc") === state.view);
+  return linked ? "remote" : "hidden";
+}
+
+function render() {
+  const g = state.graph;
+  if (state.renderer) state.renderer.kill();
+  state.renderer = new Sigma(g, $("sigma"), {
+    defaultEdgeType: "arrow",
+    labelRenderedSizeThreshold: 9,
+    labelFont: "IBM Plex Sans, system-ui, sans-serif",
+    labelColor: { color: C.ink },
+    zIndex: true,
+    nodeReducer: (n, a) => {
+      const res = { ...a };
+      const i = state.idx.get(n);
+      const p = state.pr.history[state.iter][i];
+      res.size = 3 + 16 * Math.sqrt(p / state.maxPR);
+      res.color = dcColor(a.dc);
+      res.label = n;
+      const vis = visibleInView(n);
+      if (vis === "hidden") { res.hidden = true; return res; }
+      if (vis === "remote") { res.color = C.muted; res.label = n + " (distant)"; }
+      const focusNode = state.hovered || state.selected;
+      if (focusNode) {
+        if (n !== focusNode && !g.areNeighbors(n, focusNode)) { res.color = C.dim; res.label = ""; res.zIndex = 0; }
+        else { res.zIndex = 2; res.forceLabel = true; }
+      } else if (state.focus === "dang" && g.outDegree(n) !== 0) { res.color = C.dim; res.label = ""; }
+      else if (state.focus === "const" && g.inDegree(n) !== 0) { res.color = C.dim; res.label = ""; }
+      else if (state.focus === "dang" || state.focus === "const") { res.forceLabel = true; res.zIndex = 2; }
+      if (n === state.selected) res.highlighted = true;
+      return res;
+    },
+    edgeReducer: (e, a) => {
+      const res = { ...a };
+      const [s, t] = g.extremities(e);
+      if (visibleInView(s) === "hidden" || visibleInView(t) === "hidden" ||
+          (state.view !== "all" && visibleInView(s) === "remote" && visibleInView(t) === "remote")) { res.hidden = true; return res; }
+      res.color = a.inter ? C.inter : C.edge;
+      res.size = a.inter ? 1.6 : 0.8;
+      const focusNode = state.hovered || state.selected;
+      if (focusNode) {
+        if (s !== focusNode && t !== focusNode) res.hidden = true;
+        else res.size = 2;
+      } else if (state.focus === "inter" && !a.inter) res.hidden = true;
+      return res;
+    },
+  });
+  const r = state.renderer;
+  r.on("enterNode", ({ node }) => { state.hovered = node; showNode(node); r.refresh(); });
+  r.on("leaveNode", () => { state.hovered = null; showNode(state.selected); r.refresh(); });
+  r.on("clickNode", ({ node }) => { state.selected = state.selected === node ? null : node; showNode(state.selected); r.refresh(); });
+  r.on("clickStage", () => { state.selected = null; showNode(null); r.refresh(); });
+}
+
+// ---------- 6. Panneaux ----------
+function buildControls() {
+  const view = $("view");
+  view.innerHTML = '<option value="all">Vue globale (tout le graphe)</option>' +
+    dcList().map((d) => `<option value="${d}">Vue de ${d} seulement</option>`).join("");
+  view.value = state.view;
+  const it = $("iter");
+  it.max = state.pr.history.length - 1; it.value = state.iter;
+}
+
+function refreshPanels() {
+  const g = state.graph;
+  const inter = g.filterEdges((e, a) => a.inter).length;
+  const dang = g.filterNodes((n) => g.outDegree(n) === 0).length;
+  const cons = g.filterNodes((n) => g.inDegree(n) === 0).length;
+  const kmax = Math.max(...g.mapNodes((n) => g.inDegree(n)));
+  const stats = [
+    [g.order, "nœuds"], [g.size, "arêtes"], [dcList().length, "data centers"],
+    [inter + " (" + Math.round((100 * inter) / g.size) + " %)", "arêtes inter-DC"],
+    [dang, "pendants (Dang.)"], [cons, "constants (Const.)"],
+  ];
+  $("stats").innerHTML = stats.map(([v, l]) => `<div class="stat"><b>${v}</b><small>${l}</small></div>`).join("") +
+    `<div class="stat"><b>${kmax}</b><small>degré entrant max</small></div>`;
+
+  const legend = dcList().map((d) => `<span><i class="dot" style="background:${dcColor(d)}"></i>${d}</span>`).join("") +
+    `<span><i class="bar" style="background:${C.edge}"></i>arête interne</span>` +
+    `<span><i class="bar" style="background:${C.inter}"></i>arête inter-DC (échange chiffré)</span>` +
+    `<span>taille = PageRank</span>`;
+  $("legend").innerHTML = legend;
+
+  refreshIter();
+}
+
+function refreshIter() {
+  const { history, deltas } = state.pr;
+  const last = history.length - 1;
+  $("iter-label").textContent = `itération ${state.iter} / ${last}`;
+  $("conv").textContent = state.iter === 0
+    ? "Au départ, tous les nœuds ont le même score 1/N."
+    : `Variation totale par rapport à l'itération précédente : ${deltas[state.iter - 1].toExponential(2)}` +
+      (state.iter === last ? (state.pr.converged ? " (convergé)." : " (arrêt après 100 itérations).") : ".");
+  const scores = state.pr.nodes.map((n, i) => [n, history[state.iter][i]]).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  $("top").innerHTML = scores.map(([n, p], k) => {
+    const dc = state.graph.getNodeAttribute(n, "dc");
+    return `<tr data-n="${n}"><td class="mono">${k + 1}</td><td class="mono">${n}</td><td><span class="chip" style="background:${dcColor(dc)}">${dc}</span></td><td class="num">${fmt(p)}</td></tr>`;
+  }).join("");
+  if (state.renderer) state.renderer.refresh();
+  showNode(state.hovered || state.selected);
+}
+
+function showNode(n) {
+  const box = $("node-info");
+  if (!n) { box.textContent = "Survolez ou cliquez un nœud."; return; }
+  const g = state.graph, a = g.getNodeAttributes(n);
+  const i = state.idx.get(n);
+  const kind = g.outDegree(n) === 0 ? "pendant : aucune arête sortante" : g.inDegree(n) === 0 ? "constant : aucune arête entrante" : "ordinaire";
+  const interIn = g.inEdges(n).filter((e) => g.getEdgeAttribute(e, "inter")).length;
+  const interOut = g.outEdges(n).filter((e) => g.getEdgeAttribute(e, "inter")).length;
+  box.innerHTML = `<strong class="mono">${n}</strong> · <span class="chip" style="background:${dcColor(a.dc)}">${a.dc}</span><br>
+    PageRank (itération ${state.iter}) : <strong class="mono">${fmt(state.pr.history[state.iter][i])}</strong><br>
+    Arêtes entrantes : <span class="mono">${g.inDegree(n)}</span> dont ${interIn} inter-DC · sortantes : <span class="mono">${g.outDegree(n)}</span> dont ${interOut} inter-DC<br>
+    Type : ${kind}`;
+}
+
+// ---------- 7. Événements ----------
+$("iter").addEventListener("input", (e) => { state.iter = +e.target.value; refreshIter(); });
+$("play").addEventListener("click", () => {
+  if (state.timer) { clearInterval(state.timer); state.timer = null; $("play").textContent = "Lecture"; return; }
+  state.iter = 0; $("iter").value = 0; refreshIter();
+  $("play").textContent = "Pause";
+  state.timer = setInterval(() => {
+    if (state.iter >= state.pr.history.length - 1) { clearInterval(state.timer); state.timer = null; $("play").textContent = "Lecture"; return; }
+    state.iter++; $("iter").value = state.iter; refreshIter();
+  }, 350);
+});
+$("view").addEventListener("change", (e) => { state.view = e.target.value; state.renderer.refresh(); });
+$("focus").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  state.focus = b.dataset.f;
+  for (const x of $("focus").querySelectorAll("button")) x.setAttribute("aria-pressed", x === b);
+  state.renderer.refresh();
+});
+$("top").addEventListener("click", (e) => {
+  const tr = e.target.closest("tr"); if (!tr) return;
+  state.selected = tr.dataset.n; showNode(state.selected); state.renderer.refresh();
+});
+$("relayout").addEventListener("click", () => { layout(); state.renderer.refresh(); });
+$("file").addEventListener("change", async (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  $("err").hidden = true;
+  try { load(await f.text(), f.name, false); }
+  catch (err) { $("err").textContent = "Impossible de lire ce fichier : " + err.message; $("err").hidden = false; }
+});
+const onTheme = () => { readColors(); state.renderer.setSetting("labelColor", { color: C.ink }); refreshPanels(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onTheme);
+new MutationObserver(onTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+readColors();
+load($("sample").textContent, "Graphe d'exemple synthétique (185 nœuds, 311 arêtes)", true);
+</script>
