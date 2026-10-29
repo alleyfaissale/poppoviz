@@ -1,0 +1,2059 @@
+multDepth,batchSize,ringsize,title,operation,unit,time,run
+N/A,N/A,N/A,Time to compute equivalent nodes on DC 0,PRUNING,MICROSECONDS,899989,0
+N/A,N/A,N/A,Number of nodes in DC 0,PRUNING,UNIT,4677,0
+N/A,N/A,N/A,Number of nodes after equivalent nodes routine in DC 0,PRUNING,UNIT,4432,0
+N/A,N/A,N/A,Number of constant nodes in DC 0,PRUNING,UNIT,0,0
+N/A,N/A,N/A,Number of dangling nodes in DC 0,PRUNING,UNIT,2216,0
+N/A,N/A,N/A,Time to compute equivalent nodes on DC 1,PRUNING,MICROSECONDS,525685,0
+N/A,N/A,N/A,Number of nodes in DC 1,PRUNING,UNIT,3372,0
+N/A,N/A,N/A,Number of nodes after equivalent nodes routine in DC 1,PRUNING,UNIT,3263,0
+N/A,N/A,N/A,Number of constant nodes in DC 1,PRUNING,UNIT,3,0
+N/A,N/A,N/A,Number of dangling nodes in DC 1,PRUNING,UNIT,1862,0
+N/A,N/A,N/A,Time to compute equivalent nodes on DC 2,PRUNING,MICROSECONDS,54435,0
+N/A,N/A,N/A,Number of nodes in DC 2,PRUNING,UNIT,1196,0
+N/A,N/A,N/A,Number of nodes after equivalent nodes routine in DC 2,PRUNING,UNIT,1153,0
+N/A,N/A,N/A,Number of constant nodes in DC 2,PRUNING,UNIT,2,0
+N/A,N/A,N/A,Number of dangling nodes in DC 2,PRUNING,UNIT,641,0
+N/A,N/A,N/A,Time to compute equivalent nodes on DC 3,PRUNING,MICROSECONDS,38428,0
+N/A,N/A,N/A,Number of nodes in DC 3,PRUNING,UNIT,1088,0
+N/A,N/A,N/A,Number of nodes after equivalent nodes routine in DC 3,PRUNING,UNIT,1009,0
+N/A,N/A,N/A,Number of constant nodes in DC 3,PRUNING,UNIT,11,0
+N/A,N/A,N/A,Number of dangling nodes in DC 3,PRUNING,UNIT,502,0
+N/A,N/A,N/A,Time to compute equivalent nodes on DC 4,PRUNING,MICROSECONDS,7327,0
+N/A,N/A,N/A,Number of nodes in DC 4,PRUNING,UNIT,543,0
+N/A,N/A,N/A,Number of nodes after equivalent nodes routine in DC 4,PRUNING,UNIT,481,0
+N/A,N/A,N/A,Number of constant nodes in DC 4,PRUNING,UNIT,4,0
+N/A,N/A,N/A,Number of dangling nodes in DC 4,PRUNING,UNIT,207,0
+N/A,N/A,N/A,Time to init all datacenters,INIT_DC,MILLISECONDS,1678,0
+N/A,N/A,N/A,Peak memory usage,MEMORY_PEAK,MB,156,0
+N/A,N/A,N/A,Memory usage,MEMORY,MB,157,0
+25,8192,131072,Time for Preprocessing step all datacenters,PREPROC_DC,MILLISECONDS,7182,0
+25,8192,131072,Number of scalar addition after the preprocessing,ADD_SCALAR,UNIT,0,0
+25,8192,131072,Number of addition after the preprocessing,ADD,UNIT,10,0
+25,8192,131072,Number of multiplication after the preprocessing,MUL,UNIT,0,0
+25,8192,131072,Number of rotation after the preprocessing,ROT,UNIT,0,0
+25,8192,131072,Number of fast rotation after the preprocessing,FAST_ROT,UNIT,0,0
+25,8192,131072,Number of scalar multiplication after the preprocessing,MUL_SCALAR,UNIT,0,0
+25,8192,131072,Number of multiplication plain after the preprocessing,MUL_PLAIN,UNIT,20,0
+25,8192,131072,Number of encoding after the preprocessing,ENCODE,UNIT,38,0
+25,8192,131072,Number of encryption after the preprocessing,ENCRYPT,UNIT,10,0
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,50810,0
+25,8192,131072,Memory usage,MEMORY,MB,50499,0
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,14428,1
+25,8192,131072,Number of scalar addition during synchronization 1,ADD_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of addition during synchronization 1,ADD_SYNC,UNIT,5664,1
+25,8192,131072,Number of encoding during synchronization 1,ENCODE_SYNC,UNIT,5664,1
+25,8192,131072,Number of encryption during synchronization 1,ENCRYPT_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication during synchronization 1,MUL_SYNC,UNIT,0,1
+25,8192,131072,Number of rotation during synchronization 1,ROT_SYNC,UNIT,20425,1
+25,8192,131072,Number of fast rotation during synchronization 1,FAST_ROT_SYNC,UNIT,40,1
+25,8192,131072,Number of multiplication scalar during synchronization 1,MUL_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication plain during synchronization 1,MUL_PLAIN_SYNC,UNIT,5664,1
+25,8192,131072,Number of received ciphertext during synchronization 1,CIPHER_SYNC,UNIT,4,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50546,1
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,1
+25,8192,131072,Number of scalar addition during computation 1,ADD_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of addition during computation 1,ADD_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encoding during computation 1,ENCODE_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encryption during computation 1,ENCRYPT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication during computation 1,MUL_COMPUTE,UNIT,0,1
+25,8192,131072,Number of rotation during computation 1,ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of fast rotation during computation 1,FAST_ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication scalar during computation 1,MUL_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of multiplication plain during computation 1,MUL_PLAIN_COMPUTE,UNIT,0,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50480,1
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,1
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,8398093,1
+25,8192,131072,Number of scalar addition during preparation 1,ADD_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of addition during preparation 1,ADD_PREP,UNIT,2755,1
+25,8192,131072,Number of encoding during preparation 1,ENCODE_PREP,UNIT,2756,1
+25,8192,131072,Number of encryption during preparation 1,ENCRYPT_PREP,UNIT,1,1
+25,8192,131072,Number of multiplication during preparation 1,MUL_PREP,UNIT,0,1
+25,8192,131072,Number of rotation during preparation 1,ROT_PREP,UNIT,14940,1
+25,8192,131072,Number of fast rotation during preparation 1,FAST_ROT_PREP,UNIT,11,1
+25,8192,131072,Number of multiplication scalar during preparation 1,MUL_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of multiplication plain during preparation 1,MUL_PLAIN_PREP,UNIT,2759,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50713,1
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,5446,1
+25,8192,131072,Number of scalar addition during synchronization 1,ADD_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of addition during synchronization 1,ADD_SYNC,UNIT,2635,1
+25,8192,131072,Number of encoding during synchronization 1,ENCODE_SYNC,UNIT,2635,1
+25,8192,131072,Number of encryption during synchronization 1,ENCRYPT_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication during synchronization 1,MUL_SYNC,UNIT,0,1
+25,8192,131072,Number of rotation during synchronization 1,ROT_SYNC,UNIT,9016,1
+25,8192,131072,Number of fast rotation during synchronization 1,FAST_ROT_SYNC,UNIT,34,1
+25,8192,131072,Number of multiplication scalar during synchronization 1,MUL_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication plain during synchronization 1,MUL_PLAIN_SYNC,UNIT,2635,1
+25,8192,131072,Number of received ciphertext during synchronization 1,CIPHER_SYNC,UNIT,4,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50726,1
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,1
+25,8192,131072,Number of scalar addition during computation 1,ADD_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of addition during computation 1,ADD_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encoding during computation 1,ENCODE_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encryption during computation 1,ENCRYPT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication during computation 1,MUL_COMPUTE,UNIT,0,1
+25,8192,131072,Number of rotation during computation 1,ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of fast rotation during computation 1,FAST_ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication scalar during computation 1,MUL_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of multiplication plain during computation 1,MUL_PLAIN_COMPUTE,UNIT,0,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50655,1
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,1
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,3141804,1
+25,8192,131072,Number of scalar addition during preparation 1,ADD_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of addition during preparation 1,ADD_PREP,UNIT,1170,1
+25,8192,131072,Number of encoding during preparation 1,ENCODE_PREP,UNIT,1170,1
+25,8192,131072,Number of encryption during preparation 1,ENCRYPT_PREP,UNIT,1,1
+25,8192,131072,Number of multiplication during preparation 1,MUL_PREP,UNIT,0,1
+25,8192,131072,Number of rotation during preparation 1,ROT_PREP,UNIT,6562,1
+25,8192,131072,Number of fast rotation during preparation 1,FAST_ROT_PREP,UNIT,10,1
+25,8192,131072,Number of multiplication scalar during preparation 1,MUL_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of multiplication plain during preparation 1,MUL_PLAIN_PREP,UNIT,1173,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50871,1
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,1521,1
+25,8192,131072,Number of scalar addition during synchronization 1,ADD_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of addition during synchronization 1,ADD_SYNC,UNIT,721,1
+25,8192,131072,Number of encoding during synchronization 1,ENCODE_SYNC,UNIT,721,1
+25,8192,131072,Number of encryption during synchronization 1,ENCRYPT_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication during synchronization 1,MUL_SYNC,UNIT,0,1
+25,8192,131072,Number of rotation during synchronization 1,ROT_SYNC,UNIT,2529,1
+25,8192,131072,Number of fast rotation during synchronization 1,FAST_ROT_SYNC,UNIT,25,1
+25,8192,131072,Number of multiplication scalar during synchronization 1,MUL_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication plain during synchronization 1,MUL_PLAIN_SYNC,UNIT,721,1
+25,8192,131072,Number of received ciphertext during synchronization 1,CIPHER_SYNC,UNIT,4,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50881,1
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,1
+25,8192,131072,Number of scalar addition during computation 1,ADD_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of addition during computation 1,ADD_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encoding during computation 1,ENCODE_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encryption during computation 1,ENCRYPT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication during computation 1,MUL_COMPUTE,UNIT,0,1
+25,8192,131072,Number of rotation during computation 1,ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of fast rotation during computation 1,FAST_ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication scalar during computation 1,MUL_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of multiplication plain during computation 1,MUL_PLAIN_COMPUTE,UNIT,0,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,50828,1
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,1
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,628758,1
+25,8192,131072,Number of scalar addition during preparation 1,ADD_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of addition during preparation 1,ADD_PREP,UNIT,225,1
+25,8192,131072,Number of encoding during preparation 1,ENCODE_PREP,UNIT,224,1
+25,8192,131072,Number of encryption during preparation 1,ENCRYPT_PREP,UNIT,1,1
+25,8192,131072,Number of multiplication during preparation 1,MUL_PREP,UNIT,0,1
+25,8192,131072,Number of rotation during preparation 1,ROT_PREP,UNIT,1293,1
+25,8192,131072,Number of fast rotation during preparation 1,FAST_ROT_PREP,UNIT,8,1
+25,8192,131072,Number of multiplication scalar during preparation 1,MUL_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of multiplication plain during preparation 1,MUL_PLAIN_PREP,UNIT,227,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51053,1
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,805,1
+25,8192,131072,Number of scalar addition during synchronization 1,ADD_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of addition during synchronization 1,ADD_SYNC,UNIT,358,1
+25,8192,131072,Number of encoding during synchronization 1,ENCODE_SYNC,UNIT,358,1
+25,8192,131072,Number of encryption during synchronization 1,ENCRYPT_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication during synchronization 1,MUL_SYNC,UNIT,0,1
+25,8192,131072,Number of rotation during synchronization 1,ROT_SYNC,UNIT,1338,1
+25,8192,131072,Number of fast rotation during synchronization 1,FAST_ROT_SYNC,UNIT,27,1
+25,8192,131072,Number of multiplication scalar during synchronization 1,MUL_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication plain during synchronization 1,MUL_PLAIN_SYNC,UNIT,358,1
+25,8192,131072,Number of received ciphertext during synchronization 1,CIPHER_SYNC,UNIT,4,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51071,1
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,1
+25,8192,131072,Number of scalar addition during computation 1,ADD_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of addition during computation 1,ADD_COMPUTE,UNIT,1,1
+25,8192,131072,Number of encoding during computation 1,ENCODE_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encryption during computation 1,ENCRYPT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication during computation 1,MUL_COMPUTE,UNIT,0,1
+25,8192,131072,Number of rotation during computation 1,ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of fast rotation during computation 1,FAST_ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication scalar during computation 1,MUL_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of multiplication plain during computation 1,MUL_PLAIN_COMPUTE,UNIT,0,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51000,1
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,1
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,628457,1
+25,8192,131072,Number of scalar addition during preparation 1,ADD_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of addition during preparation 1,ADD_PREP,UNIT,219,1
+25,8192,131072,Number of encoding during preparation 1,ENCODE_PREP,UNIT,217,1
+25,8192,131072,Number of encryption during preparation 1,ENCRYPT_PREP,UNIT,1,1
+25,8192,131072,Number of multiplication during preparation 1,MUL_PREP,UNIT,0,1
+25,8192,131072,Number of rotation during preparation 1,ROT_PREP,UNIT,1279,1
+25,8192,131072,Number of fast rotation during preparation 1,FAST_ROT_PREP,UNIT,8,1
+25,8192,131072,Number of multiplication scalar during preparation 1,MUL_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of multiplication plain during preparation 1,MUL_PLAIN_PREP,UNIT,220,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51226,1
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,139,1
+25,8192,131072,Number of scalar addition during synchronization 1,ADD_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of addition during synchronization 1,ADD_SYNC,UNIT,63,1
+25,8192,131072,Number of encoding during synchronization 1,ENCODE_SYNC,UNIT,63,1
+25,8192,131072,Number of encryption during synchronization 1,ENCRYPT_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication during synchronization 1,MUL_SYNC,UNIT,0,1
+25,8192,131072,Number of rotation during synchronization 1,ROT_SYNC,UNIT,223,1
+25,8192,131072,Number of fast rotation during synchronization 1,FAST_ROT_SYNC,UNIT,15,1
+25,8192,131072,Number of multiplication scalar during synchronization 1,MUL_SCALAR_SYNC,UNIT,0,1
+25,8192,131072,Number of multiplication plain during synchronization 1,MUL_PLAIN_SYNC,UNIT,63,1
+25,8192,131072,Number of received ciphertext during synchronization 1,CIPHER_SYNC,UNIT,4,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51246,1
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,1
+25,8192,131072,Number of scalar addition during computation 1,ADD_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of addition during computation 1,ADD_COMPUTE,UNIT,1,1
+25,8192,131072,Number of encoding during computation 1,ENCODE_COMPUTE,UNIT,0,1
+25,8192,131072,Number of encryption during computation 1,ENCRYPT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication during computation 1,MUL_COMPUTE,UNIT,0,1
+25,8192,131072,Number of rotation during computation 1,ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of fast rotation during computation 1,FAST_ROT_COMPUTE,UNIT,0,1
+25,8192,131072,Number of multiplication scalar during computation 1,MUL_SCALAR_COMPUTE,UNIT,1,1
+25,8192,131072,Number of multiplication plain during computation 1,MUL_PLAIN_COMPUTE,UNIT,0,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51174,1
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,1
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,244038,1
+25,8192,131072,Number of scalar addition during preparation 1,ADD_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of addition during preparation 1,ADD_PREP,UNIT,82,1
+25,8192,131072,Number of encoding during preparation 1,ENCODE_PREP,UNIT,79,1
+25,8192,131072,Number of encryption during preparation 1,ENCRYPT_PREP,UNIT,1,1
+25,8192,131072,Number of multiplication during preparation 1,MUL_PREP,UNIT,0,1
+25,8192,131072,Number of rotation during preparation 1,ROT_PREP,UNIT,500,1
+25,8192,131072,Number of fast rotation during preparation 1,FAST_ROT_PREP,UNIT,5,1
+25,8192,131072,Number of multiplication scalar during preparation 1,MUL_SCALAR_PREP,UNIT,0,1
+25,8192,131072,Number of multiplication plain during preparation 1,MUL_PLAIN_PREP,UNIT,82,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51400,1
+25,8192,131072,Number of scalar addition after iteration 1,ADD_SCALAR,UNIT,5,1
+25,8192,131072,Number of addition after iteration 1,ADD,UNIT,13904,1
+25,8192,131072,Number of encoding after iteration 1,ENCODE,UNIT,13925,1
+25,8192,131072,Number of encryption after iteration 1,ENCRYPT,UNIT,15,1
+25,8192,131072,Number of multiplication after iteration 1,MUL,UNIT,0,1
+25,8192,131072,Number of rotation after iteration 1,ROT,UNIT,58105,1
+25,8192,131072,Number of fast rotation after iteration 1,FAST_ROT,UNIT,183,1
+25,8192,131072,Number of multiplication scalar after iteration 1,MUL_SCALAR,UNIT,5,1
+25,8192,131072,Number of multiplication plain after iteration 1,MUL_PLAIN,UNIT,13922,1
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,1
+25,8192,131072,Memory usage,MEMORY,MB,51400,1
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,10195,2
+25,8192,131072,Number of scalar addition during synchronization 2,ADD_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of addition during synchronization 2,ADD_SYNC,UNIT,5664,2
+25,8192,131072,Number of encoding during synchronization 2,ENCODE_SYNC,UNIT,5664,2
+25,8192,131072,Number of encryption during synchronization 2,ENCRYPT_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication during synchronization 2,MUL_SYNC,UNIT,0,2
+25,8192,131072,Number of rotation during synchronization 2,ROT_SYNC,UNIT,20425,2
+25,8192,131072,Number of fast rotation during synchronization 2,FAST_ROT_SYNC,UNIT,40,2
+25,8192,131072,Number of multiplication scalar during synchronization 2,MUL_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication plain during synchronization 2,MUL_PLAIN_SYNC,UNIT,5664,2
+25,8192,131072,Number of received ciphertext during synchronization 2,CIPHER_SYNC,UNIT,4,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51398,2
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,2
+25,8192,131072,Number of scalar addition during computation 2,ADD_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of addition during computation 2,ADD_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encoding during computation 2,ENCODE_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encryption during computation 2,ENCRYPT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication during computation 2,MUL_COMPUTE,UNIT,0,2
+25,8192,131072,Number of rotation during computation 2,ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of fast rotation during computation 2,FAST_ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication scalar during computation 2,MUL_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of multiplication plain during computation 2,MUL_PLAIN_COMPUTE,UNIT,0,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51392,2
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,2
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,6415724,2
+25,8192,131072,Number of scalar addition during preparation 2,ADD_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of addition during preparation 2,ADD_PREP,UNIT,2755,2
+25,8192,131072,Number of encoding during preparation 2,ENCODE_PREP,UNIT,2756,2
+25,8192,131072,Number of encryption during preparation 2,ENCRYPT_PREP,UNIT,1,2
+25,8192,131072,Number of multiplication during preparation 2,MUL_PREP,UNIT,0,2
+25,8192,131072,Number of rotation during preparation 2,ROT_PREP,UNIT,14940,2
+25,8192,131072,Number of fast rotation during preparation 2,FAST_ROT_PREP,UNIT,11,2
+25,8192,131072,Number of multiplication scalar during preparation 2,MUL_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of multiplication plain during preparation 2,MUL_PLAIN_PREP,UNIT,2759,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51340,2
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,4217,2
+25,8192,131072,Number of scalar addition during synchronization 2,ADD_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of addition during synchronization 2,ADD_SYNC,UNIT,2635,2
+25,8192,131072,Number of encoding during synchronization 2,ENCODE_SYNC,UNIT,2635,2
+25,8192,131072,Number of encryption during synchronization 2,ENCRYPT_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication during synchronization 2,MUL_SYNC,UNIT,0,2
+25,8192,131072,Number of rotation during synchronization 2,ROT_SYNC,UNIT,9016,2
+25,8192,131072,Number of fast rotation during synchronization 2,FAST_ROT_SYNC,UNIT,34,2
+25,8192,131072,Number of multiplication scalar during synchronization 2,MUL_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication plain during synchronization 2,MUL_PLAIN_SYNC,UNIT,2635,2
+25,8192,131072,Number of received ciphertext during synchronization 2,CIPHER_SYNC,UNIT,4,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51338,2
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,2
+25,8192,131072,Number of scalar addition during computation 2,ADD_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of addition during computation 2,ADD_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encoding during computation 2,ENCODE_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encryption during computation 2,ENCRYPT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication during computation 2,MUL_COMPUTE,UNIT,0,2
+25,8192,131072,Number of rotation during computation 2,ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of fast rotation during computation 2,FAST_ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication scalar during computation 2,MUL_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of multiplication plain during computation 2,MUL_PLAIN_COMPUTE,UNIT,0,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51332,2
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,2
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,2792788,2
+25,8192,131072,Number of scalar addition during preparation 2,ADD_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of addition during preparation 2,ADD_PREP,UNIT,1170,2
+25,8192,131072,Number of encoding during preparation 2,ENCODE_PREP,UNIT,1170,2
+25,8192,131072,Number of encryption during preparation 2,ENCRYPT_PREP,UNIT,1,2
+25,8192,131072,Number of multiplication during preparation 2,MUL_PREP,UNIT,0,2
+25,8192,131072,Number of rotation during preparation 2,ROT_PREP,UNIT,6562,2
+25,8192,131072,Number of fast rotation during preparation 2,FAST_ROT_PREP,UNIT,10,2
+25,8192,131072,Number of multiplication scalar during preparation 2,MUL_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of multiplication plain during preparation 2,MUL_PLAIN_PREP,UNIT,1173,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51280,2
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,1186,2
+25,8192,131072,Number of scalar addition during synchronization 2,ADD_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of addition during synchronization 2,ADD_SYNC,UNIT,721,2
+25,8192,131072,Number of encoding during synchronization 2,ENCODE_SYNC,UNIT,721,2
+25,8192,131072,Number of encryption during synchronization 2,ENCRYPT_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication during synchronization 2,MUL_SYNC,UNIT,0,2
+25,8192,131072,Number of rotation during synchronization 2,ROT_SYNC,UNIT,2529,2
+25,8192,131072,Number of fast rotation during synchronization 2,FAST_ROT_SYNC,UNIT,25,2
+25,8192,131072,Number of multiplication scalar during synchronization 2,MUL_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication plain during synchronization 2,MUL_PLAIN_SYNC,UNIT,721,2
+25,8192,131072,Number of received ciphertext during synchronization 2,CIPHER_SYNC,UNIT,4,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51278,2
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,2
+25,8192,131072,Number of scalar addition during computation 2,ADD_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of addition during computation 2,ADD_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encoding during computation 2,ENCODE_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encryption during computation 2,ENCRYPT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication during computation 2,MUL_COMPUTE,UNIT,0,2
+25,8192,131072,Number of rotation during computation 2,ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of fast rotation during computation 2,FAST_ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication scalar during computation 2,MUL_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of multiplication plain during computation 2,MUL_PLAIN_COMPUTE,UNIT,0,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51272,2
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,2
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,549976,2
+25,8192,131072,Number of scalar addition during preparation 2,ADD_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of addition during preparation 2,ADD_PREP,UNIT,225,2
+25,8192,131072,Number of encoding during preparation 2,ENCODE_PREP,UNIT,224,2
+25,8192,131072,Number of encryption during preparation 2,ENCRYPT_PREP,UNIT,1,2
+25,8192,131072,Number of multiplication during preparation 2,MUL_PREP,UNIT,0,2
+25,8192,131072,Number of rotation during preparation 2,ROT_PREP,UNIT,1293,2
+25,8192,131072,Number of fast rotation during preparation 2,FAST_ROT_PREP,UNIT,8,2
+25,8192,131072,Number of multiplication scalar during preparation 2,MUL_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of multiplication plain during preparation 2,MUL_PLAIN_PREP,UNIT,227,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51220,2
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,628,2
+25,8192,131072,Number of scalar addition during synchronization 2,ADD_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of addition during synchronization 2,ADD_SYNC,UNIT,358,2
+25,8192,131072,Number of encoding during synchronization 2,ENCODE_SYNC,UNIT,358,2
+25,8192,131072,Number of encryption during synchronization 2,ENCRYPT_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication during synchronization 2,MUL_SYNC,UNIT,0,2
+25,8192,131072,Number of rotation during synchronization 2,ROT_SYNC,UNIT,1338,2
+25,8192,131072,Number of fast rotation during synchronization 2,FAST_ROT_SYNC,UNIT,27,2
+25,8192,131072,Number of multiplication scalar during synchronization 2,MUL_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication plain during synchronization 2,MUL_PLAIN_SYNC,UNIT,358,2
+25,8192,131072,Number of received ciphertext during synchronization 2,CIPHER_SYNC,UNIT,4,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51218,2
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,2
+25,8192,131072,Number of scalar addition during computation 2,ADD_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of addition during computation 2,ADD_COMPUTE,UNIT,1,2
+25,8192,131072,Number of encoding during computation 2,ENCODE_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encryption during computation 2,ENCRYPT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication during computation 2,MUL_COMPUTE,UNIT,0,2
+25,8192,131072,Number of rotation during computation 2,ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of fast rotation during computation 2,FAST_ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication scalar during computation 2,MUL_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of multiplication plain during computation 2,MUL_PLAIN_COMPUTE,UNIT,0,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51212,2
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,2
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,544379,2
+25,8192,131072,Number of scalar addition during preparation 2,ADD_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of addition during preparation 2,ADD_PREP,UNIT,219,2
+25,8192,131072,Number of encoding during preparation 2,ENCODE_PREP,UNIT,217,2
+25,8192,131072,Number of encryption during preparation 2,ENCRYPT_PREP,UNIT,1,2
+25,8192,131072,Number of multiplication during preparation 2,MUL_PREP,UNIT,0,2
+25,8192,131072,Number of rotation during preparation 2,ROT_PREP,UNIT,1279,2
+25,8192,131072,Number of fast rotation during preparation 2,FAST_ROT_PREP,UNIT,8,2
+25,8192,131072,Number of multiplication scalar during preparation 2,MUL_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of multiplication plain during preparation 2,MUL_PLAIN_PREP,UNIT,220,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51160,2
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,109,2
+25,8192,131072,Number of scalar addition during synchronization 2,ADD_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of addition during synchronization 2,ADD_SYNC,UNIT,63,2
+25,8192,131072,Number of encoding during synchronization 2,ENCODE_SYNC,UNIT,63,2
+25,8192,131072,Number of encryption during synchronization 2,ENCRYPT_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication during synchronization 2,MUL_SYNC,UNIT,0,2
+25,8192,131072,Number of rotation during synchronization 2,ROT_SYNC,UNIT,223,2
+25,8192,131072,Number of fast rotation during synchronization 2,FAST_ROT_SYNC,UNIT,15,2
+25,8192,131072,Number of multiplication scalar during synchronization 2,MUL_SCALAR_SYNC,UNIT,0,2
+25,8192,131072,Number of multiplication plain during synchronization 2,MUL_PLAIN_SYNC,UNIT,63,2
+25,8192,131072,Number of received ciphertext during synchronization 2,CIPHER_SYNC,UNIT,4,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51158,2
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,2
+25,8192,131072,Number of scalar addition during computation 2,ADD_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of addition during computation 2,ADD_COMPUTE,UNIT,1,2
+25,8192,131072,Number of encoding during computation 2,ENCODE_COMPUTE,UNIT,0,2
+25,8192,131072,Number of encryption during computation 2,ENCRYPT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication during computation 2,MUL_COMPUTE,UNIT,0,2
+25,8192,131072,Number of rotation during computation 2,ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of fast rotation during computation 2,FAST_ROT_COMPUTE,UNIT,0,2
+25,8192,131072,Number of multiplication scalar during computation 2,MUL_SCALAR_COMPUTE,UNIT,1,2
+25,8192,131072,Number of multiplication plain during computation 2,MUL_PLAIN_COMPUTE,UNIT,0,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51158,2
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,2
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,213298,2
+25,8192,131072,Number of scalar addition during preparation 2,ADD_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of addition during preparation 2,ADD_PREP,UNIT,82,2
+25,8192,131072,Number of encoding during preparation 2,ENCODE_PREP,UNIT,79,2
+25,8192,131072,Number of encryption during preparation 2,ENCRYPT_PREP,UNIT,1,2
+25,8192,131072,Number of multiplication during preparation 2,MUL_PREP,UNIT,0,2
+25,8192,131072,Number of rotation during preparation 2,ROT_PREP,UNIT,500,2
+25,8192,131072,Number of fast rotation during preparation 2,FAST_ROT_PREP,UNIT,5,2
+25,8192,131072,Number of multiplication scalar during preparation 2,MUL_SCALAR_PREP,UNIT,0,2
+25,8192,131072,Number of multiplication plain during preparation 2,MUL_PLAIN_PREP,UNIT,82,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51110,2
+25,8192,131072,Number of scalar addition after iteration 2,ADD_SCALAR,UNIT,10,2
+25,8192,131072,Number of addition after iteration 2,ADD,UNIT,27798,2
+25,8192,131072,Number of encoding after iteration 2,ENCODE,UNIT,27812,2
+25,8192,131072,Number of encryption after iteration 2,ENCRYPT,UNIT,20,2
+25,8192,131072,Number of multiplication after iteration 2,MUL,UNIT,0,2
+25,8192,131072,Number of rotation after iteration 2,ROT,UNIT,116210,2
+25,8192,131072,Number of fast rotation after iteration 2,FAST_ROT,UNIT,366,2
+25,8192,131072,Number of multiplication scalar after iteration 2,MUL_SCALAR,UNIT,10,2
+25,8192,131072,Number of multiplication plain after iteration 2,MUL_PLAIN,UNIT,27824,2
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,2
+25,8192,131072,Memory usage,MEMORY,MB,51110,2
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,7248,3
+25,8192,131072,Number of scalar addition during synchronization 3,ADD_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of addition during synchronization 3,ADD_SYNC,UNIT,5664,3
+25,8192,131072,Number of encoding during synchronization 3,ENCODE_SYNC,UNIT,5664,3
+25,8192,131072,Number of encryption during synchronization 3,ENCRYPT_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication during synchronization 3,MUL_SYNC,UNIT,0,3
+25,8192,131072,Number of rotation during synchronization 3,ROT_SYNC,UNIT,20425,3
+25,8192,131072,Number of fast rotation during synchronization 3,FAST_ROT_SYNC,UNIT,40,3
+25,8192,131072,Number of multiplication scalar during synchronization 3,MUL_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication plain during synchronization 3,MUL_PLAIN_SYNC,UNIT,5664,3
+25,8192,131072,Number of received ciphertext during synchronization 3,CIPHER_SYNC,UNIT,4,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,51108,3
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,3
+25,8192,131072,Number of scalar addition during computation 3,ADD_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of addition during computation 3,ADD_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encoding during computation 3,ENCODE_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encryption during computation 3,ENCRYPT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication during computation 3,MUL_COMPUTE,UNIT,0,3
+25,8192,131072,Number of rotation during computation 3,ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of fast rotation during computation 3,FAST_ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication scalar during computation 3,MUL_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of multiplication plain during computation 3,MUL_PLAIN_COMPUTE,UNIT,0,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,51102,3
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,3
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,4756322,3
+25,8192,131072,Number of scalar addition during preparation 3,ADD_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of addition during preparation 3,ADD_PREP,UNIT,2755,3
+25,8192,131072,Number of encoding during preparation 3,ENCODE_PREP,UNIT,2756,3
+25,8192,131072,Number of encryption during preparation 3,ENCRYPT_PREP,UNIT,1,3
+25,8192,131072,Number of multiplication during preparation 3,MUL_PREP,UNIT,0,3
+25,8192,131072,Number of rotation during preparation 3,ROT_PREP,UNIT,14940,3
+25,8192,131072,Number of fast rotation during preparation 3,FAST_ROT_PREP,UNIT,11,3
+25,8192,131072,Number of multiplication scalar during preparation 3,MUL_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of multiplication plain during preparation 3,MUL_PLAIN_PREP,UNIT,2759,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,51050,3
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,3209,3
+25,8192,131072,Number of scalar addition during synchronization 3,ADD_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of addition during synchronization 3,ADD_SYNC,UNIT,2635,3
+25,8192,131072,Number of encoding during synchronization 3,ENCODE_SYNC,UNIT,2635,3
+25,8192,131072,Number of encryption during synchronization 3,ENCRYPT_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication during synchronization 3,MUL_SYNC,UNIT,0,3
+25,8192,131072,Number of rotation during synchronization 3,ROT_SYNC,UNIT,9016,3
+25,8192,131072,Number of fast rotation during synchronization 3,FAST_ROT_SYNC,UNIT,34,3
+25,8192,131072,Number of multiplication scalar during synchronization 3,MUL_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication plain during synchronization 3,MUL_PLAIN_SYNC,UNIT,2635,3
+25,8192,131072,Number of received ciphertext during synchronization 3,CIPHER_SYNC,UNIT,4,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,51049,3
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,3
+25,8192,131072,Number of scalar addition during computation 3,ADD_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of addition during computation 3,ADD_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encoding during computation 3,ENCODE_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encryption during computation 3,ENCRYPT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication during computation 3,MUL_COMPUTE,UNIT,0,3
+25,8192,131072,Number of rotation during computation 3,ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of fast rotation during computation 3,FAST_ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication scalar during computation 3,MUL_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of multiplication plain during computation 3,MUL_PLAIN_COMPUTE,UNIT,0,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,51042,3
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,3
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,2112164,3
+25,8192,131072,Number of scalar addition during preparation 3,ADD_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of addition during preparation 3,ADD_PREP,UNIT,1170,3
+25,8192,131072,Number of encoding during preparation 3,ENCODE_PREP,UNIT,1170,3
+25,8192,131072,Number of encryption during preparation 3,ENCRYPT_PREP,UNIT,1,3
+25,8192,131072,Number of multiplication during preparation 3,MUL_PREP,UNIT,0,3
+25,8192,131072,Number of rotation during preparation 3,ROT_PREP,UNIT,6562,3
+25,8192,131072,Number of fast rotation during preparation 3,FAST_ROT_PREP,UNIT,10,3
+25,8192,131072,Number of multiplication scalar during preparation 3,MUL_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of multiplication plain during preparation 3,MUL_PLAIN_PREP,UNIT,1173,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50991,3
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,903,3
+25,8192,131072,Number of scalar addition during synchronization 3,ADD_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of addition during synchronization 3,ADD_SYNC,UNIT,721,3
+25,8192,131072,Number of encoding during synchronization 3,ENCODE_SYNC,UNIT,721,3
+25,8192,131072,Number of encryption during synchronization 3,ENCRYPT_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication during synchronization 3,MUL_SYNC,UNIT,0,3
+25,8192,131072,Number of rotation during synchronization 3,ROT_SYNC,UNIT,2529,3
+25,8192,131072,Number of fast rotation during synchronization 3,FAST_ROT_SYNC,UNIT,25,3
+25,8192,131072,Number of multiplication scalar during synchronization 3,MUL_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication plain during synchronization 3,MUL_PLAIN_SYNC,UNIT,721,3
+25,8192,131072,Number of received ciphertext during synchronization 3,CIPHER_SYNC,UNIT,4,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50989,3
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,3
+25,8192,131072,Number of scalar addition during computation 3,ADD_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of addition during computation 3,ADD_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encoding during computation 3,ENCODE_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encryption during computation 3,ENCRYPT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication during computation 3,MUL_COMPUTE,UNIT,0,3
+25,8192,131072,Number of rotation during computation 3,ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of fast rotation during computation 3,FAST_ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication scalar during computation 3,MUL_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of multiplication plain during computation 3,MUL_PLAIN_COMPUTE,UNIT,0,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50983,3
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,3
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,415315,3
+25,8192,131072,Number of scalar addition during preparation 3,ADD_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of addition during preparation 3,ADD_PREP,UNIT,225,3
+25,8192,131072,Number of encoding during preparation 3,ENCODE_PREP,UNIT,224,3
+25,8192,131072,Number of encryption during preparation 3,ENCRYPT_PREP,UNIT,1,3
+25,8192,131072,Number of multiplication during preparation 3,MUL_PREP,UNIT,0,3
+25,8192,131072,Number of rotation during preparation 3,ROT_PREP,UNIT,1293,3
+25,8192,131072,Number of fast rotation during preparation 3,FAST_ROT_PREP,UNIT,8,3
+25,8192,131072,Number of multiplication scalar during preparation 3,MUL_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of multiplication plain during preparation 3,MUL_PLAIN_PREP,UNIT,227,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50931,3
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,479,3
+25,8192,131072,Number of scalar addition during synchronization 3,ADD_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of addition during synchronization 3,ADD_SYNC,UNIT,358,3
+25,8192,131072,Number of encoding during synchronization 3,ENCODE_SYNC,UNIT,358,3
+25,8192,131072,Number of encryption during synchronization 3,ENCRYPT_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication during synchronization 3,MUL_SYNC,UNIT,0,3
+25,8192,131072,Number of rotation during synchronization 3,ROT_SYNC,UNIT,1338,3
+25,8192,131072,Number of fast rotation during synchronization 3,FAST_ROT_SYNC,UNIT,27,3
+25,8192,131072,Number of multiplication scalar during synchronization 3,MUL_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication plain during synchronization 3,MUL_PLAIN_SYNC,UNIT,358,3
+25,8192,131072,Number of received ciphertext during synchronization 3,CIPHER_SYNC,UNIT,4,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50929,3
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,3
+25,8192,131072,Number of scalar addition during computation 3,ADD_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of addition during computation 3,ADD_COMPUTE,UNIT,1,3
+25,8192,131072,Number of encoding during computation 3,ENCODE_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encryption during computation 3,ENCRYPT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication during computation 3,MUL_COMPUTE,UNIT,0,3
+25,8192,131072,Number of rotation during computation 3,ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of fast rotation during computation 3,FAST_ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication scalar during computation 3,MUL_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of multiplication plain during computation 3,MUL_PLAIN_COMPUTE,UNIT,0,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50922,3
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,3
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,411370,3
+25,8192,131072,Number of scalar addition during preparation 3,ADD_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of addition during preparation 3,ADD_PREP,UNIT,219,3
+25,8192,131072,Number of encoding during preparation 3,ENCODE_PREP,UNIT,217,3
+25,8192,131072,Number of encryption during preparation 3,ENCRYPT_PREP,UNIT,1,3
+25,8192,131072,Number of multiplication during preparation 3,MUL_PREP,UNIT,0,3
+25,8192,131072,Number of rotation during preparation 3,ROT_PREP,UNIT,1279,3
+25,8192,131072,Number of fast rotation during preparation 3,FAST_ROT_PREP,UNIT,8,3
+25,8192,131072,Number of multiplication scalar during preparation 3,MUL_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of multiplication plain during preparation 3,MUL_PLAIN_PREP,UNIT,220,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50871,3
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,83,3
+25,8192,131072,Number of scalar addition during synchronization 3,ADD_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of addition during synchronization 3,ADD_SYNC,UNIT,63,3
+25,8192,131072,Number of encoding during synchronization 3,ENCODE_SYNC,UNIT,63,3
+25,8192,131072,Number of encryption during synchronization 3,ENCRYPT_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication during synchronization 3,MUL_SYNC,UNIT,0,3
+25,8192,131072,Number of rotation during synchronization 3,ROT_SYNC,UNIT,223,3
+25,8192,131072,Number of fast rotation during synchronization 3,FAST_ROT_SYNC,UNIT,15,3
+25,8192,131072,Number of multiplication scalar during synchronization 3,MUL_SCALAR_SYNC,UNIT,0,3
+25,8192,131072,Number of multiplication plain during synchronization 3,MUL_PLAIN_SYNC,UNIT,63,3
+25,8192,131072,Number of received ciphertext during synchronization 3,CIPHER_SYNC,UNIT,4,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50869,3
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,3
+25,8192,131072,Number of scalar addition during computation 3,ADD_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of addition during computation 3,ADD_COMPUTE,UNIT,1,3
+25,8192,131072,Number of encoding during computation 3,ENCODE_COMPUTE,UNIT,0,3
+25,8192,131072,Number of encryption during computation 3,ENCRYPT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication during computation 3,MUL_COMPUTE,UNIT,0,3
+25,8192,131072,Number of rotation during computation 3,ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of fast rotation during computation 3,FAST_ROT_COMPUTE,UNIT,0,3
+25,8192,131072,Number of multiplication scalar during computation 3,MUL_SCALAR_COMPUTE,UNIT,1,3
+25,8192,131072,Number of multiplication plain during computation 3,MUL_PLAIN_COMPUTE,UNIT,0,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50870,3
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,3
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,162004,3
+25,8192,131072,Number of scalar addition during preparation 3,ADD_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of addition during preparation 3,ADD_PREP,UNIT,82,3
+25,8192,131072,Number of encoding during preparation 3,ENCODE_PREP,UNIT,79,3
+25,8192,131072,Number of encryption during preparation 3,ENCRYPT_PREP,UNIT,1,3
+25,8192,131072,Number of multiplication during preparation 3,MUL_PREP,UNIT,0,3
+25,8192,131072,Number of rotation during preparation 3,ROT_PREP,UNIT,500,3
+25,8192,131072,Number of fast rotation during preparation 3,FAST_ROT_PREP,UNIT,5,3
+25,8192,131072,Number of multiplication scalar during preparation 3,MUL_SCALAR_PREP,UNIT,0,3
+25,8192,131072,Number of multiplication plain during preparation 3,MUL_PLAIN_PREP,UNIT,82,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50823,3
+25,8192,131072,Number of scalar addition after iteration 3,ADD_SCALAR,UNIT,15,3
+25,8192,131072,Number of addition after iteration 3,ADD,UNIT,41692,3
+25,8192,131072,Number of encoding after iteration 3,ENCODE,UNIT,41699,3
+25,8192,131072,Number of encryption after iteration 3,ENCRYPT,UNIT,25,3
+25,8192,131072,Number of multiplication after iteration 3,MUL,UNIT,0,3
+25,8192,131072,Number of rotation after iteration 3,ROT,UNIT,174315,3
+25,8192,131072,Number of fast rotation after iteration 3,FAST_ROT,UNIT,549,3
+25,8192,131072,Number of multiplication scalar after iteration 3,MUL_SCALAR,UNIT,15,3
+25,8192,131072,Number of multiplication plain after iteration 3,MUL_PLAIN,UNIT,41726,3
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,3
+25,8192,131072,Memory usage,MEMORY,MB,50823,3
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,6434,4
+25,8192,131072,Number of scalar addition during synchronization 4,ADD_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of addition during synchronization 4,ADD_SYNC,UNIT,5664,4
+25,8192,131072,Number of encoding during synchronization 4,ENCODE_SYNC,UNIT,5664,4
+25,8192,131072,Number of encryption during synchronization 4,ENCRYPT_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication during synchronization 4,MUL_SYNC,UNIT,0,4
+25,8192,131072,Number of rotation during synchronization 4,ROT_SYNC,UNIT,20425,4
+25,8192,131072,Number of fast rotation during synchronization 4,FAST_ROT_SYNC,UNIT,40,4
+25,8192,131072,Number of multiplication scalar during synchronization 4,MUL_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication plain during synchronization 4,MUL_PLAIN_SYNC,UNIT,5664,4
+25,8192,131072,Number of received ciphertext during synchronization 4,CIPHER_SYNC,UNIT,4,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50821,4
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,4
+25,8192,131072,Number of scalar addition during computation 4,ADD_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of addition during computation 4,ADD_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encoding during computation 4,ENCODE_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encryption during computation 4,ENCRYPT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication during computation 4,MUL_COMPUTE,UNIT,0,4
+25,8192,131072,Number of rotation during computation 4,ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of fast rotation during computation 4,FAST_ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication scalar during computation 4,MUL_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of multiplication plain during computation 4,MUL_PLAIN_COMPUTE,UNIT,0,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50815,4
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,4
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,3462682,4
+25,8192,131072,Number of scalar addition during preparation 4,ADD_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of addition during preparation 4,ADD_PREP,UNIT,2755,4
+25,8192,131072,Number of encoding during preparation 4,ENCODE_PREP,UNIT,2756,4
+25,8192,131072,Number of encryption during preparation 4,ENCRYPT_PREP,UNIT,1,4
+25,8192,131072,Number of multiplication during preparation 4,MUL_PREP,UNIT,0,4
+25,8192,131072,Number of rotation during preparation 4,ROT_PREP,UNIT,14940,4
+25,8192,131072,Number of fast rotation during preparation 4,FAST_ROT_PREP,UNIT,11,4
+25,8192,131072,Number of multiplication scalar during preparation 4,MUL_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of multiplication plain during preparation 4,MUL_PLAIN_PREP,UNIT,2759,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50764,4
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,2822,4
+25,8192,131072,Number of scalar addition during synchronization 4,ADD_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of addition during synchronization 4,ADD_SYNC,UNIT,2635,4
+25,8192,131072,Number of encoding during synchronization 4,ENCODE_SYNC,UNIT,2635,4
+25,8192,131072,Number of encryption during synchronization 4,ENCRYPT_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication during synchronization 4,MUL_SYNC,UNIT,0,4
+25,8192,131072,Number of rotation during synchronization 4,ROT_SYNC,UNIT,9016,4
+25,8192,131072,Number of fast rotation during synchronization 4,FAST_ROT_SYNC,UNIT,34,4
+25,8192,131072,Number of multiplication scalar during synchronization 4,MUL_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication plain during synchronization 4,MUL_PLAIN_SYNC,UNIT,2635,4
+25,8192,131072,Number of received ciphertext during synchronization 4,CIPHER_SYNC,UNIT,4,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50762,4
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,4
+25,8192,131072,Number of scalar addition during computation 4,ADD_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of addition during computation 4,ADD_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encoding during computation 4,ENCODE_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encryption during computation 4,ENCRYPT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication during computation 4,MUL_COMPUTE,UNIT,0,4
+25,8192,131072,Number of rotation during computation 4,ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of fast rotation during computation 4,FAST_ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication scalar during computation 4,MUL_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of multiplication plain during computation 4,MUL_PLAIN_COMPUTE,UNIT,0,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50756,4
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,4
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1535679,4
+25,8192,131072,Number of scalar addition during preparation 4,ADD_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of addition during preparation 4,ADD_PREP,UNIT,1170,4
+25,8192,131072,Number of encoding during preparation 4,ENCODE_PREP,UNIT,1170,4
+25,8192,131072,Number of encryption during preparation 4,ENCRYPT_PREP,UNIT,1,4
+25,8192,131072,Number of multiplication during preparation 4,MUL_PREP,UNIT,0,4
+25,8192,131072,Number of rotation during preparation 4,ROT_PREP,UNIT,6562,4
+25,8192,131072,Number of fast rotation during preparation 4,FAST_ROT_PREP,UNIT,10,4
+25,8192,131072,Number of multiplication scalar during preparation 4,MUL_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of multiplication plain during preparation 4,MUL_PLAIN_PREP,UNIT,1173,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50704,4
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,798,4
+25,8192,131072,Number of scalar addition during synchronization 4,ADD_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of addition during synchronization 4,ADD_SYNC,UNIT,721,4
+25,8192,131072,Number of encoding during synchronization 4,ENCODE_SYNC,UNIT,721,4
+25,8192,131072,Number of encryption during synchronization 4,ENCRYPT_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication during synchronization 4,MUL_SYNC,UNIT,0,4
+25,8192,131072,Number of rotation during synchronization 4,ROT_SYNC,UNIT,2529,4
+25,8192,131072,Number of fast rotation during synchronization 4,FAST_ROT_SYNC,UNIT,25,4
+25,8192,131072,Number of multiplication scalar during synchronization 4,MUL_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication plain during synchronization 4,MUL_PLAIN_SYNC,UNIT,721,4
+25,8192,131072,Number of received ciphertext during synchronization 4,CIPHER_SYNC,UNIT,4,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50702,4
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,4
+25,8192,131072,Number of scalar addition during computation 4,ADD_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of addition during computation 4,ADD_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encoding during computation 4,ENCODE_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encryption during computation 4,ENCRYPT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication during computation 4,MUL_COMPUTE,UNIT,0,4
+25,8192,131072,Number of rotation during computation 4,ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of fast rotation during computation 4,FAST_ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication scalar during computation 4,MUL_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of multiplication plain during computation 4,MUL_PLAIN_COMPUTE,UNIT,0,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50696,4
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,4
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,301829,4
+25,8192,131072,Number of scalar addition during preparation 4,ADD_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of addition during preparation 4,ADD_PREP,UNIT,225,4
+25,8192,131072,Number of encoding during preparation 4,ENCODE_PREP,UNIT,224,4
+25,8192,131072,Number of encryption during preparation 4,ENCRYPT_PREP,UNIT,1,4
+25,8192,131072,Number of multiplication during preparation 4,MUL_PREP,UNIT,0,4
+25,8192,131072,Number of rotation during preparation 4,ROT_PREP,UNIT,1293,4
+25,8192,131072,Number of fast rotation during preparation 4,FAST_ROT_PREP,UNIT,8,4
+25,8192,131072,Number of multiplication scalar during preparation 4,MUL_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of multiplication plain during preparation 4,MUL_PLAIN_PREP,UNIT,227,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50644,4
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,423,4
+25,8192,131072,Number of scalar addition during synchronization 4,ADD_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of addition during synchronization 4,ADD_SYNC,UNIT,358,4
+25,8192,131072,Number of encoding during synchronization 4,ENCODE_SYNC,UNIT,358,4
+25,8192,131072,Number of encryption during synchronization 4,ENCRYPT_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication during synchronization 4,MUL_SYNC,UNIT,0,4
+25,8192,131072,Number of rotation during synchronization 4,ROT_SYNC,UNIT,1338,4
+25,8192,131072,Number of fast rotation during synchronization 4,FAST_ROT_SYNC,UNIT,27,4
+25,8192,131072,Number of multiplication scalar during synchronization 4,MUL_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication plain during synchronization 4,MUL_PLAIN_SYNC,UNIT,358,4
+25,8192,131072,Number of received ciphertext during synchronization 4,CIPHER_SYNC,UNIT,4,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50642,4
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,4
+25,8192,131072,Number of scalar addition during computation 4,ADD_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of addition during computation 4,ADD_COMPUTE,UNIT,1,4
+25,8192,131072,Number of encoding during computation 4,ENCODE_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encryption during computation 4,ENCRYPT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication during computation 4,MUL_COMPUTE,UNIT,0,4
+25,8192,131072,Number of rotation during computation 4,ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of fast rotation during computation 4,FAST_ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication scalar during computation 4,MUL_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of multiplication plain during computation 4,MUL_PLAIN_COMPUTE,UNIT,0,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50634,4
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,4
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,298560,4
+25,8192,131072,Number of scalar addition during preparation 4,ADD_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of addition during preparation 4,ADD_PREP,UNIT,219,4
+25,8192,131072,Number of encoding during preparation 4,ENCODE_PREP,UNIT,217,4
+25,8192,131072,Number of encryption during preparation 4,ENCRYPT_PREP,UNIT,1,4
+25,8192,131072,Number of multiplication during preparation 4,MUL_PREP,UNIT,0,4
+25,8192,131072,Number of rotation during preparation 4,ROT_PREP,UNIT,1279,4
+25,8192,131072,Number of fast rotation during preparation 4,FAST_ROT_PREP,UNIT,8,4
+25,8192,131072,Number of multiplication scalar during preparation 4,MUL_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of multiplication plain during preparation 4,MUL_PLAIN_PREP,UNIT,220,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50584,4
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,72,4
+25,8192,131072,Number of scalar addition during synchronization 4,ADD_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of addition during synchronization 4,ADD_SYNC,UNIT,63,4
+25,8192,131072,Number of encoding during synchronization 4,ENCODE_SYNC,UNIT,63,4
+25,8192,131072,Number of encryption during synchronization 4,ENCRYPT_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication during synchronization 4,MUL_SYNC,UNIT,0,4
+25,8192,131072,Number of rotation during synchronization 4,ROT_SYNC,UNIT,223,4
+25,8192,131072,Number of fast rotation during synchronization 4,FAST_ROT_SYNC,UNIT,15,4
+25,8192,131072,Number of multiplication scalar during synchronization 4,MUL_SCALAR_SYNC,UNIT,0,4
+25,8192,131072,Number of multiplication plain during synchronization 4,MUL_PLAIN_SYNC,UNIT,63,4
+25,8192,131072,Number of received ciphertext during synchronization 4,CIPHER_SYNC,UNIT,4,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50582,4
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,4
+25,8192,131072,Number of scalar addition during computation 4,ADD_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of addition during computation 4,ADD_COMPUTE,UNIT,1,4
+25,8192,131072,Number of encoding during computation 4,ENCODE_COMPUTE,UNIT,0,4
+25,8192,131072,Number of encryption during computation 4,ENCRYPT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication during computation 4,MUL_COMPUTE,UNIT,0,4
+25,8192,131072,Number of rotation during computation 4,ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of fast rotation during computation 4,FAST_ROT_COMPUTE,UNIT,0,4
+25,8192,131072,Number of multiplication scalar during computation 4,MUL_SCALAR_COMPUTE,UNIT,1,4
+25,8192,131072,Number of multiplication plain during computation 4,MUL_PLAIN_COMPUTE,UNIT,0,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50582,4
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,4
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,117739,4
+25,8192,131072,Number of scalar addition during preparation 4,ADD_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of addition during preparation 4,ADD_PREP,UNIT,82,4
+25,8192,131072,Number of encoding during preparation 4,ENCODE_PREP,UNIT,79,4
+25,8192,131072,Number of encryption during preparation 4,ENCRYPT_PREP,UNIT,1,4
+25,8192,131072,Number of multiplication during preparation 4,MUL_PREP,UNIT,0,4
+25,8192,131072,Number of rotation during preparation 4,ROT_PREP,UNIT,500,4
+25,8192,131072,Number of fast rotation during preparation 4,FAST_ROT_PREP,UNIT,5,4
+25,8192,131072,Number of multiplication scalar during preparation 4,MUL_SCALAR_PREP,UNIT,0,4
+25,8192,131072,Number of multiplication plain during preparation 4,MUL_PLAIN_PREP,UNIT,82,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50533,4
+25,8192,131072,Number of scalar addition after iteration 4,ADD_SCALAR,UNIT,20,4
+25,8192,131072,Number of addition after iteration 4,ADD,UNIT,55586,4
+25,8192,131072,Number of encoding after iteration 4,ENCODE,UNIT,55586,4
+25,8192,131072,Number of encryption after iteration 4,ENCRYPT,UNIT,30,4
+25,8192,131072,Number of multiplication after iteration 4,MUL,UNIT,0,4
+25,8192,131072,Number of rotation after iteration 4,ROT,UNIT,232420,4
+25,8192,131072,Number of fast rotation after iteration 4,FAST_ROT,UNIT,732,4
+25,8192,131072,Number of multiplication scalar after iteration 4,MUL_SCALAR,UNIT,20,4
+25,8192,131072,Number of multiplication plain after iteration 4,MUL_PLAIN,UNIT,55628,4
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,4
+25,8192,131072,Memory usage,MEMORY,MB,50533,4
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,4647,5
+25,8192,131072,Number of scalar addition during synchronization 5,ADD_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of addition during synchronization 5,ADD_SYNC,UNIT,5664,5
+25,8192,131072,Number of encoding during synchronization 5,ENCODE_SYNC,UNIT,5664,5
+25,8192,131072,Number of encryption during synchronization 5,ENCRYPT_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication during synchronization 5,MUL_SYNC,UNIT,0,5
+25,8192,131072,Number of rotation during synchronization 5,ROT_SYNC,UNIT,20425,5
+25,8192,131072,Number of fast rotation during synchronization 5,FAST_ROT_SYNC,UNIT,40,5
+25,8192,131072,Number of multiplication scalar during synchronization 5,MUL_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication plain during synchronization 5,MUL_PLAIN_SYNC,UNIT,5664,5
+25,8192,131072,Number of received ciphertext during synchronization 5,CIPHER_SYNC,UNIT,4,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50531,5
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,5
+25,8192,131072,Number of scalar addition during computation 5,ADD_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of addition during computation 5,ADD_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encoding during computation 5,ENCODE_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encryption during computation 5,ENCRYPT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication during computation 5,MUL_COMPUTE,UNIT,0,5
+25,8192,131072,Number of rotation during computation 5,ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of fast rotation during computation 5,FAST_ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication scalar during computation 5,MUL_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of multiplication plain during computation 5,MUL_PLAIN_COMPUTE,UNIT,0,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50525,5
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,5
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,2985951,5
+25,8192,131072,Number of scalar addition during preparation 5,ADD_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of addition during preparation 5,ADD_PREP,UNIT,2755,5
+25,8192,131072,Number of encoding during preparation 5,ENCODE_PREP,UNIT,2756,5
+25,8192,131072,Number of encryption during preparation 5,ENCRYPT_PREP,UNIT,1,5
+25,8192,131072,Number of multiplication during preparation 5,MUL_PREP,UNIT,0,5
+25,8192,131072,Number of rotation during preparation 5,ROT_PREP,UNIT,14940,5
+25,8192,131072,Number of fast rotation during preparation 5,FAST_ROT_PREP,UNIT,11,5
+25,8192,131072,Number of multiplication scalar during preparation 5,MUL_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of multiplication plain during preparation 5,MUL_PLAIN_PREP,UNIT,2759,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50473,5
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,2053,5
+25,8192,131072,Number of scalar addition during synchronization 5,ADD_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of addition during synchronization 5,ADD_SYNC,UNIT,2635,5
+25,8192,131072,Number of encoding during synchronization 5,ENCODE_SYNC,UNIT,2635,5
+25,8192,131072,Number of encryption during synchronization 5,ENCRYPT_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication during synchronization 5,MUL_SYNC,UNIT,0,5
+25,8192,131072,Number of rotation during synchronization 5,ROT_SYNC,UNIT,9016,5
+25,8192,131072,Number of fast rotation during synchronization 5,FAST_ROT_SYNC,UNIT,34,5
+25,8192,131072,Number of multiplication scalar during synchronization 5,MUL_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication plain during synchronization 5,MUL_PLAIN_SYNC,UNIT,2635,5
+25,8192,131072,Number of received ciphertext during synchronization 5,CIPHER_SYNC,UNIT,4,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50471,5
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,5
+25,8192,131072,Number of scalar addition during computation 5,ADD_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of addition during computation 5,ADD_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encoding during computation 5,ENCODE_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encryption during computation 5,ENCRYPT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication during computation 5,MUL_COMPUTE,UNIT,0,5
+25,8192,131072,Number of rotation during computation 5,ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of fast rotation during computation 5,FAST_ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication scalar during computation 5,MUL_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of multiplication plain during computation 5,MUL_PLAIN_COMPUTE,UNIT,0,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50465,5
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,5
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1307537,5
+25,8192,131072,Number of scalar addition during preparation 5,ADD_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of addition during preparation 5,ADD_PREP,UNIT,1170,5
+25,8192,131072,Number of encoding during preparation 5,ENCODE_PREP,UNIT,1170,5
+25,8192,131072,Number of encryption during preparation 5,ENCRYPT_PREP,UNIT,1,5
+25,8192,131072,Number of multiplication during preparation 5,MUL_PREP,UNIT,0,5
+25,8192,131072,Number of rotation during preparation 5,ROT_PREP,UNIT,6562,5
+25,8192,131072,Number of fast rotation during preparation 5,FAST_ROT_PREP,UNIT,10,5
+25,8192,131072,Number of multiplication scalar during preparation 5,MUL_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of multiplication plain during preparation 5,MUL_PLAIN_PREP,UNIT,1173,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50414,5
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,576,5
+25,8192,131072,Number of scalar addition during synchronization 5,ADD_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of addition during synchronization 5,ADD_SYNC,UNIT,721,5
+25,8192,131072,Number of encoding during synchronization 5,ENCODE_SYNC,UNIT,721,5
+25,8192,131072,Number of encryption during synchronization 5,ENCRYPT_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication during synchronization 5,MUL_SYNC,UNIT,0,5
+25,8192,131072,Number of rotation during synchronization 5,ROT_SYNC,UNIT,2529,5
+25,8192,131072,Number of fast rotation during synchronization 5,FAST_ROT_SYNC,UNIT,25,5
+25,8192,131072,Number of multiplication scalar during synchronization 5,MUL_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication plain during synchronization 5,MUL_PLAIN_SYNC,UNIT,721,5
+25,8192,131072,Number of received ciphertext during synchronization 5,CIPHER_SYNC,UNIT,4,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50412,5
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,5
+25,8192,131072,Number of scalar addition during computation 5,ADD_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of addition during computation 5,ADD_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encoding during computation 5,ENCODE_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encryption during computation 5,ENCRYPT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication during computation 5,MUL_COMPUTE,UNIT,0,5
+25,8192,131072,Number of rotation during computation 5,ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of fast rotation during computation 5,FAST_ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication scalar during computation 5,MUL_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of multiplication plain during computation 5,MUL_PLAIN_COMPUTE,UNIT,0,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50406,5
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,5
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,259297,5
+25,8192,131072,Number of scalar addition during preparation 5,ADD_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of addition during preparation 5,ADD_PREP,UNIT,225,5
+25,8192,131072,Number of encoding during preparation 5,ENCODE_PREP,UNIT,224,5
+25,8192,131072,Number of encryption during preparation 5,ENCRYPT_PREP,UNIT,1,5
+25,8192,131072,Number of multiplication during preparation 5,MUL_PREP,UNIT,0,5
+25,8192,131072,Number of rotation during preparation 5,ROT_PREP,UNIT,1293,5
+25,8192,131072,Number of fast rotation during preparation 5,FAST_ROT_PREP,UNIT,8,5
+25,8192,131072,Number of multiplication scalar during preparation 5,MUL_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of multiplication plain during preparation 5,MUL_PLAIN_PREP,UNIT,227,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50354,5
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,305,5
+25,8192,131072,Number of scalar addition during synchronization 5,ADD_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of addition during synchronization 5,ADD_SYNC,UNIT,358,5
+25,8192,131072,Number of encoding during synchronization 5,ENCODE_SYNC,UNIT,358,5
+25,8192,131072,Number of encryption during synchronization 5,ENCRYPT_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication during synchronization 5,MUL_SYNC,UNIT,0,5
+25,8192,131072,Number of rotation during synchronization 5,ROT_SYNC,UNIT,1338,5
+25,8192,131072,Number of fast rotation during synchronization 5,FAST_ROT_SYNC,UNIT,27,5
+25,8192,131072,Number of multiplication scalar during synchronization 5,MUL_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication plain during synchronization 5,MUL_PLAIN_SYNC,UNIT,358,5
+25,8192,131072,Number of received ciphertext during synchronization 5,CIPHER_SYNC,UNIT,4,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50352,5
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,5
+25,8192,131072,Number of scalar addition during computation 5,ADD_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of addition during computation 5,ADD_COMPUTE,UNIT,1,5
+25,8192,131072,Number of encoding during computation 5,ENCODE_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encryption during computation 5,ENCRYPT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication during computation 5,MUL_COMPUTE,UNIT,0,5
+25,8192,131072,Number of rotation during computation 5,ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of fast rotation during computation 5,FAST_ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication scalar during computation 5,MUL_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of multiplication plain during computation 5,MUL_PLAIN_COMPUTE,UNIT,0,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50348,5
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,5
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,256440,5
+25,8192,131072,Number of scalar addition during preparation 5,ADD_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of addition during preparation 5,ADD_PREP,UNIT,219,5
+25,8192,131072,Number of encoding during preparation 5,ENCODE_PREP,UNIT,217,5
+25,8192,131072,Number of encryption during preparation 5,ENCRYPT_PREP,UNIT,1,5
+25,8192,131072,Number of multiplication during preparation 5,MUL_PREP,UNIT,0,5
+25,8192,131072,Number of rotation during preparation 5,ROT_PREP,UNIT,1279,5
+25,8192,131072,Number of fast rotation during preparation 5,FAST_ROT_PREP,UNIT,8,5
+25,8192,131072,Number of multiplication scalar during preparation 5,MUL_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of multiplication plain during preparation 5,MUL_PLAIN_PREP,UNIT,220,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50298,5
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,53,5
+25,8192,131072,Number of scalar addition during synchronization 5,ADD_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of addition during synchronization 5,ADD_SYNC,UNIT,63,5
+25,8192,131072,Number of encoding during synchronization 5,ENCODE_SYNC,UNIT,63,5
+25,8192,131072,Number of encryption during synchronization 5,ENCRYPT_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication during synchronization 5,MUL_SYNC,UNIT,0,5
+25,8192,131072,Number of rotation during synchronization 5,ROT_SYNC,UNIT,223,5
+25,8192,131072,Number of fast rotation during synchronization 5,FAST_ROT_SYNC,UNIT,15,5
+25,8192,131072,Number of multiplication scalar during synchronization 5,MUL_SCALAR_SYNC,UNIT,0,5
+25,8192,131072,Number of multiplication plain during synchronization 5,MUL_PLAIN_SYNC,UNIT,63,5
+25,8192,131072,Number of received ciphertext during synchronization 5,CIPHER_SYNC,UNIT,4,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50296,5
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,5
+25,8192,131072,Number of scalar addition during computation 5,ADD_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of addition during computation 5,ADD_COMPUTE,UNIT,1,5
+25,8192,131072,Number of encoding during computation 5,ENCODE_COMPUTE,UNIT,0,5
+25,8192,131072,Number of encryption during computation 5,ENCRYPT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication during computation 5,MUL_COMPUTE,UNIT,0,5
+25,8192,131072,Number of rotation during computation 5,ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of fast rotation during computation 5,FAST_ROT_COMPUTE,UNIT,0,5
+25,8192,131072,Number of multiplication scalar during computation 5,MUL_SCALAR_COMPUTE,UNIT,1,5
+25,8192,131072,Number of multiplication plain during computation 5,MUL_PLAIN_COMPUTE,UNIT,0,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50294,5
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,5
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,100565,5
+25,8192,131072,Number of scalar addition during preparation 5,ADD_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of addition during preparation 5,ADD_PREP,UNIT,82,5
+25,8192,131072,Number of encoding during preparation 5,ENCODE_PREP,UNIT,79,5
+25,8192,131072,Number of encryption during preparation 5,ENCRYPT_PREP,UNIT,1,5
+25,8192,131072,Number of multiplication during preparation 5,MUL_PREP,UNIT,0,5
+25,8192,131072,Number of rotation during preparation 5,ROT_PREP,UNIT,500,5
+25,8192,131072,Number of fast rotation during preparation 5,FAST_ROT_PREP,UNIT,5,5
+25,8192,131072,Number of multiplication scalar during preparation 5,MUL_SCALAR_PREP,UNIT,0,5
+25,8192,131072,Number of multiplication plain during preparation 5,MUL_PLAIN_PREP,UNIT,82,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50247,5
+25,8192,131072,Number of scalar addition after iteration 5,ADD_SCALAR,UNIT,25,5
+25,8192,131072,Number of addition after iteration 5,ADD,UNIT,69480,5
+25,8192,131072,Number of encoding after iteration 5,ENCODE,UNIT,69473,5
+25,8192,131072,Number of encryption after iteration 5,ENCRYPT,UNIT,35,5
+25,8192,131072,Number of multiplication after iteration 5,MUL,UNIT,0,5
+25,8192,131072,Number of rotation after iteration 5,ROT,UNIT,290525,5
+25,8192,131072,Number of fast rotation after iteration 5,FAST_ROT,UNIT,915,5
+25,8192,131072,Number of multiplication scalar after iteration 5,MUL_SCALAR,UNIT,25,5
+25,8192,131072,Number of multiplication plain after iteration 5,MUL_PLAIN,UNIT,69530,5
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,5
+25,8192,131072,Memory usage,MEMORY,MB,50247,5
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,3967,6
+25,8192,131072,Number of scalar addition during synchronization 6,ADD_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of addition during synchronization 6,ADD_SYNC,UNIT,5664,6
+25,8192,131072,Number of encoding during synchronization 6,ENCODE_SYNC,UNIT,5664,6
+25,8192,131072,Number of encryption during synchronization 6,ENCRYPT_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication during synchronization 6,MUL_SYNC,UNIT,0,6
+25,8192,131072,Number of rotation during synchronization 6,ROT_SYNC,UNIT,20425,6
+25,8192,131072,Number of fast rotation during synchronization 6,FAST_ROT_SYNC,UNIT,40,6
+25,8192,131072,Number of multiplication scalar during synchronization 6,MUL_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication plain during synchronization 6,MUL_PLAIN_SYNC,UNIT,5664,6
+25,8192,131072,Number of received ciphertext during synchronization 6,CIPHER_SYNC,UNIT,4,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50245,6
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,6
+25,8192,131072,Number of scalar addition during computation 6,ADD_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of addition during computation 6,ADD_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encoding during computation 6,ENCODE_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encryption during computation 6,ENCRYPT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication during computation 6,MUL_COMPUTE,UNIT,0,6
+25,8192,131072,Number of rotation during computation 6,ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of fast rotation during computation 6,FAST_ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication scalar during computation 6,MUL_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of multiplication plain during computation 6,MUL_PLAIN_COMPUTE,UNIT,0,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50239,6
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,6
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1959372,6
+25,8192,131072,Number of scalar addition during preparation 6,ADD_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of addition during preparation 6,ADD_PREP,UNIT,2755,6
+25,8192,131072,Number of encoding during preparation 6,ENCODE_PREP,UNIT,2756,6
+25,8192,131072,Number of encryption during preparation 6,ENCRYPT_PREP,UNIT,1,6
+25,8192,131072,Number of multiplication during preparation 6,MUL_PREP,UNIT,0,6
+25,8192,131072,Number of rotation during preparation 6,ROT_PREP,UNIT,14940,6
+25,8192,131072,Number of fast rotation during preparation 6,FAST_ROT_PREP,UNIT,11,6
+25,8192,131072,Number of multiplication scalar during preparation 6,MUL_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of multiplication plain during preparation 6,MUL_PLAIN_PREP,UNIT,2759,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50187,6
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,1753,6
+25,8192,131072,Number of scalar addition during synchronization 6,ADD_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of addition during synchronization 6,ADD_SYNC,UNIT,2635,6
+25,8192,131072,Number of encoding during synchronization 6,ENCODE_SYNC,UNIT,2635,6
+25,8192,131072,Number of encryption during synchronization 6,ENCRYPT_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication during synchronization 6,MUL_SYNC,UNIT,0,6
+25,8192,131072,Number of rotation during synchronization 6,ROT_SYNC,UNIT,9016,6
+25,8192,131072,Number of fast rotation during synchronization 6,FAST_ROT_SYNC,UNIT,34,6
+25,8192,131072,Number of multiplication scalar during synchronization 6,MUL_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication plain during synchronization 6,MUL_PLAIN_SYNC,UNIT,2635,6
+25,8192,131072,Number of received ciphertext during synchronization 6,CIPHER_SYNC,UNIT,4,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50185,6
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,6
+25,8192,131072,Number of scalar addition during computation 6,ADD_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of addition during computation 6,ADD_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encoding during computation 6,ENCODE_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encryption during computation 6,ENCRYPT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication during computation 6,MUL_COMPUTE,UNIT,0,6
+25,8192,131072,Number of rotation during computation 6,ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of fast rotation during computation 6,FAST_ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication scalar during computation 6,MUL_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of multiplication plain during computation 6,MUL_PLAIN_COMPUTE,UNIT,0,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50179,6
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,6
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,862151,6
+25,8192,131072,Number of scalar addition during preparation 6,ADD_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of addition during preparation 6,ADD_PREP,UNIT,1170,6
+25,8192,131072,Number of encoding during preparation 6,ENCODE_PREP,UNIT,1170,6
+25,8192,131072,Number of encryption during preparation 6,ENCRYPT_PREP,UNIT,1,6
+25,8192,131072,Number of multiplication during preparation 6,MUL_PREP,UNIT,0,6
+25,8192,131072,Number of rotation during preparation 6,ROT_PREP,UNIT,6562,6
+25,8192,131072,Number of fast rotation during preparation 6,FAST_ROT_PREP,UNIT,10,6
+25,8192,131072,Number of multiplication scalar during preparation 6,MUL_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of multiplication plain during preparation 6,MUL_PLAIN_PREP,UNIT,1173,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50127,6
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,494,6
+25,8192,131072,Number of scalar addition during synchronization 6,ADD_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of addition during synchronization 6,ADD_SYNC,UNIT,721,6
+25,8192,131072,Number of encoding during synchronization 6,ENCODE_SYNC,UNIT,721,6
+25,8192,131072,Number of encryption during synchronization 6,ENCRYPT_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication during synchronization 6,MUL_SYNC,UNIT,0,6
+25,8192,131072,Number of rotation during synchronization 6,ROT_SYNC,UNIT,2529,6
+25,8192,131072,Number of fast rotation during synchronization 6,FAST_ROT_SYNC,UNIT,25,6
+25,8192,131072,Number of multiplication scalar during synchronization 6,MUL_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication plain during synchronization 6,MUL_PLAIN_SYNC,UNIT,721,6
+25,8192,131072,Number of received ciphertext during synchronization 6,CIPHER_SYNC,UNIT,4,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50125,6
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,6
+25,8192,131072,Number of scalar addition during computation 6,ADD_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of addition during computation 6,ADD_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encoding during computation 6,ENCODE_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encryption during computation 6,ENCRYPT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication during computation 6,MUL_COMPUTE,UNIT,0,6
+25,8192,131072,Number of rotation during computation 6,ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of fast rotation during computation 6,FAST_ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication scalar during computation 6,MUL_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of multiplication plain during computation 6,MUL_PLAIN_COMPUTE,UNIT,0,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50119,6
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,6
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,171206,6
+25,8192,131072,Number of scalar addition during preparation 6,ADD_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of addition during preparation 6,ADD_PREP,UNIT,225,6
+25,8192,131072,Number of encoding during preparation 6,ENCODE_PREP,UNIT,224,6
+25,8192,131072,Number of encryption during preparation 6,ENCRYPT_PREP,UNIT,1,6
+25,8192,131072,Number of multiplication during preparation 6,MUL_PREP,UNIT,0,6
+25,8192,131072,Number of rotation during preparation 6,ROT_PREP,UNIT,1293,6
+25,8192,131072,Number of fast rotation during preparation 6,FAST_ROT_PREP,UNIT,8,6
+25,8192,131072,Number of multiplication scalar during preparation 6,MUL_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of multiplication plain during preparation 6,MUL_PLAIN_PREP,UNIT,227,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50067,6
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,262,6
+25,8192,131072,Number of scalar addition during synchronization 6,ADD_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of addition during synchronization 6,ADD_SYNC,UNIT,358,6
+25,8192,131072,Number of encoding during synchronization 6,ENCODE_SYNC,UNIT,358,6
+25,8192,131072,Number of encryption during synchronization 6,ENCRYPT_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication during synchronization 6,MUL_SYNC,UNIT,0,6
+25,8192,131072,Number of rotation during synchronization 6,ROT_SYNC,UNIT,1338,6
+25,8192,131072,Number of fast rotation during synchronization 6,FAST_ROT_SYNC,UNIT,27,6
+25,8192,131072,Number of multiplication scalar during synchronization 6,MUL_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication plain during synchronization 6,MUL_PLAIN_SYNC,UNIT,358,6
+25,8192,131072,Number of received ciphertext during synchronization 6,CIPHER_SYNC,UNIT,4,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50065,6
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,6
+25,8192,131072,Number of scalar addition during computation 6,ADD_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of addition during computation 6,ADD_COMPUTE,UNIT,1,6
+25,8192,131072,Number of encoding during computation 6,ENCODE_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encryption during computation 6,ENCRYPT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication during computation 6,MUL_COMPUTE,UNIT,0,6
+25,8192,131072,Number of rotation during computation 6,ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of fast rotation during computation 6,FAST_ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication scalar during computation 6,MUL_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of multiplication plain during computation 6,MUL_PLAIN_COMPUTE,UNIT,0,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50058,6
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,6
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,169209,6
+25,8192,131072,Number of scalar addition during preparation 6,ADD_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of addition during preparation 6,ADD_PREP,UNIT,219,6
+25,8192,131072,Number of encoding during preparation 6,ENCODE_PREP,UNIT,217,6
+25,8192,131072,Number of encryption during preparation 6,ENCRYPT_PREP,UNIT,1,6
+25,8192,131072,Number of multiplication during preparation 6,MUL_PREP,UNIT,0,6
+25,8192,131072,Number of rotation during preparation 6,ROT_PREP,UNIT,1279,6
+25,8192,131072,Number of fast rotation during preparation 6,FAST_ROT_PREP,UNIT,8,6
+25,8192,131072,Number of multiplication scalar during preparation 6,MUL_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of multiplication plain during preparation 6,MUL_PLAIN_PREP,UNIT,220,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50008,6
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,45,6
+25,8192,131072,Number of scalar addition during synchronization 6,ADD_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of addition during synchronization 6,ADD_SYNC,UNIT,63,6
+25,8192,131072,Number of encoding during synchronization 6,ENCODE_SYNC,UNIT,63,6
+25,8192,131072,Number of encryption during synchronization 6,ENCRYPT_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication during synchronization 6,MUL_SYNC,UNIT,0,6
+25,8192,131072,Number of rotation during synchronization 6,ROT_SYNC,UNIT,223,6
+25,8192,131072,Number of fast rotation during synchronization 6,FAST_ROT_SYNC,UNIT,15,6
+25,8192,131072,Number of multiplication scalar during synchronization 6,MUL_SCALAR_SYNC,UNIT,0,6
+25,8192,131072,Number of multiplication plain during synchronization 6,MUL_PLAIN_SYNC,UNIT,63,6
+25,8192,131072,Number of received ciphertext during synchronization 6,CIPHER_SYNC,UNIT,4,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50006,6
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,6
+25,8192,131072,Number of scalar addition during computation 6,ADD_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of addition during computation 6,ADD_COMPUTE,UNIT,1,6
+25,8192,131072,Number of encoding during computation 6,ENCODE_COMPUTE,UNIT,0,6
+25,8192,131072,Number of encryption during computation 6,ENCRYPT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication during computation 6,MUL_COMPUTE,UNIT,0,6
+25,8192,131072,Number of rotation during computation 6,ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of fast rotation during computation 6,FAST_ROT_COMPUTE,UNIT,0,6
+25,8192,131072,Number of multiplication scalar during computation 6,MUL_SCALAR_COMPUTE,UNIT,1,6
+25,8192,131072,Number of multiplication plain during computation 6,MUL_PLAIN_COMPUTE,UNIT,0,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,50007,6
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,6
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,66350,6
+25,8192,131072,Number of scalar addition during preparation 6,ADD_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of addition during preparation 6,ADD_PREP,UNIT,82,6
+25,8192,131072,Number of encoding during preparation 6,ENCODE_PREP,UNIT,79,6
+25,8192,131072,Number of encryption during preparation 6,ENCRYPT_PREP,UNIT,1,6
+25,8192,131072,Number of multiplication during preparation 6,MUL_PREP,UNIT,0,6
+25,8192,131072,Number of rotation during preparation 6,ROT_PREP,UNIT,500,6
+25,8192,131072,Number of fast rotation during preparation 6,FAST_ROT_PREP,UNIT,5,6
+25,8192,131072,Number of multiplication scalar during preparation 6,MUL_SCALAR_PREP,UNIT,0,6
+25,8192,131072,Number of multiplication plain during preparation 6,MUL_PLAIN_PREP,UNIT,82,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,49957,6
+25,8192,131072,Number of scalar addition after iteration 6,ADD_SCALAR,UNIT,30,6
+25,8192,131072,Number of addition after iteration 6,ADD,UNIT,83374,6
+25,8192,131072,Number of encoding after iteration 6,ENCODE,UNIT,83360,6
+25,8192,131072,Number of encryption after iteration 6,ENCRYPT,UNIT,40,6
+25,8192,131072,Number of multiplication after iteration 6,MUL,UNIT,0,6
+25,8192,131072,Number of rotation after iteration 6,ROT,UNIT,348630,6
+25,8192,131072,Number of fast rotation after iteration 6,FAST_ROT,UNIT,1098,6
+25,8192,131072,Number of multiplication scalar after iteration 6,MUL_SCALAR,UNIT,30,6
+25,8192,131072,Number of multiplication plain after iteration 6,MUL_PLAIN,UNIT,83432,6
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,6
+25,8192,131072,Memory usage,MEMORY,MB,49957,6
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,2615,7
+25,8192,131072,Number of scalar addition during synchronization 7,ADD_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of addition during synchronization 7,ADD_SYNC,UNIT,5664,7
+25,8192,131072,Number of encoding during synchronization 7,ENCODE_SYNC,UNIT,5664,7
+25,8192,131072,Number of encryption during synchronization 7,ENCRYPT_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication during synchronization 7,MUL_SYNC,UNIT,0,7
+25,8192,131072,Number of rotation during synchronization 7,ROT_SYNC,UNIT,20425,7
+25,8192,131072,Number of fast rotation during synchronization 7,FAST_ROT_SYNC,UNIT,40,7
+25,8192,131072,Number of multiplication scalar during synchronization 7,MUL_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication plain during synchronization 7,MUL_PLAIN_SYNC,UNIT,5664,7
+25,8192,131072,Number of received ciphertext during synchronization 7,CIPHER_SYNC,UNIT,4,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49955,7
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,7
+25,8192,131072,Number of scalar addition during computation 7,ADD_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of addition during computation 7,ADD_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encoding during computation 7,ENCODE_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encryption during computation 7,ENCRYPT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication during computation 7,MUL_COMPUTE,UNIT,0,7
+25,8192,131072,Number of rotation during computation 7,ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of fast rotation during computation 7,FAST_ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication scalar during computation 7,MUL_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of multiplication plain during computation 7,MUL_PLAIN_COMPUTE,UNIT,0,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49949,7
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,7
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1561816,7
+25,8192,131072,Number of scalar addition during preparation 7,ADD_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of addition during preparation 7,ADD_PREP,UNIT,2755,7
+25,8192,131072,Number of encoding during preparation 7,ENCODE_PREP,UNIT,2756,7
+25,8192,131072,Number of encryption during preparation 7,ENCRYPT_PREP,UNIT,1,7
+25,8192,131072,Number of multiplication during preparation 7,MUL_PREP,UNIT,0,7
+25,8192,131072,Number of rotation during preparation 7,ROT_PREP,UNIT,14940,7
+25,8192,131072,Number of fast rotation during preparation 7,FAST_ROT_PREP,UNIT,11,7
+25,8192,131072,Number of multiplication scalar during preparation 7,MUL_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of multiplication plain during preparation 7,MUL_PLAIN_PREP,UNIT,2759,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49897,7
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,1159,7
+25,8192,131072,Number of scalar addition during synchronization 7,ADD_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of addition during synchronization 7,ADD_SYNC,UNIT,2635,7
+25,8192,131072,Number of encoding during synchronization 7,ENCODE_SYNC,UNIT,2635,7
+25,8192,131072,Number of encryption during synchronization 7,ENCRYPT_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication during synchronization 7,MUL_SYNC,UNIT,0,7
+25,8192,131072,Number of rotation during synchronization 7,ROT_SYNC,UNIT,9016,7
+25,8192,131072,Number of fast rotation during synchronization 7,FAST_ROT_SYNC,UNIT,34,7
+25,8192,131072,Number of multiplication scalar during synchronization 7,MUL_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication plain during synchronization 7,MUL_PLAIN_SYNC,UNIT,2635,7
+25,8192,131072,Number of received ciphertext during synchronization 7,CIPHER_SYNC,UNIT,4,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49895,7
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,7
+25,8192,131072,Number of scalar addition during computation 7,ADD_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of addition during computation 7,ADD_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encoding during computation 7,ENCODE_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encryption during computation 7,ENCRYPT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication during computation 7,MUL_COMPUTE,UNIT,0,7
+25,8192,131072,Number of rotation during computation 7,ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of fast rotation during computation 7,FAST_ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication scalar during computation 7,MUL_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of multiplication plain during computation 7,MUL_PLAIN_COMPUTE,UNIT,0,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49889,7
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,7
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,685963,7
+25,8192,131072,Number of scalar addition during preparation 7,ADD_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of addition during preparation 7,ADD_PREP,UNIT,1170,7
+25,8192,131072,Number of encoding during preparation 7,ENCODE_PREP,UNIT,1170,7
+25,8192,131072,Number of encryption during preparation 7,ENCRYPT_PREP,UNIT,1,7
+25,8192,131072,Number of multiplication during preparation 7,MUL_PREP,UNIT,0,7
+25,8192,131072,Number of rotation during preparation 7,ROT_PREP,UNIT,6562,7
+25,8192,131072,Number of fast rotation during preparation 7,FAST_ROT_PREP,UNIT,10,7
+25,8192,131072,Number of multiplication scalar during preparation 7,MUL_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of multiplication plain during preparation 7,MUL_PLAIN_PREP,UNIT,1173,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49837,7
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,324,7
+25,8192,131072,Number of scalar addition during synchronization 7,ADD_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of addition during synchronization 7,ADD_SYNC,UNIT,721,7
+25,8192,131072,Number of encoding during synchronization 7,ENCODE_SYNC,UNIT,721,7
+25,8192,131072,Number of encryption during synchronization 7,ENCRYPT_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication during synchronization 7,MUL_SYNC,UNIT,0,7
+25,8192,131072,Number of rotation during synchronization 7,ROT_SYNC,UNIT,2529,7
+25,8192,131072,Number of fast rotation during synchronization 7,FAST_ROT_SYNC,UNIT,25,7
+25,8192,131072,Number of multiplication scalar during synchronization 7,MUL_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication plain during synchronization 7,MUL_PLAIN_SYNC,UNIT,721,7
+25,8192,131072,Number of received ciphertext during synchronization 7,CIPHER_SYNC,UNIT,4,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49835,7
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,7
+25,8192,131072,Number of scalar addition during computation 7,ADD_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of addition during computation 7,ADD_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encoding during computation 7,ENCODE_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encryption during computation 7,ENCRYPT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication during computation 7,MUL_COMPUTE,UNIT,0,7
+25,8192,131072,Number of rotation during computation 7,ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of fast rotation during computation 7,FAST_ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication scalar during computation 7,MUL_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of multiplication plain during computation 7,MUL_PLAIN_COMPUTE,UNIT,0,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49829,7
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,7
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,136012,7
+25,8192,131072,Number of scalar addition during preparation 7,ADD_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of addition during preparation 7,ADD_PREP,UNIT,225,7
+25,8192,131072,Number of encoding during preparation 7,ENCODE_PREP,UNIT,224,7
+25,8192,131072,Number of encryption during preparation 7,ENCRYPT_PREP,UNIT,1,7
+25,8192,131072,Number of multiplication during preparation 7,MUL_PREP,UNIT,0,7
+25,8192,131072,Number of rotation during preparation 7,ROT_PREP,UNIT,1293,7
+25,8192,131072,Number of fast rotation during preparation 7,FAST_ROT_PREP,UNIT,8,7
+25,8192,131072,Number of multiplication scalar during preparation 7,MUL_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of multiplication plain during preparation 7,MUL_PLAIN_PREP,UNIT,227,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49777,7
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,171,7
+25,8192,131072,Number of scalar addition during synchronization 7,ADD_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of addition during synchronization 7,ADD_SYNC,UNIT,358,7
+25,8192,131072,Number of encoding during synchronization 7,ENCODE_SYNC,UNIT,358,7
+25,8192,131072,Number of encryption during synchronization 7,ENCRYPT_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication during synchronization 7,MUL_SYNC,UNIT,0,7
+25,8192,131072,Number of rotation during synchronization 7,ROT_SYNC,UNIT,1338,7
+25,8192,131072,Number of fast rotation during synchronization 7,FAST_ROT_SYNC,UNIT,27,7
+25,8192,131072,Number of multiplication scalar during synchronization 7,MUL_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication plain during synchronization 7,MUL_PLAIN_SYNC,UNIT,358,7
+25,8192,131072,Number of received ciphertext during synchronization 7,CIPHER_SYNC,UNIT,4,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49775,7
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,7
+25,8192,131072,Number of scalar addition during computation 7,ADD_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of addition during computation 7,ADD_COMPUTE,UNIT,1,7
+25,8192,131072,Number of encoding during computation 7,ENCODE_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encryption during computation 7,ENCRYPT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication during computation 7,MUL_COMPUTE,UNIT,0,7
+25,8192,131072,Number of rotation during computation 7,ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of fast rotation during computation 7,FAST_ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication scalar during computation 7,MUL_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of multiplication plain during computation 7,MUL_PLAIN_COMPUTE,UNIT,0,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49769,7
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,7
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,133666,7
+25,8192,131072,Number of scalar addition during preparation 7,ADD_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of addition during preparation 7,ADD_PREP,UNIT,219,7
+25,8192,131072,Number of encoding during preparation 7,ENCODE_PREP,UNIT,217,7
+25,8192,131072,Number of encryption during preparation 7,ENCRYPT_PREP,UNIT,1,7
+25,8192,131072,Number of multiplication during preparation 7,MUL_PREP,UNIT,0,7
+25,8192,131072,Number of rotation during preparation 7,ROT_PREP,UNIT,1279,7
+25,8192,131072,Number of fast rotation during preparation 7,FAST_ROT_PREP,UNIT,8,7
+25,8192,131072,Number of multiplication scalar during preparation 7,MUL_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of multiplication plain during preparation 7,MUL_PLAIN_PREP,UNIT,220,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49719,7
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,29,7
+25,8192,131072,Number of scalar addition during synchronization 7,ADD_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of addition during synchronization 7,ADD_SYNC,UNIT,63,7
+25,8192,131072,Number of encoding during synchronization 7,ENCODE_SYNC,UNIT,63,7
+25,8192,131072,Number of encryption during synchronization 7,ENCRYPT_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication during synchronization 7,MUL_SYNC,UNIT,0,7
+25,8192,131072,Number of rotation during synchronization 7,ROT_SYNC,UNIT,223,7
+25,8192,131072,Number of fast rotation during synchronization 7,FAST_ROT_SYNC,UNIT,15,7
+25,8192,131072,Number of multiplication scalar during synchronization 7,MUL_SCALAR_SYNC,UNIT,0,7
+25,8192,131072,Number of multiplication plain during synchronization 7,MUL_PLAIN_SYNC,UNIT,63,7
+25,8192,131072,Number of received ciphertext during synchronization 7,CIPHER_SYNC,UNIT,4,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49715,7
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,7
+25,8192,131072,Number of scalar addition during computation 7,ADD_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of addition during computation 7,ADD_COMPUTE,UNIT,1,7
+25,8192,131072,Number of encoding during computation 7,ENCODE_COMPUTE,UNIT,0,7
+25,8192,131072,Number of encryption during computation 7,ENCRYPT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication during computation 7,MUL_COMPUTE,UNIT,0,7
+25,8192,131072,Number of rotation during computation 7,ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of fast rotation during computation 7,FAST_ROT_COMPUTE,UNIT,0,7
+25,8192,131072,Number of multiplication scalar during computation 7,MUL_SCALAR_COMPUTE,UNIT,1,7
+25,8192,131072,Number of multiplication plain during computation 7,MUL_PLAIN_COMPUTE,UNIT,0,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49717,7
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,0,7
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,52466,7
+25,8192,131072,Number of scalar addition during preparation 7,ADD_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of addition during preparation 7,ADD_PREP,UNIT,82,7
+25,8192,131072,Number of encoding during preparation 7,ENCODE_PREP,UNIT,79,7
+25,8192,131072,Number of encryption during preparation 7,ENCRYPT_PREP,UNIT,1,7
+25,8192,131072,Number of multiplication during preparation 7,MUL_PREP,UNIT,0,7
+25,8192,131072,Number of rotation during preparation 7,ROT_PREP,UNIT,500,7
+25,8192,131072,Number of fast rotation during preparation 7,FAST_ROT_PREP,UNIT,5,7
+25,8192,131072,Number of multiplication scalar during preparation 7,MUL_SCALAR_PREP,UNIT,0,7
+25,8192,131072,Number of multiplication plain during preparation 7,MUL_PLAIN_PREP,UNIT,82,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49663,7
+25,8192,131072,Number of scalar addition after iteration 7,ADD_SCALAR,UNIT,35,7
+25,8192,131072,Number of addition after iteration 7,ADD,UNIT,97268,7
+25,8192,131072,Number of encoding after iteration 7,ENCODE,UNIT,97247,7
+25,8192,131072,Number of encryption after iteration 7,ENCRYPT,UNIT,45,7
+25,8192,131072,Number of multiplication after iteration 7,MUL,UNIT,0,7
+25,8192,131072,Number of rotation after iteration 7,ROT,UNIT,406735,7
+25,8192,131072,Number of fast rotation after iteration 7,FAST_ROT,UNIT,1281,7
+25,8192,131072,Number of multiplication scalar after iteration 7,MUL_SCALAR,UNIT,35,7
+25,8192,131072,Number of multiplication plain after iteration 7,MUL_PLAIN,UNIT,97334,7
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,7
+25,8192,131072,Memory usage,MEMORY,MB,49663,7
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,1516,8
+25,8192,131072,Number of scalar addition during synchronization 8,ADD_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of addition during synchronization 8,ADD_SYNC,UNIT,5664,8
+25,8192,131072,Number of encoding during synchronization 8,ENCODE_SYNC,UNIT,5664,8
+25,8192,131072,Number of encryption during synchronization 8,ENCRYPT_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication during synchronization 8,MUL_SYNC,UNIT,0,8
+25,8192,131072,Number of rotation during synchronization 8,ROT_SYNC,UNIT,20425,8
+25,8192,131072,Number of fast rotation during synchronization 8,FAST_ROT_SYNC,UNIT,40,8
+25,8192,131072,Number of multiplication scalar during synchronization 8,MUL_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication plain during synchronization 8,MUL_PLAIN_SYNC,UNIT,5664,8
+25,8192,131072,Number of received ciphertext during synchronization 8,CIPHER_SYNC,UNIT,4,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49661,8
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,8
+25,8192,131072,Number of scalar addition during computation 8,ADD_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of addition during computation 8,ADD_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encoding during computation 8,ENCODE_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encryption during computation 8,ENCRYPT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication during computation 8,MUL_COMPUTE,UNIT,0,8
+25,8192,131072,Number of rotation during computation 8,ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of fast rotation during computation 8,FAST_ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication scalar during computation 8,MUL_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of multiplication plain during computation 8,MUL_PLAIN_COMPUTE,UNIT,0,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49655,8
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26032,8
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1704251,8
+25,8192,131072,Number of scalar addition during preparation 8,ADD_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of addition during preparation 8,ADD_PREP,UNIT,2755,8
+25,8192,131072,Number of encoding during preparation 8,ENCODE_PREP,UNIT,2756,8
+25,8192,131072,Number of encryption during preparation 8,ENCRYPT_PREP,UNIT,1,8
+25,8192,131072,Number of multiplication during preparation 8,MUL_PREP,UNIT,0,8
+25,8192,131072,Number of rotation during preparation 8,ROT_PREP,UNIT,14940,8
+25,8192,131072,Number of fast rotation during preparation 8,FAST_ROT_PREP,UNIT,11,8
+25,8192,131072,Number of multiplication scalar during preparation 8,MUL_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of multiplication plain during preparation 8,MUL_PLAIN_PREP,UNIT,2759,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49677,8
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,673,8
+25,8192,131072,Number of scalar addition during synchronization 8,ADD_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of addition during synchronization 8,ADD_SYNC,UNIT,2635,8
+25,8192,131072,Number of encoding during synchronization 8,ENCODE_SYNC,UNIT,2635,8
+25,8192,131072,Number of encryption during synchronization 8,ENCRYPT_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication during synchronization 8,MUL_SYNC,UNIT,0,8
+25,8192,131072,Number of rotation during synchronization 8,ROT_SYNC,UNIT,9016,8
+25,8192,131072,Number of fast rotation during synchronization 8,FAST_ROT_SYNC,UNIT,34,8
+25,8192,131072,Number of multiplication scalar during synchronization 8,MUL_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication plain during synchronization 8,MUL_PLAIN_SYNC,UNIT,2635,8
+25,8192,131072,Number of received ciphertext during synchronization 8,CIPHER_SYNC,UNIT,4,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49675,8
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,8
+25,8192,131072,Number of scalar addition during computation 8,ADD_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of addition during computation 8,ADD_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encoding during computation 8,ENCODE_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encryption during computation 8,ENCRYPT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication during computation 8,MUL_COMPUTE,UNIT,0,8
+25,8192,131072,Number of rotation during computation 8,ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of fast rotation during computation 8,FAST_ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication scalar during computation 8,MUL_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of multiplication plain during computation 8,MUL_PLAIN_COMPUTE,UNIT,0,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49670,8
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26385,8
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,736400,8
+25,8192,131072,Number of scalar addition during preparation 8,ADD_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of addition during preparation 8,ADD_PREP,UNIT,1170,8
+25,8192,131072,Number of encoding during preparation 8,ENCODE_PREP,UNIT,1170,8
+25,8192,131072,Number of encryption during preparation 8,ENCRYPT_PREP,UNIT,1,8
+25,8192,131072,Number of multiplication during preparation 8,MUL_PREP,UNIT,0,8
+25,8192,131072,Number of rotation during preparation 8,ROT_PREP,UNIT,6562,8
+25,8192,131072,Number of fast rotation during preparation 8,FAST_ROT_PREP,UNIT,10,8
+25,8192,131072,Number of multiplication scalar during preparation 8,MUL_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of multiplication plain during preparation 8,MUL_PLAIN_PREP,UNIT,1173,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49666,8
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,188,8
+25,8192,131072,Number of scalar addition during synchronization 8,ADD_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of addition during synchronization 8,ADD_SYNC,UNIT,721,8
+25,8192,131072,Number of encoding during synchronization 8,ENCODE_SYNC,UNIT,721,8
+25,8192,131072,Number of encryption during synchronization 8,ENCRYPT_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication during synchronization 8,MUL_SYNC,UNIT,0,8
+25,8192,131072,Number of rotation during synchronization 8,ROT_SYNC,UNIT,2529,8
+25,8192,131072,Number of fast rotation during synchronization 8,FAST_ROT_SYNC,UNIT,25,8
+25,8192,131072,Number of multiplication scalar during synchronization 8,MUL_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication plain during synchronization 8,MUL_PLAIN_SYNC,UNIT,721,8
+25,8192,131072,Number of received ciphertext during synchronization 8,CIPHER_SYNC,UNIT,4,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49664,8
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,8
+25,8192,131072,Number of scalar addition during computation 8,ADD_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of addition during computation 8,ADD_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encoding during computation 8,ENCODE_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encryption during computation 8,ENCRYPT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication during computation 8,MUL_COMPUTE,UNIT,0,8
+25,8192,131072,Number of rotation during computation 8,ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of fast rotation during computation 8,FAST_ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication scalar during computation 8,MUL_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of multiplication plain during computation 8,MUL_PLAIN_COMPUTE,UNIT,0,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49658,8
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,25735,8
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,148194,8
+25,8192,131072,Number of scalar addition during preparation 8,ADD_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of addition during preparation 8,ADD_PREP,UNIT,225,8
+25,8192,131072,Number of encoding during preparation 8,ENCODE_PREP,UNIT,224,8
+25,8192,131072,Number of encryption during preparation 8,ENCRYPT_PREP,UNIT,1,8
+25,8192,131072,Number of multiplication during preparation 8,MUL_PREP,UNIT,0,8
+25,8192,131072,Number of rotation during preparation 8,ROT_PREP,UNIT,1293,8
+25,8192,131072,Number of fast rotation during preparation 8,FAST_ROT_PREP,UNIT,8,8
+25,8192,131072,Number of multiplication scalar during preparation 8,MUL_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of multiplication plain during preparation 8,MUL_PLAIN_PREP,UNIT,227,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49655,8
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,99,8
+25,8192,131072,Number of scalar addition during synchronization 8,ADD_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of addition during synchronization 8,ADD_SYNC,UNIT,358,8
+25,8192,131072,Number of encoding during synchronization 8,ENCODE_SYNC,UNIT,358,8
+25,8192,131072,Number of encryption during synchronization 8,ENCRYPT_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication during synchronization 8,MUL_SYNC,UNIT,0,8
+25,8192,131072,Number of rotation during synchronization 8,ROT_SYNC,UNIT,1338,8
+25,8192,131072,Number of fast rotation during synchronization 8,FAST_ROT_SYNC,UNIT,27,8
+25,8192,131072,Number of multiplication scalar during synchronization 8,MUL_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication plain during synchronization 8,MUL_PLAIN_SYNC,UNIT,358,8
+25,8192,131072,Number of received ciphertext during synchronization 8,CIPHER_SYNC,UNIT,4,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49653,8
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,8
+25,8192,131072,Number of scalar addition during computation 8,ADD_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of addition during computation 8,ADD_COMPUTE,UNIT,1,8
+25,8192,131072,Number of encoding during computation 8,ENCODE_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encryption during computation 8,ENCRYPT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication during computation 8,MUL_COMPUTE,UNIT,0,8
+25,8192,131072,Number of rotation during computation 8,ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of fast rotation during computation 8,FAST_ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication scalar during computation 8,MUL_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of multiplication plain during computation 8,MUL_PLAIN_COMPUTE,UNIT,0,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49645,8
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26012,8
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,146879,8
+25,8192,131072,Number of scalar addition during preparation 8,ADD_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of addition during preparation 8,ADD_PREP,UNIT,219,8
+25,8192,131072,Number of encoding during preparation 8,ENCODE_PREP,UNIT,217,8
+25,8192,131072,Number of encryption during preparation 8,ENCRYPT_PREP,UNIT,1,8
+25,8192,131072,Number of multiplication during preparation 8,MUL_PREP,UNIT,0,8
+25,8192,131072,Number of rotation during preparation 8,ROT_PREP,UNIT,1279,8
+25,8192,131072,Number of fast rotation during preparation 8,FAST_ROT_PREP,UNIT,8,8
+25,8192,131072,Number of multiplication scalar during preparation 8,MUL_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of multiplication plain during preparation 8,MUL_PLAIN_PREP,UNIT,220,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49645,8
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,17,8
+25,8192,131072,Number of scalar addition during synchronization 8,ADD_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of addition during synchronization 8,ADD_SYNC,UNIT,63,8
+25,8192,131072,Number of encoding during synchronization 8,ENCODE_SYNC,UNIT,63,8
+25,8192,131072,Number of encryption during synchronization 8,ENCRYPT_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication during synchronization 8,MUL_SYNC,UNIT,0,8
+25,8192,131072,Number of rotation during synchronization 8,ROT_SYNC,UNIT,223,8
+25,8192,131072,Number of fast rotation during synchronization 8,FAST_ROT_SYNC,UNIT,15,8
+25,8192,131072,Number of multiplication scalar during synchronization 8,MUL_SCALAR_SYNC,UNIT,0,8
+25,8192,131072,Number of multiplication plain during synchronization 8,MUL_PLAIN_SYNC,UNIT,63,8
+25,8192,131072,Number of received ciphertext during synchronization 8,CIPHER_SYNC,UNIT,4,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49643,8
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,8
+25,8192,131072,Number of scalar addition during computation 8,ADD_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of addition during computation 8,ADD_COMPUTE,UNIT,1,8
+25,8192,131072,Number of encoding during computation 8,ENCODE_COMPUTE,UNIT,0,8
+25,8192,131072,Number of encryption during computation 8,ENCRYPT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication during computation 8,MUL_COMPUTE,UNIT,0,8
+25,8192,131072,Number of rotation during computation 8,ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of fast rotation during computation 8,FAST_ROT_COMPUTE,UNIT,0,8
+25,8192,131072,Number of multiplication scalar during computation 8,MUL_SCALAR_COMPUTE,UNIT,1,8
+25,8192,131072,Number of multiplication plain during computation 8,MUL_PLAIN_COMPUTE,UNIT,0,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49634,8
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,25474,8
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,56974,8
+25,8192,131072,Number of scalar addition during preparation 8,ADD_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of addition during preparation 8,ADD_PREP,UNIT,82,8
+25,8192,131072,Number of encoding during preparation 8,ENCODE_PREP,UNIT,79,8
+25,8192,131072,Number of encryption during preparation 8,ENCRYPT_PREP,UNIT,1,8
+25,8192,131072,Number of multiplication during preparation 8,MUL_PREP,UNIT,0,8
+25,8192,131072,Number of rotation during preparation 8,ROT_PREP,UNIT,500,8
+25,8192,131072,Number of fast rotation during preparation 8,FAST_ROT_PREP,UNIT,5,8
+25,8192,131072,Number of multiplication scalar during preparation 8,MUL_SCALAR_PREP,UNIT,0,8
+25,8192,131072,Number of multiplication plain during preparation 8,MUL_PLAIN_PREP,UNIT,82,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49631,8
+25,8192,131072,Number of scalar addition after iteration 8,ADD_SCALAR,UNIT,40,8
+25,8192,131072,Number of addition after iteration 8,ADD,UNIT,111162,8
+25,8192,131072,Number of encoding after iteration 8,ENCODE,UNIT,111134,8
+25,8192,131072,Number of encryption after iteration 8,ENCRYPT,UNIT,50,8
+25,8192,131072,Number of multiplication after iteration 8,MUL,UNIT,0,8
+25,8192,131072,Number of rotation after iteration 8,ROT,UNIT,464840,8
+25,8192,131072,Number of fast rotation after iteration 8,FAST_ROT,UNIT,1464,8
+25,8192,131072,Number of multiplication scalar after iteration 8,MUL_SCALAR,UNIT,40,8
+25,8192,131072,Number of multiplication plain after iteration 8,MUL_PLAIN,UNIT,111236,8
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,8
+25,8192,131072,Memory usage,MEMORY,MB,49631,8
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,2262,9
+25,8192,131072,Number of scalar addition during synchronization 9,ADD_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of addition during synchronization 9,ADD_SYNC,UNIT,5664,9
+25,8192,131072,Number of encoding during synchronization 9,ENCODE_SYNC,UNIT,5664,9
+25,8192,131072,Number of encryption during synchronization 9,ENCRYPT_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication during synchronization 9,MUL_SYNC,UNIT,0,9
+25,8192,131072,Number of rotation during synchronization 9,ROT_SYNC,UNIT,20425,9
+25,8192,131072,Number of fast rotation during synchronization 9,FAST_ROT_SYNC,UNIT,40,9
+25,8192,131072,Number of multiplication scalar during synchronization 9,MUL_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication plain during synchronization 9,MUL_PLAIN_SYNC,UNIT,5664,9
+25,8192,131072,Number of received ciphertext during synchronization 9,CIPHER_SYNC,UNIT,4,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49630,9
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,9
+25,8192,131072,Number of scalar addition during computation 9,ADD_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of addition during computation 9,ADD_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encoding during computation 9,ENCODE_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encryption during computation 9,ENCRYPT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication during computation 9,MUL_COMPUTE,UNIT,0,9
+25,8192,131072,Number of rotation during computation 9,ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of fast rotation during computation 9,FAST_ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication scalar during computation 9,MUL_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of multiplication plain during computation 9,MUL_PLAIN_COMPUTE,UNIT,0,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49623,9
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26385,9
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,1687559,9
+25,8192,131072,Number of scalar addition during preparation 9,ADD_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of addition during preparation 9,ADD_PREP,UNIT,2755,9
+25,8192,131072,Number of encoding during preparation 9,ENCODE_PREP,UNIT,2756,9
+25,8192,131072,Number of encryption during preparation 9,ENCRYPT_PREP,UNIT,1,9
+25,8192,131072,Number of multiplication during preparation 9,MUL_PREP,UNIT,0,9
+25,8192,131072,Number of rotation during preparation 9,ROT_PREP,UNIT,14940,9
+25,8192,131072,Number of fast rotation during preparation 9,FAST_ROT_PREP,UNIT,11,9
+25,8192,131072,Number of multiplication scalar during preparation 9,MUL_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of multiplication plain during preparation 9,MUL_PLAIN_PREP,UNIT,2759,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49642,9
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,988,9
+25,8192,131072,Number of scalar addition during synchronization 9,ADD_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of addition during synchronization 9,ADD_SYNC,UNIT,2635,9
+25,8192,131072,Number of encoding during synchronization 9,ENCODE_SYNC,UNIT,2635,9
+25,8192,131072,Number of encryption during synchronization 9,ENCRYPT_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication during synchronization 9,MUL_SYNC,UNIT,0,9
+25,8192,131072,Number of rotation during synchronization 9,ROT_SYNC,UNIT,9016,9
+25,8192,131072,Number of fast rotation during synchronization 9,FAST_ROT_SYNC,UNIT,34,9
+25,8192,131072,Number of multiplication scalar during synchronization 9,MUL_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication plain during synchronization 9,MUL_PLAIN_SYNC,UNIT,2635,9
+25,8192,131072,Number of received ciphertext during synchronization 9,CIPHER_SYNC,UNIT,4,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49640,9
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,9
+25,8192,131072,Number of scalar addition during computation 9,ADD_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of addition during computation 9,ADD_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encoding during computation 9,ENCODE_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encryption during computation 9,ENCRYPT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication during computation 9,MUL_COMPUTE,UNIT,0,9
+25,8192,131072,Number of rotation during computation 9,ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of fast rotation during computation 9,FAST_ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication scalar during computation 9,MUL_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of multiplication plain during computation 9,MUL_PLAIN_COMPUTE,UNIT,0,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49634,9
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,27058,9
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,744517,9
+25,8192,131072,Number of scalar addition during preparation 9,ADD_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of addition during preparation 9,ADD_PREP,UNIT,1170,9
+25,8192,131072,Number of encoding during preparation 9,ENCODE_PREP,UNIT,1170,9
+25,8192,131072,Number of encryption during preparation 9,ENCRYPT_PREP,UNIT,1,9
+25,8192,131072,Number of multiplication during preparation 9,MUL_PREP,UNIT,0,9
+25,8192,131072,Number of rotation during preparation 9,ROT_PREP,UNIT,6562,9
+25,8192,131072,Number of fast rotation during preparation 9,FAST_ROT_PREP,UNIT,10,9
+25,8192,131072,Number of multiplication scalar during preparation 9,MUL_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of multiplication plain during preparation 9,MUL_PLAIN_PREP,UNIT,1173,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49651,9
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,278,9
+25,8192,131072,Number of scalar addition during synchronization 9,ADD_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of addition during synchronization 9,ADD_SYNC,UNIT,721,9
+25,8192,131072,Number of encoding during synchronization 9,ENCODE_SYNC,UNIT,721,9
+25,8192,131072,Number of encryption during synchronization 9,ENCRYPT_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication during synchronization 9,MUL_SYNC,UNIT,0,9
+25,8192,131072,Number of rotation during synchronization 9,ROT_SYNC,UNIT,2529,9
+25,8192,131072,Number of fast rotation during synchronization 9,FAST_ROT_SYNC,UNIT,25,9
+25,8192,131072,Number of multiplication scalar during synchronization 9,MUL_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication plain during synchronization 9,MUL_PLAIN_SYNC,UNIT,721,9
+25,8192,131072,Number of received ciphertext during synchronization 9,CIPHER_SYNC,UNIT,4,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49649,9
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,9
+25,8192,131072,Number of scalar addition during computation 9,ADD_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of addition during computation 9,ADD_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encoding during computation 9,ENCODE_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encryption during computation 9,ENCRYPT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication during computation 9,MUL_COMPUTE,UNIT,0,9
+25,8192,131072,Number of rotation during computation 9,ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of fast rotation during computation 9,FAST_ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication scalar during computation 9,MUL_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of multiplication plain during computation 9,MUL_PLAIN_COMPUTE,UNIT,0,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49642,9
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,25783,9
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,150921,9
+25,8192,131072,Number of scalar addition during preparation 9,ADD_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of addition during preparation 9,ADD_PREP,UNIT,225,9
+25,8192,131072,Number of encoding during preparation 9,ENCODE_PREP,UNIT,224,9
+25,8192,131072,Number of encryption during preparation 9,ENCRYPT_PREP,UNIT,1,9
+25,8192,131072,Number of multiplication during preparation 9,MUL_PREP,UNIT,0,9
+25,8192,131072,Number of rotation during preparation 9,ROT_PREP,UNIT,1293,9
+25,8192,131072,Number of fast rotation during preparation 9,FAST_ROT_PREP,UNIT,8,9
+25,8192,131072,Number of multiplication scalar during preparation 9,MUL_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of multiplication plain during preparation 9,MUL_PLAIN_PREP,UNIT,227,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49659,9
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,146,9
+25,8192,131072,Number of scalar addition during synchronization 9,ADD_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of addition during synchronization 9,ADD_SYNC,UNIT,358,9
+25,8192,131072,Number of encoding during synchronization 9,ENCODE_SYNC,UNIT,358,9
+25,8192,131072,Number of encryption during synchronization 9,ENCRYPT_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication during synchronization 9,MUL_SYNC,UNIT,0,9
+25,8192,131072,Number of rotation during synchronization 9,ROT_SYNC,UNIT,1338,9
+25,8192,131072,Number of fast rotation during synchronization 9,FAST_ROT_SYNC,UNIT,27,9
+25,8192,131072,Number of multiplication scalar during synchronization 9,MUL_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication plain during synchronization 9,MUL_PLAIN_SYNC,UNIT,358,9
+25,8192,131072,Number of received ciphertext during synchronization 9,CIPHER_SYNC,UNIT,4,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49657,9
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,9
+25,8192,131072,Number of scalar addition during computation 9,ADD_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of addition during computation 9,ADD_COMPUTE,UNIT,1,9
+25,8192,131072,Number of encoding during computation 9,ENCODE_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encryption during computation 9,ENCRYPT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication during computation 9,MUL_COMPUTE,UNIT,0,9
+25,8192,131072,Number of rotation during computation 9,ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of fast rotation during computation 9,FAST_ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication scalar during computation 9,MUL_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of multiplication plain during computation 9,MUL_PLAIN_COMPUTE,UNIT,0,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49647,9
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26893,9
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,152121,9
+25,8192,131072,Number of scalar addition during preparation 9,ADD_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of addition during preparation 9,ADD_PREP,UNIT,219,9
+25,8192,131072,Number of encoding during preparation 9,ENCODE_PREP,UNIT,217,9
+25,8192,131072,Number of encryption during preparation 9,ENCRYPT_PREP,UNIT,1,9
+25,8192,131072,Number of multiplication during preparation 9,MUL_PREP,UNIT,0,9
+25,8192,131072,Number of rotation during preparation 9,ROT_PREP,UNIT,1279,9
+25,8192,131072,Number of fast rotation during preparation 9,FAST_ROT_PREP,UNIT,8,9
+25,8192,131072,Number of multiplication scalar during preparation 9,MUL_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of multiplication plain during preparation 9,MUL_PLAIN_PREP,UNIT,220,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49667,9
+25,8192,131072,Time to synchronize distant PRs,SYNC,SECONDS,25,9
+25,8192,131072,Number of scalar addition during synchronization 9,ADD_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of addition during synchronization 9,ADD_SYNC,UNIT,63,9
+25,8192,131072,Number of encoding during synchronization 9,ENCODE_SYNC,UNIT,63,9
+25,8192,131072,Number of encryption during synchronization 9,ENCRYPT_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication during synchronization 9,MUL_SYNC,UNIT,0,9
+25,8192,131072,Number of rotation during synchronization 9,ROT_SYNC,UNIT,223,9
+25,8192,131072,Number of fast rotation during synchronization 9,FAST_ROT_SYNC,UNIT,15,9
+25,8192,131072,Number of multiplication scalar during synchronization 9,MUL_SCALAR_SYNC,UNIT,0,9
+25,8192,131072,Number of multiplication plain during synchronization 9,MUL_PLAIN_SYNC,UNIT,63,9
+25,8192,131072,Number of received ciphertext during synchronization 9,CIPHER_SYNC,UNIT,4,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49665,9
+25,8192,131072,Time to compute one iteration,EVAL_OP,SECONDS,0,9
+25,8192,131072,Number of scalar addition during computation 9,ADD_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of addition during computation 9,ADD_COMPUTE,UNIT,1,9
+25,8192,131072,Number of encoding during computation 9,ENCODE_COMPUTE,UNIT,0,9
+25,8192,131072,Number of encryption during computation 9,ENCRYPT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication during computation 9,MUL_COMPUTE,UNIT,0,9
+25,8192,131072,Number of rotation during computation 9,ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of fast rotation during computation 9,FAST_ROT_COMPUTE,UNIT,0,9
+25,8192,131072,Number of multiplication scalar during computation 9,MUL_SCALAR_COMPUTE,UNIT,1,9
+25,8192,131072,Number of multiplication plain during computation 9,MUL_PLAIN_COMPUTE,UNIT,0,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49652,9
+25,8192,131072,Time to bootstrap,BOOTSTRAP,MILLISECONDS,26374,9
+25,8192,131072,Time to prepare next iteration,PREP,MILLISECONDS,62579,9
+25,8192,131072,Number of scalar addition during preparation 9,ADD_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of addition during preparation 9,ADD_PREP,UNIT,82,9
+25,8192,131072,Number of encoding during preparation 9,ENCODE_PREP,UNIT,79,9
+25,8192,131072,Number of encryption during preparation 9,ENCRYPT_PREP,UNIT,1,9
+25,8192,131072,Number of multiplication during preparation 9,MUL_PREP,UNIT,0,9
+25,8192,131072,Number of rotation during preparation 9,ROT_PREP,UNIT,500,9
+25,8192,131072,Number of fast rotation during preparation 9,FAST_ROT_PREP,UNIT,5,9
+25,8192,131072,Number of multiplication scalar during preparation 9,MUL_SCALAR_PREP,UNIT,0,9
+25,8192,131072,Number of multiplication plain during preparation 9,MUL_PLAIN_PREP,UNIT,82,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49673,9
+25,8192,131072,Number of scalar addition after iteration 9,ADD_SCALAR,UNIT,45,9
+25,8192,131072,Number of addition after iteration 9,ADD,UNIT,125056,9
+25,8192,131072,Number of encoding after iteration 9,ENCODE,UNIT,125021,9
+25,8192,131072,Number of encryption after iteration 9,ENCRYPT,UNIT,55,9
+25,8192,131072,Number of multiplication after iteration 9,MUL,UNIT,0,9
+25,8192,131072,Number of rotation after iteration 9,ROT,UNIT,522945,9
+25,8192,131072,Number of fast rotation after iteration 9,FAST_ROT,UNIT,1647,9
+25,8192,131072,Number of multiplication scalar after iteration 9,MUL_SCALAR,UNIT,45,9
+25,8192,131072,Number of multiplication plain after iteration 9,MUL_PLAIN,UNIT,125138,9
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,9
+25,8192,131072,Memory usage,MEMORY,MB,49673,9
+25,8192,131072,Time to synchronize distant PRs at last iteration,SYNC,SECONDS,5913,10
+25,8192,131072,Number of scalar addition during synchronization at last iteration,ADD_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of addition during synchronization at last iteration,ADD_SYNC,UNIT,12740,10
+25,8192,131072,Number of encoding during synchronization at last iteration,ENCODE_SYNC,UNIT,12741,10
+25,8192,131072,Number of encryption during synchronization at last iteration,ENCRYPT_SYNC,UNIT,1,10
+25,8192,131072,Number of multiplication during synchronization at last iteration,MUL_SYNC,UNIT,0,10
+25,8192,131072,Number of rotation during synchronization at last iteration,ROT_SYNC,UNIT,52618,10
+25,8192,131072,Number of fast rotation during synchronization at last iteration,FAST_ROT_SYNC,UNIT,2771,10
+25,8192,131072,Number of multiplication scalar during synchronization at last iteration,MUL_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of multiplication plain during synchronization at last iteration,MUL_PLAIN_SYNC,UNIT,12740,10
+25,8192,131072,Number of received ciphertext during synchronization at last iteration,CIPHER_SYNC,UNIT,4,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49681,10
+25,8192,131072,Time to compute one iteration at last iteration,EVAL_OP,SECONDS,0,10
+25,8192,131072,Number of scalar addition during computation at last iteration,ADD_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of addition during computation at last iteration,ADD_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encoding during computation at last iteration,ENCODE_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encryption during computation at last iteration,ENCRYPT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication during computation at last iteration,MUL_COMPUTE,UNIT,0,10
+25,8192,131072,Number of rotation during computation at last iteration,ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of fast rotation during computation at last iteration,FAST_ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during computation at last iteration,MUL_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of multiplication plain during computation at last iteration,MUL_PLAIN_COMPUTE,UNIT,12740,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49683,10
+25,8192,131072,Time to prepare next iteration at last iteration,PREP,MILLISECONDS,0,10
+25,8192,131072,Number of scalar addition during prep at last iteration,ADD_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of addition during prep at last iteration,ADD_PREP,UNIT,0,10
+25,8192,131072,Number of encoding during prep at last iteration,ENCODE_PREP,UNIT,0,10
+25,8192,131072,Number of encryption during prep at last iteration,ENCRYPT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication during prep at last iteration,MUL_PREP,UNIT,0,10
+25,8192,131072,Number of rotation during prep at last iteration,ROT_PREP,UNIT,0,10
+25,8192,131072,Number of fast rotation during prep at last iteration,FAST_ROT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during prep at last iteration,MUL_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication plain during prep at last iteration,MUL_PLAIN_PREP,UNIT,0,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49635,10
+25,8192,131072,Time to synchronize distant PRs at last iteration,SYNC,SECONDS,2746,10
+25,8192,131072,Number of scalar addition during synchronization at last iteration,ADD_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of addition during synchronization at last iteration,ADD_SYNC,UNIT,6648,10
+25,8192,131072,Number of encoding during synchronization at last iteration,ENCODE_SYNC,UNIT,6649,10
+25,8192,131072,Number of encryption during synchronization at last iteration,ENCRYPT_SYNC,UNIT,1,10
+25,8192,131072,Number of multiplication during synchronization at last iteration,MUL_SYNC,UNIT,0,10
+25,8192,131072,Number of rotation during synchronization at last iteration,ROT_SYNC,UNIT,24151,10
+25,8192,131072,Number of fast rotation during synchronization at last iteration,FAST_ROT_SYNC,UNIT,1195,10
+25,8192,131072,Number of multiplication scalar during synchronization at last iteration,MUL_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of multiplication plain during synchronization at last iteration,MUL_PLAIN_SYNC,UNIT,6648,10
+25,8192,131072,Number of received ciphertext during synchronization at last iteration,CIPHER_SYNC,UNIT,4,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49643,10
+25,8192,131072,Time to compute one iteration at last iteration,EVAL_OP,SECONDS,0,10
+25,8192,131072,Number of scalar addition during computation at last iteration,ADD_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of addition during computation at last iteration,ADD_COMPUTE,UNIT,1,10
+25,8192,131072,Number of encoding during computation at last iteration,ENCODE_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encryption during computation at last iteration,ENCRYPT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication during computation at last iteration,MUL_COMPUTE,UNIT,0,10
+25,8192,131072,Number of rotation during computation at last iteration,ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of fast rotation during computation at last iteration,FAST_ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during computation at last iteration,MUL_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of multiplication plain during computation at last iteration,MUL_PLAIN_COMPUTE,UNIT,6648,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49642,10
+25,8192,131072,Time to prepare next iteration at last iteration,PREP,MILLISECONDS,0,10
+25,8192,131072,Number of scalar addition during prep at last iteration,ADD_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of addition during prep at last iteration,ADD_PREP,UNIT,0,10
+25,8192,131072,Number of encoding during prep at last iteration,ENCODE_PREP,UNIT,0,10
+25,8192,131072,Number of encryption during prep at last iteration,ENCRYPT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication during prep at last iteration,MUL_PREP,UNIT,0,10
+25,8192,131072,Number of rotation during prep at last iteration,ROT_PREP,UNIT,0,10
+25,8192,131072,Number of fast rotation during prep at last iteration,FAST_ROT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during prep at last iteration,MUL_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication plain during prep at last iteration,MUL_PLAIN_PREP,UNIT,0,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49594,10
+25,8192,131072,Time to synchronize distant PRs at last iteration,SYNC,SECONDS,764,10
+25,8192,131072,Number of scalar addition during synchronization at last iteration,ADD_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of addition during synchronization at last iteration,ADD_SYNC,UNIT,1869,10
+25,8192,131072,Number of encoding during synchronization at last iteration,ENCODE_SYNC,UNIT,1870,10
+25,8192,131072,Number of encryption during synchronization at last iteration,ENCRYPT_SYNC,UNIT,1,10
+25,8192,131072,Number of multiplication during synchronization at last iteration,MUL_SYNC,UNIT,0,10
+25,8192,131072,Number of rotation during synchronization at last iteration,ROT_SYNC,UNIT,6766,10
+25,8192,131072,Number of fast rotation during synchronization at last iteration,FAST_ROT_SYNC,UNIT,309,10
+25,8192,131072,Number of multiplication scalar during synchronization at last iteration,MUL_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of multiplication plain during synchronization at last iteration,MUL_PLAIN_SYNC,UNIT,1869,10
+25,8192,131072,Number of received ciphertext during synchronization at last iteration,CIPHER_SYNC,UNIT,4,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49605,10
+25,8192,131072,Time to compute one iteration at last iteration,EVAL_OP,SECONDS,0,10
+25,8192,131072,Number of scalar addition during computation at last iteration,ADD_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of addition during computation at last iteration,ADD_COMPUTE,UNIT,1,10
+25,8192,131072,Number of encoding during computation at last iteration,ENCODE_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encryption during computation at last iteration,ENCRYPT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication during computation at last iteration,MUL_COMPUTE,UNIT,0,10
+25,8192,131072,Number of rotation during computation at last iteration,ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of fast rotation during computation at last iteration,FAST_ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during computation at last iteration,MUL_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of multiplication plain during computation at last iteration,MUL_PLAIN_COMPUTE,UNIT,1869,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49604,10
+25,8192,131072,Time to prepare next iteration at last iteration,PREP,MILLISECONDS,2,10
+25,8192,131072,Number of scalar addition during prep at last iteration,ADD_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of addition during prep at last iteration,ADD_PREP,UNIT,0,10
+25,8192,131072,Number of encoding during prep at last iteration,ENCODE_PREP,UNIT,0,10
+25,8192,131072,Number of encryption during prep at last iteration,ENCRYPT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication during prep at last iteration,MUL_PREP,UNIT,0,10
+25,8192,131072,Number of rotation during prep at last iteration,ROT_PREP,UNIT,0,10
+25,8192,131072,Number of fast rotation during prep at last iteration,FAST_ROT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during prep at last iteration,MUL_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication plain during prep at last iteration,MUL_PLAIN_PREP,UNIT,0,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49556,10
+25,8192,131072,Time to synchronize distant PRs at last iteration,SYNC,SECONDS,456,10
+25,8192,131072,Number of scalar addition during synchronization at last iteration,ADD_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of addition during synchronization at last iteration,ADD_SYNC,UNIT,996,10
+25,8192,131072,Number of encoding during synchronization at last iteration,ENCODE_SYNC,UNIT,997,10
+25,8192,131072,Number of encryption during synchronization at last iteration,ENCRYPT_SYNC,UNIT,1,10
+25,8192,131072,Number of multiplication during synchronization at last iteration,MUL_SYNC,UNIT,0,10
+25,8192,131072,Number of rotation during synchronization at last iteration,ROT_SYNC,UNIT,4011,10
+25,8192,131072,Number of fast rotation during synchronization at last iteration,FAST_ROT_SYNC,UNIT,281,10
+25,8192,131072,Number of multiplication scalar during synchronization at last iteration,MUL_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of multiplication plain during synchronization at last iteration,MUL_PLAIN_SYNC,UNIT,996,10
+25,8192,131072,Number of received ciphertext during synchronization at last iteration,CIPHER_SYNC,UNIT,4,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49567,10
+25,8192,131072,Time to compute one iteration at last iteration,EVAL_OP,SECONDS,0,10
+25,8192,131072,Number of scalar addition during computation at last iteration,ADD_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of addition during computation at last iteration,ADD_COMPUTE,UNIT,2,10
+25,8192,131072,Number of encoding during computation at last iteration,ENCODE_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encryption during computation at last iteration,ENCRYPT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication during computation at last iteration,MUL_COMPUTE,UNIT,0,10
+25,8192,131072,Number of rotation during computation at last iteration,ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of fast rotation during computation at last iteration,FAST_ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during computation at last iteration,MUL_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of multiplication plain during computation at last iteration,MUL_PLAIN_COMPUTE,UNIT,996,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49566,10
+25,8192,131072,Time to prepare next iteration at last iteration,PREP,MILLISECONDS,0,10
+25,8192,131072,Number of scalar addition during prep at last iteration,ADD_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of addition during prep at last iteration,ADD_PREP,UNIT,0,10
+25,8192,131072,Number of encoding during prep at last iteration,ENCODE_PREP,UNIT,0,10
+25,8192,131072,Number of encryption during prep at last iteration,ENCRYPT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication during prep at last iteration,MUL_PREP,UNIT,0,10
+25,8192,131072,Number of rotation during prep at last iteration,ROT_PREP,UNIT,0,10
+25,8192,131072,Number of fast rotation during prep at last iteration,FAST_ROT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during prep at last iteration,MUL_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication plain during prep at last iteration,MUL_PLAIN_PREP,UNIT,0,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49518,10
+25,8192,131072,Time to synchronize distant PRs at last iteration,SYNC,SECONDS,115,10
+25,8192,131072,Number of scalar addition during synchronization at last iteration,ADD_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of addition during synchronization at last iteration,ADD_SYNC,UNIT,220,10
+25,8192,131072,Number of encoding during synchronization at last iteration,ENCODE_SYNC,UNIT,221,10
+25,8192,131072,Number of encryption during synchronization at last iteration,ENCRYPT_SYNC,UNIT,1,10
+25,8192,131072,Number of multiplication during synchronization at last iteration,MUL_SYNC,UNIT,0,10
+25,8192,131072,Number of rotation during synchronization at last iteration,ROT_SYNC,UNIT,966,10
+25,8192,131072,Number of fast rotation during synchronization at last iteration,FAST_ROT_SYNC,UNIT,124,10
+25,8192,131072,Number of multiplication scalar during synchronization at last iteration,MUL_SCALAR_SYNC,UNIT,0,10
+25,8192,131072,Number of multiplication plain during synchronization at last iteration,MUL_PLAIN_SYNC,UNIT,220,10
+25,8192,131072,Number of received ciphertext during synchronization at last iteration,CIPHER_SYNC,UNIT,4,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49529,10
+25,8192,131072,Time to compute one iteration at last iteration,EVAL_OP,SECONDS,0,10
+25,8192,131072,Number of scalar addition during computation at last iteration,ADD_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of addition during computation at last iteration,ADD_COMPUTE,UNIT,2,10
+25,8192,131072,Number of encoding during computation at last iteration,ENCODE_COMPUTE,UNIT,0,10
+25,8192,131072,Number of encryption during computation at last iteration,ENCRYPT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication during computation at last iteration,MUL_COMPUTE,UNIT,0,10
+25,8192,131072,Number of rotation during computation at last iteration,ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of fast rotation during computation at last iteration,FAST_ROT_COMPUTE,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during computation at last iteration,MUL_SCALAR_COMPUTE,UNIT,2,10
+25,8192,131072,Number of multiplication plain during computation at last iteration,MUL_PLAIN_COMPUTE,UNIT,220,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49527,10
+25,8192,131072,Time to prepare next iteration at last iteration,PREP,MILLISECONDS,0,10
+25,8192,131072,Number of scalar addition during prep at last iteration,ADD_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of addition during prep at last iteration,ADD_PREP,UNIT,0,10
+25,8192,131072,Number of encoding during prep at last iteration,ENCODE_PREP,UNIT,0,10
+25,8192,131072,Number of encryption during prep at last iteration,ENCRYPT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication during prep at last iteration,MUL_PREP,UNIT,0,10
+25,8192,131072,Number of rotation during prep at last iteration,ROT_PREP,UNIT,0,10
+25,8192,131072,Number of fast rotation during prep at last iteration,FAST_ROT_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication scalar during prep at last iteration,MUL_SCALAR_PREP,UNIT,0,10
+25,8192,131072,Number of multiplication plain during prep at last iteration,MUL_PLAIN_PREP,UNIT,0,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49479,10
+25,8192,131072,Time to compute 10 iterations,EVAL_DC,SECONDS,149599,10
+25,8192,131072,Number of scalar addition after last iteration,ADD_SCALAR,UNIT,55,10
+25,8192,131072,Number of addition after last iteration,ADD,UNIT,147535,10
+25,8192,131072,Number of multiplication after last iteration,MUL,UNIT,0,10
+25,8192,131072,Number of rotation after last iteration,ROT,UNIT,611457,10
+25,8192,131072,Number of fast rotation after last iteration,FAST_ROT,UNIT,6327,10
+25,8192,131072,Number of multiplication scalar after last iteration,MUL_SCALAR,UNIT,55,10
+25,8192,131072,Number of multiplication plain after last iteration,MUL_PLAIN,UNIT,147611,10
+25,8192,131072,Number of encoding after last iteration,ENCODE,UNIT,147499,10
+25,8192,131072,Number of encryption after last iteration,ENCRYPT,UNIT,60,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49479,10
+25,8192,131072,Time to normalize,NORM,SECONDS,0,10
+25,8192,131072,Number of scalar addition after normalization,ADD_SCALAR_NORM,UNIT,55,10
+25,8192,131072,Number of addition after normalization,ADD_NORM,UNIT,147535,10
+25,8192,131072,Number of multiplication after normalization,MUL_NORM,UNIT,0,10
+25,8192,131072,Number of rotation after normalization,ROT_NORM,UNIT,611457,10
+25,8192,131072,Number of fast rotation after normalization,FAST_ROT_NORM,UNIT,6327,10
+25,8192,131072,Number of multiplication scalar after normalization,MUL_SCALAR_NORM,UNIT,55,10
+25,8192,131072,Number of multiplication plain after normalization,MUL_PLAIN_NORM,UNIT,147611,10
+25,8192,131072,Number of encoding after normalization,ENCODE_NORM,UNIT,147499,10
+25,8192,131072,Number of encryption after normalization,ENCRYPT_NORM,UNIT,60,10
+25,8192,131072,Peak memory usage,MEMORY_PEAK,MB,272355,10
+25,8192,131072,Memory usage,MEMORY,MB,49479,10

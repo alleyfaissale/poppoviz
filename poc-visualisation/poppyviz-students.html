@@ -1,6 +1,7 @@
 <title>PoppyViz Students</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -47,6 +48,13 @@ h1 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
 .badge { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--inter); border: 1px solid var(--inter); border-radius: 3px; padding: 1px 6px; }
 .stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 6px; min-height: 420px; overflow: hidden; }
 #sigma { position: absolute; inset: 0; }
+#dc-markers { position: absolute; inset: 0; pointer-events: none; }
+.dc-marker { position: absolute; transform: translate(-50%, 0); white-space: nowrap; font-size: 12px; font-weight: 600; background: var(--panel); border: 1px solid currentColor; border-radius: 4px; padding: 3px 7px; }
+.map-note { position: absolute; left: 10px; top: 10px; max-width: 48%; padding: 3px 6px; background: var(--panel); border-radius: 3px; font-size: 11px; color: var(--muted); pointer-events: none; }
+.map-credit { position: absolute; bottom: 0; right: 0; padding: 1px 5px; background: var(--panel); font-size: 10px; color: var(--muted); }
+.map-credit a { color: inherit; }
+#map-error { position: absolute; left: 10px; top: 46px; max-width: 65%; background: var(--panel); padding: 6px; border-radius: 3px; }
+.legend { margin-bottom: 14px; }
 .legend { position: absolute; left: 10px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted);
   background: color-mix(in srgb, var(--panel) 88%, transparent); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--line); max-width: calc(100% - 40px); }
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
@@ -54,6 +62,7 @@ h1 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
 .bar { width: 16px; height: 3px; display: inline-block; border-radius: 2px; }
 .hint { position: absolute; right: 10px; top: 10px; font-size: 12px; color: var(--muted); }
 aside { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; min-height: 0; }
+section.box[hidden] { display: none; }
 section.box { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
 h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
@@ -81,6 +90,10 @@ tbody tr:hover { background: var(--bg); }
 .info strong { color: var(--ink); }
 .err { color: var(--inter); font-size: 12.5px; }
 .note { font-size: 12px; color: var(--muted); margin: 0; }
+.logs-scroll { max-height: 360px; overflow: auto; }
+#logs-values tr { cursor: default; }
+#logs-values td { vertical-align: top; overflow-wrap: anywhere; }
+#logs-form { display: grid; gap: 6px; }
 @media (max-width: 760px) {
   .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 60vh auto; height: auto; }
   aside { overflow: visible; }
@@ -91,30 +104,24 @@ tbody tr:hover { background: var(--bg); }
 <div class="app">
   <header>
     <h1>PoppyViz · graphe Students</h1>
-    <span class="sub" id="source-label">Graphe d'exemple synthétique (185 nœuds, 311 arêtes)</span>
-    <span class="badge" id="source-badge">données d'exemple</span>
+    <span class="sub" id="source-label">students.txt</span>
+    <span class="badge" id="source-badge" hidden>données d'exemple</span>
   </header>
 
   <div class="stage">
     <div id="sigma"></div>
+    <div id="dc-markers" aria-hidden="true"></div>
+    <div class="map-note">Emplacements et répartition des data centers illustratifs</div>
+    <p class="err" id="map-error" role="status" hidden></p>
+    <div class="map-credit"><a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre</a> · <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></div>
     <div class="hint">Molette : zoom · glisser : déplacer · survol : voisins</div>
     <div class="legend" id="legend"></div>
   </div>
 
   <aside>
     <section class="box">
-      <h2>Le graphe</h2>
-      <div class="stats" id="stats"></div>
-    </section>
-
-    <section class="box">
-      <h2>PageRank, itération par itération</h2>
-      <div class="row">
-        <button id="play" type="button">Lecture</button>
-        <span class="mono" id="iter-label">itération 0</span>
-      </div>
-      <input type="range" id="iter" min="0" max="1" value="0" aria-label="Itération du PageRank">
-      <p class="note" id="conv"></p>
+      <h2>Nœud sélectionné</h2>
+      <div class="info" id="node-info">Survolez ou cliquez un nœud.</div>
     </section>
 
     <section class="box">
@@ -122,7 +129,7 @@ tbody tr:hover { background: var(--bg); }
       <select id="view" aria-label="Point de vue">
         <option value="all">Vue globale (tout le graphe)</option>
       </select>
-      <p class="note" id="view-note">Dans Poppy, aucun data center ne voit le graphe entier. Choisissez un data center pour voir seulement ses nœuds et les nœuds distants auxquels il est relié.</p>
+      <p class="note" id="view-note">Choisissez un data center pour afficher seulement ses nœuds et ses connexions internes. Les positions sur la carte sont illustratives.</p>
       <h2>Mettre en évidence</h2>
       <div class="seg" id="focus">
         <button type="button" data-f="none" aria-pressed="true">Rien</button>
@@ -132,9 +139,43 @@ tbody tr:hover { background: var(--bg); }
       </div>
     </section>
 
+    <section class="box" aria-labelledby="logs-heading">
+      <h2 id="logs-heading">Logs d’exécution POPPY</h2>
+      <p class="note" id="logs-source"></p>
+      <p class="note">Ces mesures décrivent l’exécution. Elles ne contiennent pas les scores des nœuds et ne modifient pas le graphe.</p>
+      <form id="logs-form">
+        <label for="logs-iteration">Étape à consulter</label>
+        <select id="logs-iteration" name="iteration"></select>
+      </form>
+      <p class="note" id="logs-summary" role="status"></p>
+      <div class="logs-scroll">
+        <table aria-label="Mesures de l’itération choisie">
+          <thead><tr><th>Mesure</th><th class="num">Valeur</th><th>Unité</th></tr></thead>
+          <tbody id="logs-values"></tbody>
+        </table>
+      </div>
+      <label for="logs-file">Importer un log CSV</label>
+      <input type="file" id="logs-file" accept=".csv,text/csv">
+      <p class="err" id="logs-error" role="alert" hidden></p>
+      <button type="button" id="logs-reset">Revenir aux logs de démonstration</button>
+    </section>
+
+    <section class="box" hidden>
+      <h2>Simulation PageRank en clair</h2>
+      <p class="note">Calcul local illustratif, indépendant des logs POPPY.</p>
+      <div class="row">
+        <button id="play" type="button">Lecture</button>
+        <span class="mono" id="iter-label">itération 0</span>
+      </div>
+      <input type="range" id="iter" min="0" max="1" value="0" aria-label="Itération du PageRank">
+      <p class="note" id="conv"></p>
+    </section>
+
+
+
     <section class="box">
-      <h2>Nœud sélectionné</h2>
-      <div class="info" id="node-info">Survolez ou cliquez un nœud.</div>
+      <h2>Le graphe</h2>
+      <div class="stats" id="stats"></div>
     </section>
 
     <section class="box">
@@ -148,518 +189,423 @@ tbody tr:hover { background: var(--bg); }
     <section class="box">
       <h2>Charger un autre graphe</h2>
       <input type="file" id="file" accept=".txt,.csv,.tsv,.edges" aria-label="Fichier de graphe">
-      <p class="note">Format : une section <span class="mono">[noeuds]</span> avec « id data_center » par ligne, puis <span class="mono">[aretes]</span> avec « source cible ». Une simple liste d'arêtes marche aussi (les data centers sont alors attribués au hasard).</p>
+      <p class="note">Format : une section <span class="mono">[noeuds]</span> avec « id data_center » par ligne, puis <span class="mono">[aretes]</span> avec « source cible ». Une simple liste d'arêtes marche aussi (les data centers sont alors répartis automatiquement et de façon stable).</p>
       <div class="row"><button id="relayout" type="button">Recalculer la disposition</button></div>
       <div class="err" id="err" hidden></div>
     </section>
   </aside>
 </div>
 
-<script type="text/plain" id="sample"># Graphe d'exemple « type Students » (synthétique, PAS les vraies données)
-# 185 nœuds, 311 arêtes orientées, 22 pendants, 17 constants, degré entrant max 6
-# Section [noeuds] : id data_center ; section [aretes] : source cible
-[noeuds]
-e1 DC1
-e2 DC1
-e3 DC1
-e4 DC1
-e5 DC1
-e6 DC1
-e7 DC1
-e8 DC1
-e9 DC1
-e10 DC1
-e11 DC1
-e12 DC1
-e13 DC1
-e14 DC1
-e15 DC1
-e16 DC1
-e17 DC1
-e18 DC1
-e19 DC1
-e20 DC1
-e21 DC1
-e22 DC1
-e23 DC1
-e24 DC1
-e25 DC1
-e26 DC1
-e27 DC1
-e28 DC1
-e29 DC1
-e30 DC1
-e31 DC1
-e32 DC1
-e33 DC1
-e34 DC1
-e35 DC1
-e36 DC1
-e37 DC1
-e38 DC1
-e39 DC1
-e40 DC1
-e41 DC1
-e42 DC1
-e43 DC1
-e44 DC1
-e45 DC1
-e46 DC1
-e47 DC1
-e48 DC1
-e49 DC1
-e50 DC1
-e51 DC1
-e52 DC1
-e53 DC1
-e54 DC1
-e55 DC1
-e56 DC1
-e57 DC1
-e58 DC1
-e59 DC1
-e60 DC1
-e61 DC1
-e62 DC1
-e63 DC2
-e64 DC2
-e65 DC2
-e66 DC2
-e67 DC2
-e68 DC2
-e69 DC2
-e70 DC2
-e71 DC2
-e72 DC2
-e73 DC2
-e74 DC2
-e75 DC2
-e76 DC2
-e77 DC2
-e78 DC2
-e79 DC2
-e80 DC2
-e81 DC2
-e82 DC2
-e83 DC2
-e84 DC2
-e85 DC2
-e86 DC2
-e87 DC2
-e88 DC2
-e89 DC2
-e90 DC2
-e91 DC2
-e92 DC2
-e93 DC2
-e94 DC2
-e95 DC2
-e96 DC2
-e97 DC2
-e98 DC2
-e99 DC2
-e100 DC2
-e101 DC2
-e102 DC2
-e103 DC2
-e104 DC2
-e105 DC2
-e106 DC2
-e107 DC2
-e108 DC2
-e109 DC2
-e110 DC2
-e111 DC2
-e112 DC2
-e113 DC2
-e114 DC2
-e115 DC2
-e116 DC2
-e117 DC2
-e118 DC2
-e119 DC2
-e120 DC2
-e121 DC2
-e122 DC2
-e123 DC2
-e124 DC2
-e125 DC3
-e126 DC3
-e127 DC3
-e128 DC3
-e129 DC3
-e130 DC3
-e131 DC3
-e132 DC3
-e133 DC3
-e134 DC3
-e135 DC3
-e136 DC3
-e137 DC3
-e138 DC3
-e139 DC3
-e140 DC3
-e141 DC3
-e142 DC3
-e143 DC3
-e144 DC3
-e145 DC3
-e146 DC3
-e147 DC3
-e148 DC3
-e149 DC3
-e150 DC3
-e151 DC3
-e152 DC3
-e153 DC3
-e154 DC3
-e155 DC3
-e156 DC3
-e157 DC3
-e158 DC3
-e159 DC3
-e160 DC3
-e161 DC3
-e162 DC3
-e163 DC3
-e164 DC3
-e165 DC3
-e166 DC3
-e167 DC3
-e168 DC3
-e169 DC3
-e170 DC3
-e171 DC3
-e172 DC3
-e173 DC3
-e174 DC3
-e175 DC3
-e176 DC3
-e177 DC3
-e178 DC3
-e179 DC3
-e180 DC3
-e181 DC3
-e182 DC3
-e183 DC3
-e184 DC3
-e185 DC3
-[aretes]
-e1 e3
-e1 e7
-e1 e45
-e3 e57
-e3 e113
-e5 e12
-e6 e9
-e6 e39
-e8 e111
-e9 e7
-e9 e30
-e9 e50
-e10 e17
-e10 e61
-e11 e18
-e11 e37
-e12 e2
-e12 e46
-e13 e22
-e13 e29
-e14 e31
-e15 e60
-e16 e43
-e16 e47
-e16 e77
-e17 e21
-e17 e56
-e17 e136
-e18 e40
-e19 e40
-e19 e53
-e20 e58
-e22 e13
-e22 e40
-e23 e26
-e23 e30
-e23 e59
-e23 e60
-e23 e136
-e24 e16
-e24 e48
-e25 e51
-e26 e62
-e27 e77
-e28 e18
-e28 e26
-e28 e40
-e29 e52
-e31 e25
-e32 e34
-e33 e58
-e35 e43
-e36 e20
-e37 e4
-e37 e46
-e37 e54
-e39 e10
-e39 e24
-e39 e49
-e39 e58
-e40 e39
-e40 e43
-e41 e28
-e41 e60
-e43 e35
-e44 e7
-e44 e38
-e45 e62
-e46 e42
-e47 e20
-e47 e44
-e49 e43
-e50 e60
-e51 e41
-e53 e7
-e53 e8
-e53 e15
-e54 e11
-e54 e15
-e54 e23
-e55 e19
-e55 e32
-e56 e7
-e56 e27
-e57 e39
-e58 e43
-e59 e56
-e60 e18
-e60 e36
-e60 e49
-e61 e59
-e61 e102
-e62 e66
-e63 e153
-e64 e72
-e65 e97
-e65 e115
-e66 e90
-e67 e25
-e67 e64
-e67 e82
-e67 e84
-e68 e87
-e68 e102
-e71 e66
-e72 e96
-e72 e109
-e73 e100
-e73 e111
-e74 e8
-e74 e88
-e75 e66
-e75 e78
-e75 e82
-e77 e44
-e77 e86
-e77 e90
-e78 e116
-e79 e76
-e79 e82
-e79 e83
-e80 e78
-e80 e90
-e80 e119
-e81 e79
-e82 e94
-e82 e112
-e83 e74
-e83 e77
-e83 e107
-e85 e55
-e85 e115
-e86 e34
-e87 e89
-e88 e82
-e88 e120
-e89 e81
-e90 e98
-e90 e99
-e90 e111
-e90 e117
-e91 e75
-e91 e97
-e92 e79
-e93 e77
-e93 e90
-e94 e29
-e94 e163
-e95 e73
-e95 e77
-e95 e124
-e96 e63
-e96 e124
-e97 e89
-e98 e68
-e98 e123
-e99 e70
-e99 e82
-e99 e106
-e100 e90
-e100 e93
-e101 e121
-e102 e79
-e102 e118
-e103 e115
-e104 e86
-e104 e131
-e105 e60
-e105 e101
-e107 e90
-e108 e77
-e108 e82
-e108 e105
-e109 e112
-e110 e116
-e111 e65
-e111 e86
-e112 e79
-e112 e183
-e113 e78
-e113 e110
-e113 e115
-e114 e71
-e115 e92
-e115 e124
-e116 e107
-e116 e118
-e117 e66
-e118 e88
-e118 e120
-e119 e43
-e120 e69
-e120 e79
-e120 e103
-e121 e111
-e121 e184
-e122 e13
-e122 e65
-e122 e66
-e123 e78
-e123 e124
-e124 e44
-e124 e78
-e124 e108
-e125 e139
-e125 e150
-e125 e161
-e125 e163
-e125 e177
-e127 e130
-e127 e169
-e127 e179
-e128 e52
-e128 e130
-e129 e136
-e130 e125
-e130 e179
-e131 e134
-e132 e6
-e132 e160
-e135 e158
-e135 e172
-e135 e179
-e137 e129
-e137 e146
-e137 e174
-e138 e145
-e138 e152
-e139 e133
-e139 e184
-e140 e168
-e141 e89
-e141 e136
-e141 e174
-e142 e125
-e143 e56
-e143 e150
-e144 e179
-e145 e135
-e145 e185
-e146 e129
-e147 e165
-e147 e183
-e148 e175
-e149 e157
-e149 e166
-e149 e178
-e150 e160
-e150 e163
-e150 e169
-e150 e174
-e151 e138
-e151 e155
-e152 e129
-e155 e147
-e155 e156
-e156 e126
-e156 e127
-e156 e146
-e156 e171
-e156 e179
-e157 e99
-e157 e154
-e157 e181
-e158 e122
-e159 e137
-e159 e143
-e160 e122
-e161 e147
-e162 e126
-e162 e140
-e162 e153
-e162 e155
-e163 e129
-e163 e171
-e164 e178
-e165 e168
-e166 e124
-e167 e114
-e167 e125
-e168 e128
-e169 e184
-e170 e150
-e171 e125
-e172 e136
-e172 e181
-e173 e149
-e175 e142
-e175 e150
-e175 e182
-e176 e22
-e176 e160
-e177 e173
-e177 e176
-e178 e45
-e178 e148
-e179 e44
-e179 e137
-e179 e181
-e180 e119
-e180 e150
-e180 e167
-e181 e18
-e182 e55
-e183 e163
-e184 e158
-e184 e165
-e184 e179
-e185 e159
-e185 e163
-e185 e170
+<script type="text/plain" id="default-graph">23 96
+15 160
+29 51
+156 8
+43 70
+24 68
+14 18
+107 17
+12 32
+163 54
+172 183
+87 97
+122 171
+117 134
+136 64
+121 19
+36 98
+117 15
+27 29
+5 65
+102 159
+15 89
+162 167
+90 91
+62 95
+39 93
+42 88
+89 95
+123 4
+50 94
+27 30
+33 48
+175 90
+104 162
+17 183
+58 76
+151 73
+104 155
+95 98
+139 20
+159 174
+147 153
+23 25
+132 77
+101 5
+182 3
+13 51
+102 18
+26 82
+158 62
+120 156
+61 70
+120 8
+59 97
+127 99
+159 180
+11 154
+57 69
+11 74
+2 45
+116 136
+15 173
+154 44
+144 71
+152 95
+130 53
+152 156
+138 23
+125 7
+124 158
+42 73
+155 162
+147 22
+112 185
+92 96
+135 67
+102 14
+149 58
+129 45
+179 63
+175 74
+165 52
+39 62
+145 15
+185 8
+100 73
+121 92
+163 173
+149 76
+16 164
+177 184
+108 77
+137 78
+142 88
+114 22
+171 182
+146 48
+157 166
+178 60
+10 32
+58 9
+43 61
+34 79
+18 85
+151 35
+106 46
+123 179
+153 22
+117 118
+161 79
+115 53
+105 60
+20 67
+106 37
+112 158
+10 12
+170 65
+80 86
+101 170
+155 59
+36 62
+26 88
+117 31
+141 50
+137 53
+14 85
+30 31
+136 2
+157 59
+145 160
+36 95
+135 20
+148 4
+134 89
+100 151
+53 78
+28 91
+37 46
+142 73
+17 172
+174 180
+131 145
+102 13
+47 70
+12 41
+143 24
+139 165
+27 51
+179 4
+168 181
+138 96
+140 83
+13 29
+105 178
+139 52
+116 49
+150 73
+158 63
+171 3
+143 68
+114 147
+177 44
+134 31
+115 33
+130 99
+126 75
+55 66
+109 28
+9 93
+108 132
+117 121
+139 152
+174 21
+146 99
+132 84
+135 99
+114 153
+101 159
+130 24
+102 85
+107 183
+103 106
+110 79
+173 54
+145 50
+101 65
+177 40
+159 21
+50 63
+104 167
+161 34
+19 92
+122 182
+105 70
+130 143
+58 92
+16 53
+142 42
+148 179
+112 96
+133 154
+138 25
+141 72
+32 41
+154 87
+164 53
+103 89
+136 49
+108 84
+117 30
+124 63
+40 44
+133 98
+2 27
+74 87
+115 137
+25 96
+180 21
+113 57
+155 167
+169 38
+5 87
+128 8
+113 9
+26 42
+143 163
+131 15
+156 185
+10 41
+102 27
+48 77
+165 169
+184 44
+125 38
+47 61
+157 97
+62 98
+139 17
+76 9
+35 56
+149 9
+166 59
+125 169
+50 99
+119 168
+101 102
+129 168
+176 39
+112 63
+134 30
+178 6
+141 36
+119 181
+134 27
+122 3
+152 165
+166 97
+110 34
+184 40
+13 27
+141 94
+131 160
+107 172
+152 52
+105 6
+118 173
+6 60
+169 7
+104 22
+15 95
+176 93
+116 64
+117 177
+111 82
+72 94
+113 69
+11 87
+109 91
+123 148
+110 161
+38 7
+33 46
+50 72
+130 68
+142 26
+118 163
+14 159
+117 174
+120 185
+100 150
+1 81
+118 54
+177 31
+33 37
+158 39
+150 151
+170 5
+112 124
+115 78
+77 84
+67 99
+117 143
+127 48
+129 2
+154 74
+127 146
+20 99
+106 33
+49 64
+43 47
+125 52
 </script>
 
+<script type="text/plain" id="default-logs">multDepth,batchSize,ringsize,title,operation,unit,time,run
+25,8192,131072,DEMO SYNTHETIQUE - Number of nodes,GRAPH_NODES,UNIT,185,0
+25,8192,131072,DEMO SYNTHETIQUE - Number of edges,GRAPH_EDGES,UNIT,311,0
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,123,1
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,46,1
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,82,1
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,1
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,1
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,1
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,1
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,516,1
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,604,1
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,126,2
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,47,2
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,84,2
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,2
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,2
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,2
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,2
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,520,2
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,608,2
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,129,3
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,48,3
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,86,3
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,3
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,3
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,3
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,3
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,524,3
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,612,3
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,132,4
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,49,4
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,88,4
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,4
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,4
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,4
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,4
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,528,4
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,616,4
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,135,5
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,50,5
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,90,5
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,5
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,5
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,5
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,5
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,532,5
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,620,5
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,138,6
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,51,6
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,92,6
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,6
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,6
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,6
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,6
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,536,6
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,624,6
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,141,7
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,52,7
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,94,7
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,7
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,7
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,7
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,7
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,540,7
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,628,7
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,144,8
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,53,8
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,96,8
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,8
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,8
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,8
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,8
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,544,8
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,632,8
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,147,9
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,54,9
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,98,9
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,9
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,9
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,9
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,9
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,548,9
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,636,9
+25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,150,10
+25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,55,10
+25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,0,10
+25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,10
+25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,10
+25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,0,10
+25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,10
+25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,552,10
+25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,640,10
+</script>
 <script src="https://cdn.jsdelivr.net/npm/graphology@0.26.0/dist/graphology.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/graphology-library@0.8.0/dist/graphology-library.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="vendor/sigma-layer-maplibre-3.0.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sigma@3.0.2/dist/sigma.min.js"></script>
 <script>
 // ---------- 1. Lire le fichier texte et construire le graphe (graphology) ----------
@@ -685,8 +631,9 @@ function parseGraph(text) {
     }
   }
   if (graph.order === 0) throw new Error("Aucun nœud trouvé dans ce fichier.");
-  // Sans section [noeuds] : on répartit les nœuds au hasard entre 3 data centers.
-  graph.forEachNode((n) => graph.setNodeAttribute(n, "dc", dcOf[n] || "DC" + (1 + Math.floor(Math.random() * 3))));
+  // La même liste d’arêtes conserve les mêmes groupes au rechargement.
+  graph.nodes().sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).forEach((n, i) =>
+    graph.setNodeAttribute(n, "dc", dcOf[n] || "DC" + (1 + i % 3)));
   return graph;
 }
 
@@ -746,48 +693,107 @@ function load(text, label, isSample) {
   buildControls(); readColors(); render(); refreshPanels();
 }
 
+// Trois continents distincts ; coordonnées de démonstration, sans lien avec les logs.
+const dcLocations = [
+  { city: "Denver", continent: "Amérique du Nord", lng: -104.99, lat: 39.74 },
+  { city: "Brasília", continent: "Amérique du Sud", lng: -47.88, lat: -15.79 },
+  { city: "Chengdu", continent: "Asie", lng: 104.07, lat: 30.67 },
+];
+const locationOf = dc => dcLocations[dcList().indexOf(dc) % dcLocations.length];
 function layout() {
   const g = state.graph;
-  // Point de départ : chaque data center sur son propre secteur de cercle, puis ForceAtlas2.
-  const dcs = dcList();
-  g.forEachNode((n, a) => {
-    const k = dcs.indexOf(a.dc), ang = (2 * Math.PI * k) / dcs.length + Math.random() * 1.2;
-    const r = 30 + Math.random() * 40;
-    g.mergeNodeAttributes(n, { x: Math.cos(ang) * r, y: Math.sin(ang) * r });
-  });
-  const FA2 = graphologyLibrary.layoutForceAtlas2;
-  FA2.assign(g, { iterations: 400, settings: { ...FA2.inferSettings(g), gravity: 1.5, scalingRatio: 6, barnesHutOptimize: g.order > 2000 } });
+  for (const dc of dcList()) {
+    const nodes = g.filterNodes((n, a) => a.dc === dc).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    const center = locationOf(dc), phase = Math.random() * 2 * Math.PI;
+    nodes.forEach((n, i) => {
+      const angle = phase + i * Math.PI * (3 - Math.sqrt(5));
+      const radius = 13 * Math.sqrt((i + .5) / nodes.length);
+      const lng = center.lng + radius * Math.cos(angle);
+      const lat = center.lat + radius * Math.sin(angle) * .65;
+      // Positions provisoires avant la projection Mercator du module officiel.
+      g.mergeNodeAttributes(n, { lng, lat, x: lng, y: lat });
+    });
+  }
+}
+
+function mapStyle() {
+  return {
+    version: 8,
+    sources: { world: { type: "vector", url: "https://demotiles.maplibre.org/tiles/tiles.json" } },
+    layers: [
+      { id: "ocean", type: "background", paint: { "background-color": "#e5f1fa" } },
+      { id: "continents", type: "fill", source: "world", "source-layer": "countries",
+        paint: { "fill-color": ["match", ["get", "CONTINENT"],
+          "North America", "#c3d7f3", "South America", "#bce3d1", "Asia", "#f2dfb2",
+          "Europe", "#ddd3ec", "Africa", "#eed2be", "Oceania", "#c8e2df", "#e3e6e8"] } },
+      { id: "borders", type: "line", source: "world", "source-layer": "countries",
+        paint: { "line-color": "#ffffff", "line-width": .7, "line-opacity": .8 } },
+    ],
+  };
+}
+function updateDCMarkers() {
+  if (!state.mapLayer) return;
+  for (const marker of $("dc-markers").children) {
+    const dc = marker.dataset.dc, location = locationOf(dc);
+    marker.hidden = state.view !== "all" && state.view !== dc;
+    const graphPoint = SigmaMaplibre.latlngToGraph(state.mapLayer.map, { lng: location.lng, lat: location.lat - 12 });
+    const point = state.renderer.graphToViewport(graphPoint);
+    marker.style.left = point.x + "px";
+    marker.style.top = point.y + "px";
+    marker.style.color = dcColor(dc);
+  }
+}
+function bindGeography() {
+  $("map-error").hidden = true;
+  try {
+    state.mapLayer = SigmaMaplibre.bindMaplibreLayer(state.renderer, {
+      mapOptions: { style: mapStyle(), interactive: false, attributionControl: false, renderWorldCopies: false },
+    });
+    state.renderer.refresh();
+    state.mapLayer.map.on("error", () => {
+      $("map-error").textContent = "Fond de carte indisponible. Vérifiez votre connexion Internet.";
+      $("map-error").hidden = false;
+    });
+    state.mapLayer.map.on("idle", () => { $("map-error").hidden = true; });
+    $("dc-markers").replaceChildren(...dcList().map(dc => {
+      const marker = document.createElement("div");
+      marker.className = "dc-marker";
+      marker.dataset.dc = dc;
+      marker.textContent = dc + " · " + locationOf(dc).city;
+      return marker;
+    }));
+    state.renderer.on("afterRender", updateDCMarkers);
+    updateDCMarkers();
+  } catch (error) {
+    $("map-error").textContent = "Impossible d’initialiser la carte : " + error.message;
+    $("map-error").hidden = false;
+  }
 }
 
 // ---------- 5. Dessin avec sigma.js (les « reducers » décident de l'apparence) ----------
 function visibleInView(node) {
-  if (state.view === "all") return "own";
-  const g = state.graph;
-  if (g.getNodeAttribute(node, "dc") === state.view) return "own";
-  // nœud distant : relié par une arête à un nœud du data center choisi
-  const linked = g.neighbors(node).some((m) => g.getNodeAttribute(m, "dc") === state.view);
-  return linked ? "remote" : "hidden";
+  return state.view === "all" || state.graph.getNodeAttribute(node, "dc") === state.view ? "own" : "hidden";
 }
 
 function render() {
   const g = state.graph;
+  if (state.mapLayer) { state.mapLayer.clean(); state.mapLayer = null; }
   if (state.renderer) state.renderer.kill();
   state.renderer = new Sigma(g, $("sigma"), {
     defaultEdgeType: "arrow",
     labelRenderedSizeThreshold: 9,
     labelFont: "IBM Plex Sans, system-ui, sans-serif",
-    labelColor: { color: C.ink },
+    labelColor: { color: "#000000" },
     zIndex: true,
     nodeReducer: (n, a) => {
       const res = { ...a };
       const i = state.idx.get(n);
       const p = state.pr.history[state.iter][i];
-      res.size = 3 + 16 * Math.sqrt(p / state.maxPR);
+      res.size = 2 + 5 * Math.sqrt(p / state.maxPR);
       res.color = dcColor(a.dc);
       res.label = n;
       const vis = visibleInView(n);
       if (vis === "hidden") { res.hidden = true; return res; }
-      if (vis === "remote") { res.color = C.muted; res.label = n + " (distant)"; }
       const focusNode = state.hovered || state.selected;
       if (focusNode) {
         if (n !== focusNode && !g.areNeighbors(n, focusNode)) { res.color = C.dim; res.label = ""; res.zIndex = 0; }
@@ -801,8 +807,7 @@ function render() {
     edgeReducer: (e, a) => {
       const res = { ...a };
       const [s, t] = g.extremities(e);
-      if (visibleInView(s) === "hidden" || visibleInView(t) === "hidden" ||
-          (state.view !== "all" && visibleInView(s) === "remote" && visibleInView(t) === "remote")) { res.hidden = true; return res; }
+      if (visibleInView(s) === "hidden" || visibleInView(t) === "hidden") { res.hidden = true; return res; }
       res.color = a.inter ? C.inter : C.edge;
       res.size = a.inter ? 1.6 : 0.8;
       const focusNode = state.hovered || state.selected;
@@ -814,6 +819,7 @@ function render() {
     },
   });
   const r = state.renderer;
+  bindGeography();
   r.on("enterNode", ({ node }) => { state.hovered = node; showNode(node); r.refresh(); });
   r.on("leaveNode", () => { state.hovered = null; showNode(state.selected); r.refresh(); });
   r.on("clickNode", ({ node }) => { state.selected = state.selected === node ? null : node; showNode(state.selected); r.refresh(); });
@@ -824,7 +830,7 @@ function render() {
 function buildControls() {
   const view = $("view");
   view.innerHTML = '<option value="all">Vue globale (tout le graphe)</option>' +
-    dcList().map((d) => `<option value="${d}">Vue de ${d} seulement</option>`).join("");
+    dcList().map((d) => `<option value="${d}">Vue de ${d} · ${locationOf(d).continent}</option>`).join("");
   view.value = state.view;
   const it = $("iter");
   it.max = state.pr.history.length - 1; it.value = state.iter;
@@ -861,7 +867,7 @@ function refreshIter() {
     ? "Au départ, tous les nœuds ont le même score 1/N."
     : `Variation totale par rapport à l'itération précédente : ${deltas[state.iter - 1].toExponential(2)}` +
       (state.iter === last ? (state.pr.converged ? " (convergé)." : " (arrêt après 100 itérations).") : ".");
-  const scores = state.pr.nodes.map((n, i) => [n, history[state.iter][i]]).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const scores = state.pr.nodes.map((n, i) => [n, history[state.iter][i]]).filter(([n]) => visibleInView(n) !== "hidden").sort((a, b) => b[1] - a[1]).slice(0, 10);
   $("top").innerHTML = scores.map(([n, p], k) => {
     const dc = state.graph.getNodeAttribute(n, "dc");
     return `<tr data-n="${n}"><td class="mono">${k + 1}</td><td class="mono">${n}</td><td><span class="chip" style="background:${dcColor(dc)}">${dc}</span></td><td class="num">${fmt(p)}</td></tr>`;
@@ -895,7 +901,12 @@ $("play").addEventListener("click", () => {
     state.iter++; $("iter").value = state.iter; refreshIter();
   }, 350);
 });
-$("view").addEventListener("change", (e) => { state.view = e.target.value; state.renderer.refresh(); });
+$("view").addEventListener("change", (e) => {
+  state.view = e.target.value;
+  state.hovered = null; state.selected = null;
+  refreshIter();
+  updateDCMarkers();
+});
 $("focus").addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (!b) return;
   state.focus = b.dataset.f;
@@ -906,17 +917,113 @@ $("top").addEventListener("click", (e) => {
   const tr = e.target.closest("tr"); if (!tr) return;
   state.selected = tr.dataset.n; showNode(state.selected); state.renderer.refresh();
 });
-$("relayout").addEventListener("click", () => { layout(); state.renderer.refresh(); });
+$("relayout").addEventListener("click", () => {
+  layout();
+  if (state.mapLayer) state.mapLayer.updateGraphCoordinates(state.graph);
+  state.renderer.refresh();
+});
 $("file").addEventListener("change", async (e) => {
   const f = e.target.files[0]; if (!f) return;
   $("err").hidden = true;
   try { load(await f.text(), f.name, false); }
   catch (err) { $("err").textContent = "Impossible de lire ce fichier : " + err.message; $("err").hidden = false; }
 });
-const onTheme = () => { readColors(); state.renderer.setSetting("labelColor", { color: C.ink }); refreshPanels(); };
+const onTheme = () => { readColors(); state.renderer.setSetting("labelColor", { color: "#000000" }); refreshPanels(); };
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onTheme);
 new MutationObserver(onTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
+// ---------- 8. Lecture des mesures POPPY (aucun calcul de l’algorithme) ----------
+// CSV à virgules, avec guillemets, guillemets doublés et champs multilignes.
+function parseLogCSV(text) {
+  const records = [];
+  let record = [], field = "", quoted = false;
+  text = text.replace(/^\uFEFF/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (c === '"') {
+      if (quoted && text[i + 1] === '"') { field += '"'; i++; }
+      else quoted = !quoted;
+    } else if (c === ',' && !quoted) { record.push(field); field = ""; }
+    else if ((c === '\n' || c === '\r') && !quoted) {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      record.push(field);
+      if (record.some(v => v.trim())) records.push(record);
+      record = []; field = "";
+    } else field += c;
+  }
+  if (quoted) throw new Error("Champ CSV entre guillemets non fermé.");
+  record.push(field);
+  if (record.some(v => v.trim())) records.push(record);
+  const required = ["multDepth", "batchSize", "ringsize", "title", "operation", "unit", "time", "run"];
+  const headers = records.shift()?.map(v => v.trim()) || [];
+  if (!required.every(key => headers.includes(key))) throw new Error("Colonnes attendues : " + required.join(", "));
+  const rows = records.map((values, i) => {
+    if (values.length !== headers.length) throw new Error(`Ligne ${i + 2} : nombre de colonnes incorrect.`);
+    const row = Object.fromEntries(headers.map((key, k) => [key, values[k].trim()]));
+    if (!/^\d+$/.test(row.run) || !row.time || !Number.isFinite(Number(row.time))) {
+      throw new Error(`Ligne ${i + 2} : run ou valeur de mesure invalide.`);
+    }
+    row.run = String(Number(row.run));
+    return row;
+  });
+  if (!rows.length) throw new Error("Le CSV ne contient aucune mesure.");
+  return rows;
+}
+
+let logRows = [];
+function loadLogs(text, name, demo = false) {
+  const rows = parseLogCSV(text);
+  const iterations = [...new Set(rows.map(row => row.run))].sort((a, b) => Number(a) - Number(b));
+  logRows = rows;
+  $("logs-source").textContent = demo
+    ? name + " — données fictives, aucune exécution POPPY mesurée."
+    : name + (rows.some(row => row.title.includes("DEMO SYNTHETIQUE")) ? " — données fictives de démonstration." : " — données importées ; vérifiez leur correspondance avec le graphe.");
+  $("logs-iteration").replaceChildren(...iterations.map(iteration => {
+    const option = document.createElement("option");
+    option.value = iteration;
+    option.textContent = iteration === "0" ? "Prétraitement (run 0)" : "Itération " + iteration;
+    return option;
+  }));
+  $("logs-iteration").value = iterations.find(i => i !== "0") || iterations[0];
+  $("logs-error").hidden = true;
+  refreshLogs();
+}
+
+function refreshLogs() {
+  const iteration = $("logs-iteration").value;
+  const rows = logRows.filter(row => row.run === iteration);
+  $("logs-summary").textContent = `${rows.length} mesures pour ${iteration === "0" ? "le prétraitement" : "l’itération " + iteration}. Valeurs affichées dans l’ordre du fichier, sans agrégation.`;
+  $("logs-values").replaceChildren(...rows.map(row => {
+    const tr = document.createElement("tr");
+    // Les répétitions du log réel ne portent pas d’identifiant DC : ne pas en inventer.
+    const title = document.createElement("td");
+    title.textContent = row.title;
+    title.title = `Opération : ${row.operation} · multDepth : ${row.multDepth} · batchSize : ${row.batchSize} · ringsize : ${row.ringsize}`;
+    const value = document.createElement("td");
+    value.className = "num";
+    value.textContent = row.time;
+    const unit = document.createElement("td");
+    unit.textContent = row.unit;
+    tr.append(title, value, unit);
+    return tr;
+  }));
+}
+$("logs-form").addEventListener("submit", e => { e.preventDefault(); refreshLogs(); });
+$("logs-iteration").addEventListener("change", refreshLogs);
+$("logs-file").addEventListener("change", async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  try { loadLogs(await file.text(), file.name); }
+  catch (error) {
+    $("logs-error").textContent = "Import impossible : " + error.message;
+    $("logs-error").hidden = false;
+  }
+  e.target.value = "";
+});
+const resetLogs = () => loadLogs($("default-logs").textContent, "expe_poppy_uj-students-demo.csv", true);
+$("logs-reset").addEventListener("click", resetLogs);
+resetLogs();
+
 readColors();
-load($("sample").textContent, "Graphe d'exemple synthétique (185 nœuds, 311 arêtes)", true);
+load($("default-graph").textContent, "students.txt", false);
 </script>
