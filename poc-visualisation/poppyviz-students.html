@@ -19,6 +19,10 @@
   --dc3: #c98a12;
   --dc4: #8a4fd0;
   --dc5: #0f8fa8;
+  --cat-const: #d9822b;
+  --cat-dang: #7c8796;
+  --cat-other: #2f5fd0;
+  --inter-in: #eba3b0;
   --inter: #d1435b;
   --edge: #c3cbd6;
   --dim: #e3e7ed;
@@ -28,13 +32,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0f141c; --panel: #171e29; --ink: #e6ebf2; --muted: #95a1b2; --line: #2a3442;
-    --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a; --dc4: #b18cf2; --dc5: #3cc3dc;
+    --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a; --dc4: #b18cf2; --dc5: #3cc3dc; --cat-const: #f0a050; --cat-dang: #8b97a8; --cat-other: #7aa2ff; --inter-in: #9c4a58;
     --inter: #f06b80; --edge: #3a4555; --dim: #222b37; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f141c; --panel: #171e29; --ink: #e6ebf2; --muted: #95a1b2; --line: #2a3442;
-  --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a; --dc4: #b18cf2; --dc5: #3cc3dc;
+  --stage: #121822; --accent: #7aa2ff; --dc1: #5b93f0; --dc2: #3cc08d; --dc3: #e5ad3a; --dc4: #b18cf2; --dc5: #3cc3dc; --cat-const: #f0a050; --cat-dang: #8b97a8; --cat-other: #7aa2ff; --inter-in: #9c4a58;
   --inter: #f06b80; --edge: #3a4555; --dim: #222b37; color-scheme: dark;
 }
 html, body { height: 100%; }
@@ -51,6 +55,8 @@ h1 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
 .stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 6px; min-height: 420px; overflow: hidden; }
 #sigma { position: absolute; inset: 0; }
 #dc-markers { position: absolute; inset: 0; pointer-events: none; }
+.dc-marker { pointer-events: auto; cursor: pointer; font-family: inherit; line-height: 1.3; }
+.dc-marker:hover { outline: 2px solid currentColor; }
 .dc-marker { position: absolute; transform: translate(-50%, 0); white-space: nowrap; font-size: 12px; font-weight: 600; background: var(--panel); border: 1px solid currentColor; border-radius: 4px; padding: 3px 7px; }
 .map-note { position: absolute; left: 10px; top: 10px; max-width: 48%; padding: 3px 6px; background: var(--panel); border-radius: 3px; font-size: 11px; color: var(--muted); pointer-events: none; }
 .map-credit { position: absolute; bottom: 0; right: 0; padding: 1px 5px; background: var(--panel); font-size: 10px; color: var(--muted); }
@@ -67,6 +73,23 @@ aside { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; min-
 section.box[hidden] { display: none; }
 section.box { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
 h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+.stats-pop { position: absolute; right: 10px; bottom: 26px; z-index: 5; width: min(340px, calc(100% - 20px)); max-height: calc(100% - 50px);
+  overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 6px 20px rgba(0, 0, 0, .18); }
+.stats-pop[hidden] { display: none; }
+.pop-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.pop-close { border: none; background: none; padding: 0 4px; font-size: 20px; line-height: 1; color: var(--muted); }
+.pop-close:hover { color: var(--ink); }
+.stage.pop-open .legend { max-width: calc(100% - 380px); }
+.source-btn { background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+.source-btn:hover { color: var(--accent); }
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.charts figure { margin: 0; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.charts figcaption { font-size: 12px; font-weight: 600; }
+.chart-box { position: relative; height: 120px; }
+.chart-legend { list-style: none; margin: 0; padding: 0; font-size: 11.5px; display: grid; gap: 2px; }
+.chart-legend li { display: flex; align-items: center; gap: 5px; }
+.chart-legend span { margin-left: auto; color: var(--muted); font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .stat b { display: block; font-family: var(--font-data); font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; }
 .stat small { color: var(--muted); font-size: 11.5px; }
@@ -113,7 +136,7 @@ details summary { cursor: pointer; }
 <div class="app">
   <header>
     <h1>PoppyViz</h1>
-    <span class="sub" id="source-label"></span>
+    <button type="button" class="sub source-btn" id="source-label" title="Statistiques du graphe complet"></button>
     <span class="badge" id="source-badge" hidden>données d'exemple</span>
   </header>
 
@@ -125,6 +148,27 @@ details summary { cursor: pointer; }
     <div class="map-credit"><a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre</a> · <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></div>
     <div class="hint">Molette : zoom · glisser : déplacer · survol : voisins</div>
     <div class="legend" id="legend"></div>
+    <!-- Statistiques de la vue choisie : ouvert par un clic sur le nom du graphe ou d'un DC -->
+    <section class="stats-pop" id="stats-pop" role="dialog" aria-labelledby="stats-heading" hidden>
+      <div class="pop-head">
+        <h2 id="stats-heading">Statistiques · <span id="stats-scope">graphe complet</span></h2>
+        <button type="button" class="pop-close" id="stats-close" aria-label="Fermer les statistiques">×</button>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="charts">
+        <figure>
+          <figcaption>Nœuds</figcaption>
+          <div class="chart-box"><canvas id="chart-nodes" role="img" aria-label="Répartition des nœuds : constants, pendants, autres"></canvas></div>
+          <ul class="chart-legend" id="legend-nodes"></ul>
+        </figure>
+        <figure>
+          <figcaption>Arêtes</figcaption>
+          <div class="chart-box"><canvas id="chart-edges" role="img" aria-label="Répartition des arêtes : locales et inter-DC"></canvas></div>
+          <ul class="chart-legend" id="legend-edges"></ul>
+        </figure>
+      </div>
+      <p class="note">Constant : aucune arête entrante. Pendant : aucune arête sortante. Arête locale : ses deux extrémités sont dans le même DC.</p>
+    </section>
   </div>
 
   <aside>
@@ -138,7 +182,7 @@ details summary { cursor: pointer; }
       <select id="view" aria-label="Point de vue">
         <option value="all">Vue globale (tout le graphe)</option>
       </select>
-      <p class="note" id="view-note">Choisissez un data center pour afficher seulement ses nœuds et ses connexions internes. Les positions sur la carte sont illustratives.</p>
+      <p class="note" id="view-note">Choisissez un data center pour afficher seulement ses nœuds et ses connexions internes. Cliquez le nom du graphe (en haut) ou l’étiquette d’un DC sur la carte pour ouvrir ses statistiques. Les positions sur la carte sont illustratives.</p>
       <h2>Mettre en évidence</h2>
       <div class="seg" id="focus">
         <button type="button" data-f="none" aria-pressed="true">Rien</button>
@@ -200,10 +244,6 @@ details summary { cursor: pointer; }
 
 
 
-    <section class="box">
-      <h2>Le graphe</h2>
-      <div class="stats" id="stats"></div>
-    </section>
 
     <section class="box">
       <h2>Top 10 PageRank</h2>
@@ -51113,6 +51153,7 @@ details summary { cursor: pointer; }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/graphology@0.26.0/dist/graphology.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="vendor/sigma-layer-maplibre-3.0.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sigma@3.0.2/dist/sigma.min.js"></script>
@@ -51202,7 +51243,8 @@ const css = (name) => getComputedStyle(document.documentElement).getPropertyValu
 let C = {};
 function readColors() {
   C = { dc: [css("--dc1"), css("--dc2"), css("--dc3"), css("--dc4"), css("--dc5")], inter: css("--inter"), edge: css("--edge"),
-        dim: css("--dim"), ink: css("--ink"), muted: css("--muted") };
+        dim: css("--dim"), ink: css("--ink"), muted: css("--muted"), panel: css("--panel"),
+        cons: css("--cat-const"), dang: css("--cat-dang"), other: css("--cat-other"), interIn: css("--inter-in") };
 }
 // Liste calculée une fois par graphe : elle est appelée pour chaque nœud dessiné.
 const dcList = () => state.dcs || (state.dcs = [...new Set(state.graph.mapNodes((n, a) => a.dc))].sort());
@@ -51298,10 +51340,13 @@ function bindGeography() {
     });
     state.mapLayer.map.on("idle", () => { $("map-error").hidden = true; });
     $("dc-markers").replaceChildren(...dcList().map(dc => {
-      const marker = document.createElement("div");
+      const marker = document.createElement("button");
+      marker.type = "button";
       marker.className = "dc-marker";
       marker.dataset.dc = dc;
       marker.textContent = dc + " · " + locationOf(dc).city;
+      marker.title = "Afficher " + dc + " et ses statistiques";
+      marker.addEventListener("click", () => openStats(dc));
       return marker;
     }));
     state.renderer.on("afterRender", updateDCMarkers);
@@ -51381,19 +51426,76 @@ function buildControls() {
   it.max = state.pr.history.length - 1; it.value = state.iter;
 }
 
+// ---------- 6 bis. Statistiques descriptives de la vue (graphe complet ou DC choisi) ----------
+// Degrés calculés sur le graphe complet : un nœud qui ne reçoit que des arêtes inter-DC
+// n'est pas constant. Arête locale = deux extrémités dans le même DC.
+function computeStats(view) {
+  const g = state.graph, inView = n => view === "all" || g.getNodeAttribute(n, "dc") === view;
+  const s = { nodes: 0, cons: 0, dang: 0, other: 0, kmax: 0, local: 0, interOut: 0, interIn: 0 };
+  g.forEachNode(n => {
+    if (!inView(n)) return;
+    const i = g.inDegree(n), o = g.outDegree(n);
+    s.nodes++;
+    if (i === 0) s.cons++; else if (o === 0) s.dang++; else s.other++;
+    s.kmax = Math.max(s.kmax, i);
+  });
+  g.forEachEdge((e, a, src, tgt) => {
+    if (!a.inter) { if (inView(src)) s.local++; }
+    else if (inView(src)) s.interOut++;   // vue globale : chaque arête inter-DC comptée une fois ici
+    else if (inView(tgt)) s.interIn++;
+  });
+  return s;
+}
+
+const intFmt = new Intl.NumberFormat("fr-FR");
+const pct = (v, total) => total ? Math.round(100 * v / total) + " %" : "—";
+const charts = {};
+// Camembert (anneau) Chart.js + légende HTML avec valeurs et pourcentages.
+function drawPie(key, parts) {
+  const total = parts.reduce((t, p) => t + p[1], 0);
+  $("legend-" + key).innerHTML = parts.map(([label, v, color]) =>
+    `<li><i class="dot" style="background:${color}"></i>${label}<span>${intFmt.format(v)} · ${pct(v, total)}</span></li>`).join("");
+  if (!window.Chart) return;  // bibliothèque non chargée (hors ligne) : la légende suffit
+  const data = { labels: parts.map(p => p[0]),
+    datasets: [{ data: parts.map(p => p[1]), backgroundColor: parts.map(p => p[2]), borderColor: C.panel, borderWidth: 2 }] };
+  if (charts[key]) { charts[key].data = data; charts[key].update(); return; }
+  charts[key] = new Chart($("chart-" + key), { type: "doughnut", data, options: {
+    responsive: true, maintainAspectRatio: false, cutout: "55%", animation: { duration: 250 },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c =>
+      ` ${c.label} : ${intFmt.format(c.raw)} (${pct(c.raw, c.dataset.data.reduce((t, v) => t + v, 0))})` } } } } });
+}
+
+function refreshStats() {
+  const g = state.graph, view = state.view, all = view === "all", s = computeStats(view);
+  $("stats-scope").textContent = all ? "graphe complet" : view + " · " + locationOf(view).city;
+  const tiles = all
+    ? [[s.nodes, "nœuds"], [g.size, "arêtes"], [dcList().length, "data centers"]]
+    : [[s.nodes, `nœuds du DC (${pct(s.nodes, g.order)})`], [g.order, "nœuds du graphe"], [s.local + s.interOut + s.interIn, "arêtes touchant le DC"]];
+  tiles.push([s.cons, "constants"], [s.dang, "pendants"], [s.kmax, "degré entrant max"]);
+  $("stats").innerHTML = tiles.map(([v, l]) => `<div class="stat"><b>${intFmt.format(v)}</b><small>${l}</small></div>`).join("");
+  drawPie("nodes", [["Constants", s.cons, C.cons], ["Pendants", s.dang, C.dang], ["Autres", s.other, C.other]]);
+  drawPie("edges", all
+    ? [["Locales", s.local, C.other], ["Inter-DC", s.interOut, C.inter]]
+    : [["Locales", s.local, C.other], ["Inter-DC sortantes", s.interOut, C.inter], ["Inter-DC entrantes", s.interIn, C.interIn]]);
+}
+
+// Pop-up de statistiques : bascule sur la vue demandée (« all » ou un DC) puis s'ouvre.
+function openStats(view) {
+  if (state.view !== view) { $("view").value = view; $("view").dispatchEvent(new Event("change")); }
+  $("stats-pop").hidden = false;
+  document.querySelector(".stage").classList.add("pop-open");
+  refreshStats();  // Chart.js mesure le canevas : redessiner une fois visible
+}
+function closeStats() {
+  $("stats-pop").hidden = true;
+  document.querySelector(".stage").classList.remove("pop-open");
+}
+$("stats-close").addEventListener("click", closeStats);
+$("source-label").addEventListener("click", () => openStats("all"));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("stats-pop").hidden) closeStats(); });
+
 function refreshPanels() {
-  const g = state.graph;
-  const inter = g.filterEdges((e, a) => a.inter).length;
-  const dang = g.filterNodes((n) => g.outDegree(n) === 0).length;
-  const cons = g.filterNodes((n) => g.inDegree(n) === 0).length;
-  const kmax = Math.max(...g.mapNodes((n) => g.inDegree(n)));
-  const stats = [
-    [g.order, "nœuds"], [g.size, "arêtes"], [dcList().length, "data centers"],
-    [inter + " (" + Math.round((100 * inter) / g.size) + " %)", "arêtes inter-DC"],
-    [dang, "pendants (Dang.)"], [cons, "constants (Const.)"],
-  ];
-  $("stats").innerHTML = stats.map(([v, l]) => `<div class="stat"><b>${v}</b><small>${l}</small></div>`).join("") +
-    `<div class="stat"><b>${kmax}</b><small>degré entrant max</small></div>`;
+  refreshStats();
 
   const legend = dcList().map((d) => `<span><i class="dot" style="background:${dcColor(d)}"></i>${d}</span>`).join("") +
     `<span><i class="bar" style="background:${C.edge}"></i>arête interne</span>` +
@@ -51449,6 +51551,7 @@ $("play").addEventListener("click", () => {
 $("view").addEventListener("change", (e) => {
   state.view = e.target.value;
   state.hovered = null; state.selected = null;
+  refreshStats();
   refreshIter();
   updateDCMarkers();
 });
