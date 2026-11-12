@@ -42,6 +42,18 @@ Les logs ne contiennent ni scores PageRank individuels ni topologie. Leur sélec
 
 Le graphe est superposé à une carte MapLibre GL JS via le module officiel `@sigma/layer-maplibre` (adaptation locale dans `vendor/`). Les continents ont des couleurs différentes. Le fond utilise les tuiles vectorielles de démonstration MapLibre ; une connexion Internet est nécessaire au chargement des bibliothèques et de la carte.
 
-Les positions sont illustratives : DC1 autour de Denver (Amérique du Nord), DC2 autour de Brasília (Amérique du Sud), DC3 autour de Chengdu (Asie). Pour la liste d’arêtes Students, les nœuds sont distribués de façon stable entre trois DC. Les fichiers contenant une section `[noeuds]` conservent leurs appartenances explicites. Les coordonnées des nœuds sont réparties autour du centre de chaque groupe ; elles ne représentent pas des positions réelles.
+Les positions sont illustratives : dans l’ordre des DC, Denver (Amérique du Nord), Brasília (Amérique du Sud), Chengdu (Asie), Francfort (Europe) et Sydney (Océanie). La taille de chaque groupe croît avec le nombre de nœuds du DC. Pour la liste d’arêtes Students, les nœuds sont distribués de façon stable entre trois DC. Les fichiers contenant une section `[noeuds]` conservent leurs appartenances explicites. Les coordonnées des nœuds sont réparties autour du centre de chaque groupe ; elles ne représentent pas des positions réelles.
 
 La sélection d’un DC affiche uniquement ses nœuds et ses connexions internes ; le Top 10 est filtré de la même manière. Le zoom et le déplacement restent pilotés par Sigma, synchronisé avec le fond de carte. Le bouton de disposition réorganise les nœuds autour de leurs emplacements géographiques.
+
+## Graphe p2p-Gnutella04 (affiché par défaut)
+
+La page affiche à l’ouverture le graphe p2p-Gnutella04 (10 876 nœuds, 39 994 arêtes) réparti entre 5 DC (DC0 à DC4) selon `p2p-Gnutella04-partition4.dot`, le fichier de partition utilisé par POPPY : un `subgraph cluster_k` (`label = "DC k"`) par data center, puis les arêtes `a -> b`. Ce fichier peut aussi être chargé avec « Charger un autre graphe ».
+
+Les arêtes inter-DC (18 082, 45 %) sont masquées ; le bouton « Arêtes inter-DC » les affiche seules, et celles d’un nœud survolé ou sélectionné restent visibles.
+
+Pour changer le graphe intégré à la page (ouverture sans serveur) :
+
+```sh
+python3 poc-visualisation/scripts/integrer_graphe.py poc-visualisation/p2p-Gnutella04-partition4.dot
+```
