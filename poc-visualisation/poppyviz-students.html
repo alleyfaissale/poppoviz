@@ -93,7 +93,14 @@ tbody tr:hover { background: var(--bg); }
 .logs-scroll { max-height: 360px; overflow: auto; }
 #logs-values tr { cursor: default; }
 #logs-values td { vertical-align: top; overflow-wrap: anywhere; }
-#logs-form { display: grid; gap: 6px; }
+.logs-content { display: flex; flex-direction: column; gap: 8px; }
+.logs-content[hidden] { display: none; }
+#logs-form { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 8px; align-items: center; }
+#logs-agg tr { cursor: default; }
+#logs-agg tr.dc-head td { background: var(--bg); font-weight: 600; padding-top: 6px; }
+#logs-agg tr.dc-head span { font-weight: 400; color: var(--muted); }
+#logs-agg td.ops { font-family: var(--font-data); font-size: 11px; color: var(--muted); overflow-wrap: anywhere; }
+details summary { cursor: pointer; }
 @media (max-width: 760px) {
   .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 60vh auto; height: auto; }
   aside { overflow: visible; }
@@ -141,23 +148,41 @@ tbody tr:hover { background: var(--bg); }
 
     <section class="box" aria-labelledby="logs-heading">
       <h2 id="logs-heading">Logs d’exécution POPPY</h2>
-      <p class="note" id="logs-source"></p>
-      <p class="note">Ces mesures décrivent l’exécution. Elles ne contiennent pas les scores des nœuds et ne modifient pas le graphe.</p>
-      <form id="logs-form">
-        <label for="logs-iteration">Étape à consulter</label>
-        <select id="logs-iteration" name="iteration"></select>
-      </form>
-      <p class="note" id="logs-summary" role="status"></p>
-      <div class="logs-scroll">
-        <table aria-label="Mesures de l’itération choisie">
-          <thead><tr><th>Mesure</th><th class="num">Valeur</th><th>Unité</th></tr></thead>
-          <tbody id="logs-values"></tbody>
-        </table>
-      </div>
+      <p class="note" id="logs-empty">Aucun log chargé. Importez un fichier CSV pour afficher les mesures.</p>
       <label for="logs-file">Importer un log CSV</label>
       <input type="file" id="logs-file" accept=".csv,text/csv">
       <p class="err" id="logs-error" role="alert" hidden></p>
-      <button type="button" id="logs-reset">Revenir aux logs de démonstration</button>
+      <!-- Masqué tant qu'aucun CSV n'a été importé -->
+      <div id="logs-content" class="logs-content" hidden>
+      <p class="note" id="logs-source"></p>
+      <p class="note">Ces mesures décrivent l’exécution. Elles ne contiennent pas les scores des nœuds et ne modifient pas le graphe.</p>
+      <p class="note">Le DC de chaque mesure est déduit de l’ordre des blocs SYNC (DC0, DC1…) : hypothèse à confirmer avec la cliente. Cette numérotation est indépendante des DC de la carte.</p>
+      <form id="logs-form">
+        <label for="logs-iteration">Itération</label>
+        <select id="logs-iteration" name="iteration"></select>
+        <label for="logs-dc">Data center</label>
+        <select id="logs-dc" name="dc"></select>
+      </form>
+      <p class="note" id="logs-summary" role="status"></p>
+      <div class="logs-scroll" id="logs-agg-wrap">
+        <table aria-label="Agrégat par data center et par step">
+          <thead><tr><th>Step</th><th class="num">Temps</th><th>Opérations</th></tr></thead>
+          <tbody id="logs-agg"></tbody>
+        </table>
+      </div>
+      <details id="logs-raw-details">
+        <summary class="note" id="logs-raw-summary">Lignes brutes enrichies</summary>
+        <div class="logs-scroll">
+          <table aria-label="Lignes enrichies de l’itération choisie">
+            <thead><tr><th>Mesure</th><th>DC · step</th><th class="num">Valeur</th></tr></thead>
+            <tbody id="logs-values"></tbody>
+          </table>
+        </div>
+      </details>
+      <div class="row">
+        <button type="button" id="logs-dl-enriched">CSV enrichi</button>
+      </div>
+      </div>
     </section>
 
     <section class="box" hidden>
@@ -509,100 +534,6 @@ tbody tr:hover { background: var(--bg); }
 125 52
 </script>
 
-<script type="text/plain" id="default-logs">multDepth,batchSize,ringsize,title,operation,unit,time,run
-25,8192,131072,DEMO SYNTHETIQUE - Number of nodes,GRAPH_NODES,UNIT,185,0
-25,8192,131072,DEMO SYNTHETIQUE - Number of edges,GRAPH_EDGES,UNIT,311,0
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,123,1
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,46,1
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,82,1
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,1
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,1
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,1
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,1
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,516,1
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,604,1
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,126,2
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,47,2
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,84,2
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,2
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,2
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,2
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,2
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,520,2
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,608,2
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,129,3
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,48,3
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,86,3
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,3
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,3
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,3
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,3
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,524,3
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,612,3
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,132,4
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,49,4
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,88,4
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,4
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,4
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,4
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,4
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,528,4
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,616,4
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,135,5
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,50,5
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,90,5
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,5
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,5
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,5
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,5
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,532,5
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,620,5
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,138,6
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,51,6
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,92,6
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,6
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,6
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,6
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,6
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,536,6
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,624,6
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,141,7
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,52,7
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,94,7
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,7
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,7
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,7
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,7
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,540,7
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,628,7
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,144,8
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,53,8
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,96,8
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,8
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,8
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,8
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,8
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,544,8
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,632,8
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,147,9
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,54,9
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,98,9
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,9
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,9
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,311,9
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,9
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,548,9
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,636,9
-25,8192,131072,DEMO SYNTHETIQUE - Time to synchronize distant PRs,SYNC,MILLISECONDS,150,10
-25,8192,131072,DEMO SYNTHETIQUE - Time to compute one iteration,EVAL_OP,MILLISECONDS,55,10
-25,8192,131072,DEMO SYNTHETIQUE - Time to prepare next iteration,PREP,MILLISECONDS,0,10
-25,8192,131072,DEMO SYNTHETIQUE - Number of addition during computation,ADD_COMPUTE,UNIT,311,10
-25,8192,131072,DEMO SYNTHETIQUE - Number of multiplication scalar during computation,MUL_SCALAR_COMPUTE,UNIT,185,10
-25,8192,131072,DEMO SYNTHETIQUE - Number of rotation during preparation,ROT_PREP,UNIT,0,10
-25,8192,131072,DEMO SYNTHETIQUE - Number of received ciphertext during synchronization,CIPHER_SYNC,UNIT,6,10
-25,8192,131072,DEMO SYNTHETIQUE - Memory usage,MEMORY,MB,552,10
-25,8192,131072,DEMO SYNTHETIQUE - Peak memory usage,MEMORY_PEAK,MB,640,10
-</script>
 <script src="https://cdn.jsdelivr.net/npm/graphology@0.26.0/dist/graphology.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="vendor/sigma-layer-maplibre-3.0.0.js"></script>
@@ -970,14 +901,124 @@ function parseLogCSV(text) {
   return rows;
 }
 
-let logRows = [];
-function loadLogs(text, name, demo = false) {
-  const rows = parseLogCSV(text);
+// ---------- 9. Enrichissement et agrégation des logs ----------
+// Portage JavaScript de scripts/enrichir_logs_poppy.py : mêmes règles, mêmes colonnes.
+// Le CSV n'a pas de colonne data center : dans une itération, chaque ligne SYNC ouvre un
+// nouveau DC (DC0, DC1…). Les lignes de fin d'itération 10 sont globales (ALL, FINAL).
+const LOG_STEPS = ["SYNC", "EVAL_OP", "BOOTSTRAP", "PREP"];
+const FINAL_OPS = new Set(["EVAL_DC", "NORM", "ADD_SCALAR", "ADD", "MUL", "ROT", "FAST_ROT",
+  "MUL_SCALAR", "MUL_PLAIN", "ENCODE", "ENCRYPT"]);
+const TIME_FACTORS = { SECONDS: 1000, MILLISECONDS: 1, MICROSECONDS: 0.001 };
+
+function stepOf(op, it) {
+  if (it === 0) return "INIT";
+  if (op === "SYNC" || op.endsWith("_SYNC")) return "SYNC";
+  if (op === "EVAL_OP" || op.endsWith("_COMPUTE")) return "EVAL_OP";
+  if (op === "PREP" || op.endsWith("_PREP")) return "PREP";
+  if (op === "BOOTSTRAP") return "BOOTSTRAP";
+  if (op === "MEMORY" || op === "MEMORY_PEAK") return "MEMORY";
+  if (FINAL_OPS.has(op) || op.endsWith("_NORM")) return "FINAL";
+  return null;
+}
+
+// Ajoute iteration, data_center, step et time_ms à chaque ligne (ordre du fichier conservé).
+function enrichLogs(rows) {
+  let current = null, dcIndex = -1, inFinal = false, lastStep = null;
+  return rows.map(row => {
+    const it = Number(row.run), op = row.operation;
+    if (it !== current) { current = it; dcIndex = -1; inFinal = false; }  // le compteur de DC repart
+    let step = stepOf(op, it), dc;
+    if (it === 0) {
+      // Avant les itérations : le titre indique parfois « DC n »
+      const n = row.title.split(/\s+/).find(t => /^\d+$/.test(t) && row.title.includes("DC " + t));
+      dc = n === undefined ? "ALL" : "DC" + n;
+    } else {
+      if (op === "SYNC") dcIndex++;                // début d'un nouveau data center
+      if (step === "FINAL") inFinal = true;        // tout ce qui suit est global
+      dc = inFinal ? "ALL" : "DC" + dcIndex;
+      // La mémoire prend le nom du traitement qui la précède (MEMORY_PEAK_SYNC, MEMORY_PREP…)
+      if (step === "MEMORY") step = inFinal ? "FINAL" : `${op}_${lastStep}`;
+      else if (LOG_STEPS.includes(step)) lastStep = step;
+    }
+    const factor = TIME_FACTORS[row.unit];
+    return { ...row, iteration: it, data_center: dc, step,
+      time_ms: factor === undefined ? null : Number(row.time) * factor };
+  });
+}
+
+// Agrégat GROUP BY iteration, data_center, step : temps total, nombre d'opérations par type,
+// chiffrés reçus et fuite cumulée (« cumulative leakage ») par DC.
+function aggregateLogs(enriched) {
+  const groups = new Map();
+  for (const r of enriched) {
+    if (r.iteration < 1 || !LOG_STEPS.includes(r.step)) continue;
+    const k = `${r.iteration}|${r.data_center}|${r.step}`;
+    if (!groups.has(k)) groups.set(k, { iteration: r.iteration, data_center: r.data_center, step: r.step,
+      temps_ms: null, ops: {}, chiffres_recus: null, cumulative_leakage: null });
+    const g = groups.get(k);
+    if (r.time_ms !== null) g.temps_ms = (g.temps_ms ?? 0) + r.time_ms;
+    if (r.unit === "UNIT" && r.operation !== "CIPHER_SYNC") {
+      const type = r.operation.replace(/_(SYNC|COMPUTE|PREP)$/, "").toLowerCase();
+      g.ops[type] = (g.ops[type] ?? 0) + Number(r.time);
+    }
+  }
+  const received = new Map();
+  for (const r of enriched) {
+    if (r.operation !== "CIPHER_SYNC") continue;
+    const k = `${r.iteration}|${r.data_center}`;
+    received.set(k, (received.get(k) ?? 0) + Number(r.time));
+  }
+  const totals = {};
+  [...received].map(([k, n]) => { const [it, dc] = k.split("|"); return { it: Number(it), dc, n }; })
+    .sort((a, b) => a.dc.localeCompare(b.dc) || a.it - b.it)
+    .forEach(({ it, dc, n }) => {
+      totals[dc] = (totals[dc] ?? 0) + n;
+      const g = groups.get(`${it}|${dc}|SYNC`);
+      if (g) { g.chiffres_recus = n; g.cumulative_leakage = totals[dc]; }
+    });
+  return [...groups.values()].sort((a, b) => a.iteration - b.iteration
+    || a.data_center.localeCompare(b.data_center, "fr", { numeric: true })
+    || LOG_STEPS.indexOf(a.step) - LOG_STEPS.indexOf(b.step));
+}
+
+// ---------- 10. Export CSV (mêmes fichiers que le script Python) ----------
+const csvCell = v => v === null || v === undefined ? "" : /[",\n\r]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
+const toCSV = (header, rows) => [header, ...rows].map(r => r.map(csvCell).join(",")).join("\n") + "\n";
+function downloadCSV(name, text) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+function enrichedCSV() {
+  const cols = ["multDepth", "batchSize", "ringsize", "title", "operation", "unit", "time", "run", "iteration", "data_center", "step", "time_ms"];
+  return toCSV(cols, logRows.map(r => cols.map(c => r[c])));
+}
+
+// ---------- 11. Affichage des logs ----------
+const nf = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 });
+function fmtMs(ms) {
+  if (ms === null) return "—";
+  if (ms < 1000) return nf.format(ms) + " ms";
+  if (ms < 60000) return nf.format(ms / 1000) + " s";
+  if (ms < 3600000) return nf.format(ms / 60000) + " min";
+  return nf.format(ms / 3600000) + " h";
+}
+const fmtOps = ops => Object.entries(ops).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])
+  .map(([t, n]) => `${t} ${nf.format(n)}`).join(" · ") || "—";
+
+let logRows = [], logAgg = [], logName = "";
+function loadLogs(text, name) {
+  const rows = enrichLogs(parseLogCSV(text));
   const iterations = [...new Set(rows.map(row => row.run))].sort((a, b) => Number(a) - Number(b));
   logRows = rows;
-  $("logs-source").textContent = demo
-    ? name + " — données fictives, aucune exécution POPPY mesurée."
-    : name + (rows.some(row => row.title.includes("DEMO SYNTHETIQUE")) ? " — données fictives de démonstration." : " — données importées ; vérifiez leur correspondance avec le graphe.");
+  logAgg = aggregateLogs(rows);
+  logName = name.replace(/\.csv$/i, "");
+  $("logs-source").textContent = name + (rows.some(row => row.title.includes("DEMO SYNTHETIQUE"))
+    ? " — données fictives de démonstration." : " — données importées ; vérifiez leur correspondance avec le graphe.");
+  $("logs-empty").hidden = true;
+  $("logs-content").hidden = false;
   $("logs-iteration").replaceChildren(...iterations.map(iteration => {
     const option = document.createElement("option");
     option.value = iteration;
@@ -986,30 +1027,82 @@ function loadLogs(text, name, demo = false) {
   }));
   $("logs-iteration").value = iterations.find(i => i !== "0") || iterations[0];
   $("logs-error").hidden = true;
+  refreshDCOptions();
   refreshLogs();
 }
 
+function cell(text, className) {
+  const td = document.createElement("td");
+  td.textContent = text;
+  if (className) td.className = className;
+  return td;
+}
+
+// Liste des DC présents dans l'itération choisie ; conserve le choix courant si possible.
+function refreshDCOptions() {
+  const iteration = $("logs-iteration").value, previous = $("logs-dc").value;
+  const dcs = [...new Set(logRows.filter(r => r.run === iteration).map(r => r.data_center))]
+    .sort((a, b) => a.localeCompare(b, "fr", { numeric: true }));
+  $("logs-dc").replaceChildren(...["*", ...dcs].map(dc => {
+    const option = document.createElement("option");
+    option.value = dc;
+    option.textContent = dc === "*" ? "Tous" : dc === "ALL" ? "ALL (global)" : dc;
+    return option;
+  }));
+  $("logs-dc").value = ["*", ...dcs].includes(previous) ? previous : "*";
+}
+
 function refreshLogs() {
-  const iteration = $("logs-iteration").value;
-  const rows = logRows.filter(row => row.run === iteration);
-  $("logs-summary").textContent = `${rows.length} mesures pour ${iteration === "0" ? "le prétraitement" : "l’itération " + iteration}. Valeurs affichées dans l’ordre du fichier, sans agrégation.`;
+  const iteration = $("logs-iteration").value, dc = $("logs-dc").value;
+  const keep = r => dc === "*" || r.data_center === dc;
+  const rows = logRows.filter(r => r.run === iteration && keep(r));
+  const groups = logAgg.filter(g => String(g.iteration) === iteration && keep(g));
+  const label = iteration === "0" ? "le prétraitement" : "l’itération " + iteration;
+
+  // Agrégat : une ligne d'en-tête par DC (chiffrés reçus, fuite cumulée), puis ses steps.
+  const trs = [];
+  for (const name of [...new Set(groups.map(g => g.data_center))]) {
+    const own = groups.filter(g => g.data_center === name);
+    const sync = own.find(g => g.step === "SYNC");
+    const head = document.createElement("tr");
+    head.className = "dc-head";
+    const td = cell(name);
+    td.colSpan = 3;
+    if (sync && sync.chiffres_recus !== null) {
+      const span = document.createElement("span");
+      span.textContent = ` · ${nf.format(sync.chiffres_recus)} chiffrés reçus · fuite cumulée ${nf.format(sync.cumulative_leakage)}`;
+      td.append(span);
+    }
+    head.append(td);
+    trs.push(head);
+    for (const g of own) {
+      const tr = document.createElement("tr");
+      tr.append(cell(g.step), cell(fmtMs(g.temps_ms), "num"), cell(fmtOps(g.ops), "ops"));
+      trs.push(tr);
+    }
+  }
+  $("logs-agg").replaceChildren(...trs);
+  $("logs-agg-wrap").hidden = !groups.length;
+  $("logs-summary").textContent = groups.length
+    ? `${rows.length} mesures pour ${label}, agrégées par DC et par step.`
+    : `${rows.length} mesures pour ${label}. Pas d’agrégat : voir les lignes brutes.`;
+  if (!groups.length) $("logs-raw-details").open = true;
+
+  $("logs-raw-summary").textContent = `Lignes brutes enrichies (${rows.length})`;
   $("logs-values").replaceChildren(...rows.map(row => {
     const tr = document.createElement("tr");
-    // Les répétitions du log réel ne portent pas d’identifiant DC : ne pas en inventer.
-    const title = document.createElement("td");
-    title.textContent = row.title;
+    const title = cell(row.title);
     title.title = `Opération : ${row.operation} · multDepth : ${row.multDepth} · batchSize : ${row.batchSize} · ringsize : ${row.ringsize}`;
-    const value = document.createElement("td");
-    value.className = "num";
-    value.textContent = row.time;
-    const unit = document.createElement("td");
-    unit.textContent = row.unit;
-    tr.append(title, value, unit);
+    const value = cell(`${row.time} ${row.unit}`, "num");
+    if (row.time_ms !== null && row.unit !== "MILLISECONDS") value.title = nf.format(row.time_ms) + " ms";
+    tr.append(title, cell(`${row.data_center} · ${row.step ?? "?"}`), value);
     return tr;
   }));
 }
 $("logs-form").addEventListener("submit", e => { e.preventDefault(); refreshLogs(); });
-$("logs-iteration").addEventListener("change", refreshLogs);
+$("logs-iteration").addEventListener("change", () => { refreshDCOptions(); refreshLogs(); });
+$("logs-dc").addEventListener("change", refreshLogs);
+$("logs-dl-enriched").addEventListener("click", () => downloadCSV(logName + "-enrichi.csv", enrichedCSV()));
 $("logs-file").addEventListener("change", async e => {
   const file = e.target.files[0];
   if (!file) return;
@@ -1020,9 +1113,6 @@ $("logs-file").addEventListener("change", async e => {
   }
   e.target.value = "";
 });
-const resetLogs = () => loadLogs($("default-logs").textContent, "expe_poppy_uj-students-demo.csv", true);
-$("logs-reset").addEventListener("click", resetLogs);
-resetLogs();
 
 readColors();
 load($("default-graph").textContent, "students.txt", false);

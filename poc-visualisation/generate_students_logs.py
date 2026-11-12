@@ -1,11 +1,10 @@
 """Generate illustrative performance logs, NOT measurements from POPPY.
 
 Run: python3 poc-visualisation/generate_students_logs.py
-Also refreshes the HTML's embedded copy for direct file opening.
+The file is then imported manually in the page (« Importer un log CSV »).
 """
 import csv
 import io
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -36,12 +35,4 @@ for iteration in range(1, 11):
         row('DEMO SYNTHETIQUE - ' + title, operation, unit, value, iteration)
 text = output.getvalue()
 (ROOT / 'expe_poppy_uj-students-demo.csv').write_text(text)
-page = ROOT / 'poppyviz-students.html'
-html = page.read_text()
-block = '<script type="text/plain" id="default-logs">' + text + '</script>'
-if 'id="default-logs"' in html:
-    html = re.sub(r'<script type="text/plain" id="default-logs">.*?</script>', lambda _: block, html, count=1, flags=re.S)
-else:
-    html = html.replace('<script src=', block + '\n<script src=', 1)
-page.write_text(html)
-print('Generated expe_poppy_uj-students-demo.csv (synthetic) and updated embedded logs.')
+print('Generated expe_poppy_uj-students-demo.csv (synthetic).')
