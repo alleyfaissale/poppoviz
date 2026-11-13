@@ -293,14 +293,3 @@ Sur un graphe réel de l'article, cet élagage rend le calcul jusqu'à 1,85 fois
 4. **La méthode naïve** : un coffre par client, presque vide, donc un gaspillage énorme.
 5. **L'idée de PoppyS** : un seul coffre par banque, et des plateaux bien rangés pour tout additionner d'un coup.
 
-### Questions simples à poser à votre encadreur
-
-1. Quelle partie du projet vais-je toucher en premier : une variante de Poppy, l'élagage, ou une visualisation ?
-2. Pouvez-vous me montrer au tableau comment on construit les plateaux u₁, u₂, u₃ de la slide 19 ?
-3. Pourquoi une rotation coûte-t-elle si cher comparée à une addition ?
-4. Qui joue le rôle de l'arbitre qui a la clé secrète dans la vraie vie, et peut-on s'en passer ?
-5. Qu'apprend une banque sur l'autre, malgré le chiffrement ? (L'article admet par exemple que les flèches entre banques sont connues.)
-6. Comment savoir à l'avance quelle variante choisir, PoppyS, PoppyD ou PoppyH ?
-7. Puis-je lancer le code sur un petit exemple pour voir les notes sortir, et sur quelle machine ?
-
-Le premier document, plus technique, reste disponible avec 20 questions plus poussées pour plus tard.

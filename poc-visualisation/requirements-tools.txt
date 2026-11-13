@@ -1,0 +1,2 @@
+# Uniquement pour scripts/enrichir_logs_poppy.py ; inutile pour lancer l'interface.
+pandas>=2,<4
