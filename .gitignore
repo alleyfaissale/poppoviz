@@ -1,0 +1,30 @@
+# Système et éditeurs (les fichiers déjà suivis restent suivis)
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+.claude/
+*.swp
+*~
+
+# Python et outils de test
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dépendances et sorties locales
+node_modules/
+poc-visualisation/exports/
+logs_enrichis.csv
+logs_agreges.csv
+*.log
+
+# Secrets locaux
+.env
+.env.*
+!.env.example
